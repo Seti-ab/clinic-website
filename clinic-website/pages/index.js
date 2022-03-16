@@ -8,10 +8,11 @@ export default function Home() {
       <Head>
         <title>Clinic</title>
         <link rel="icon" href="/favicon.ico" />
+        {/* <meta   http-equiv="content-type"   content="text/html;charset=utf-8"  /> */}
       </Head>
 
       <main className={styles.main}>
-       
+          Setayesh Abouei
       </main>
 
     </div>
