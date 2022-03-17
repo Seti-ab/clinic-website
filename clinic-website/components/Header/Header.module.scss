@@ -49,9 +49,7 @@ $underline-color: #BDF5FC;
             padding: 0 5px 2px 5px;
             position: relative;
             width: fit-content;
-            
-            
-           
+ 
         }
         .Active{
             a{
@@ -87,25 +85,34 @@ $underline-color: #BDF5FC;
             width: 100%;
             justify-content: space-between;
         }
-
-        .Logo {
-            width: 32px;
-            height: 32px;
-        }
         .MenuIcon,
         .CancelIcon {
             display: block;
         }
 
         ul {
-            display: none;
+            height: 0vh;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+            backdrop-filter: blur(15px);
+            display: flex;
+            flex-flow: column;
+            position: absolute;
+            direction: rtl;
+            top: 50px;
+            background-color: rgba($color: $main-color, $alpha: 0.5);
+            left: 0;
+            right: 0;
+            padding-right: 24px;
+            z-index: -1;
+            
             .Active{
                 span{
                     animation: none;
                 }
             }
         }
-
+        
         .ResponsiveMenu {
             backdrop-filter: blur(15px);
             display: flex;
@@ -118,7 +125,9 @@ $underline-color: #BDF5FC;
             right: 0;
             padding: 104px 24px 115px 0;
             z-index: -1;
-            height: 100vh;
+            height: 57vh;
+            opacity: 1;
+            transition: all 0.5s ease-in-out;
         }
     }
 }

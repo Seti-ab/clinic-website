@@ -43,7 +43,7 @@ const Header = () => {
             }
 
 
-            <ul className={showMenu ? style.ResponsiveMenu : null}>
+            <ul className={showMenu && style.ResponsiveMenu}>
                 <li className={router.pathname === "/" ? style.Active : null} onClick={() => setShowMenu(false)}>
                     <Link href="/" >
                         <a >صفحه‌ اصلی
