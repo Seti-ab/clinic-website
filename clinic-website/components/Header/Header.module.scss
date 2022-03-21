@@ -1,5 +1,5 @@
 $main-color: #22AFC1;
-$underline-color: #BDF5FC;
+$subsidiary-color: #BDF5FC;
 .Header {
     position: fixed;
     background-color: rgba($color: $main-color, $alpha: 1);
@@ -59,7 +59,7 @@ $underline-color: #BDF5FC;
                 border-radius: 50px;
                 position: absolute;
                 height: 3px;
-                background-color: $underline-color;
+                background-color: $subsidiary-color;
                 display: block;
                 bottom: -4px;
                 right: 0;
