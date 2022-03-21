@@ -7,17 +7,18 @@ const HeroContent = [
     {
         id: 'home',
         image: 'HomePage.svg',
-        text: 'کلینیک ستایش'
+        text: 'کلینیک ستایش',
+        subText: 'مجموعه‌ی آموزشی ، پژوهشی ، درمانی'
     },
     {
-        id: 'our-projects',
-        image: 'ourProjects.jpg',
-        text: 'پـروژه‌هـای مـا'
+        id: 'workshops',
+        image: 'workshops.jpg',
+        text: 'کـارگاه‌های آمـوزشی'
     },
     {
-        id: 'our-team',
-        image: 'ourTeam.jpg',
-        text: 'تیــــم مـا'
+        id: 'colleague',
+        image: 'colleague.jpg',
+        text: 'رزومـه‌ی همـکاران'
     },
     {
         id: 'contact-us',
@@ -25,9 +26,9 @@ const HeroContent = [
         text: 'تـمـاس بـا مـا'
     },
     {
-        id: 'job-opportunities',
-        image: 'jobs.jpg',
-        text: 'فـرصت‌هـای شغـلی'
+        id: 'about-us',
+        image: 'aboutus.jpg',
+        text: 'دربـاره‌ی ما'
     }
 ]
 
@@ -49,19 +50,22 @@ const Hero = () => {
 
     return <div className={style.Hero}>
 
+        <div className={style.HeroOval}></div>
         <div className={style.HeroContent}>
-            
+            <div className={style.Line}></div>
+            <h1>{heroContentHandler()?.text}</h1>
+            <h5>{heroContentHandler()?.subText}</h5>
+            {/* <div className={style.Line}></div> */}
         </div>
         <div className={style.Image}>
-                {heroContentHandler() &&
-                    <Image
-                        src={require(`../../assets/images/Hero/${heroContentHandler().image}`)}
-                        alt='Setayesh Clinic'
-                        width={600}
-                        height={600}
-                    />
-                }
-            </div>
+            {heroContentHandler() &&
+                <Image
+                    src={require(`../../assets/images/Hero/${heroContentHandler().image}`)}
+                    alt='Setayesh Clinic'
+                    layout='fill'
+                />
+            }
+        </div>
     </div>;
 };
 
