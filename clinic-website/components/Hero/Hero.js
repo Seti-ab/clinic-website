@@ -7,27 +7,27 @@ const HeroContent = [
     {
         id: 'home',
         image: 'HomePage.svg',
-        text: 'کلینیک ستایش',
+        text: 'کلینیـک روانشـناسی ستایش',
         subText: 'مجموعه‌ی آموزشی ، پژوهشی ، درمانی'
     },
     {
         id: 'workshops',
-        image: 'workshops.jpg',
+        image: 'workshops.svg',
         text: 'کـارگاه‌های آمـوزشی'
     },
     {
-        id: 'colleague',
-        image: 'colleague.jpg',
+        id: 'colleagues',
+        image: 'colleagues.svg',
         text: 'رزومـه‌ی همـکاران'
     },
     {
         id: 'contact-us',
-        image: 'contactUs.jpeg',
+        image: 'contactUs.svg',
         text: 'تـمـاس بـا مـا'
     },
     {
         id: 'about-us',
-        image: 'aboutus.jpg',
+        image: 'aboutUs.svg',
         text: 'دربـاره‌ی ما'
     }
 ]

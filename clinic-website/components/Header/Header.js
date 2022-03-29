@@ -59,8 +59,8 @@ const Header = () => {
                     </Link>
 
                 </li>
-                <li className={router.pathname === "/colleague" ? style.Active : null} onClick={() => setShowMenu(false)}>
-                    <Link href="/colleague">
+                <li className={router.pathname === "/colleagues" ? style.Active : null} onClick={() => setShowMenu(false)}>
+                    <Link href="/colleagues">
                         <a >رزومه همکاران
                            <span></span>
                         </a>
