@@ -1,5 +1,5 @@
 $main-color: #22AFC1;
-$underline-color: #BDF5FC;
+$subsidiary-color: #BDF5FC;
 .Header {
     position: fixed;
     background-color: rgba($color: $main-color, $alpha: 1);
@@ -18,7 +18,7 @@ $underline-color: #BDF5FC;
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
-        gap: 24px;
+        gap: 32px;
         padding: 0 34px;
     }
     .Logo {
@@ -43,8 +43,9 @@ $underline-color: #BDF5FC;
         display: flex;
         flex-flow: row;
         gap: 32px;
-
+        
         li {
+            
             color: #ffffff;
             padding: 0 5px 2px 5px;
             position: relative;
@@ -59,7 +60,7 @@ $underline-color: #BDF5FC;
                 border-radius: 50px;
                 position: absolute;
                 height: 3px;
-                background-color: $underline-color;
+                background-color: $subsidiary-color;
                 display: block;
                 bottom: -4px;
                 right: 0;
@@ -91,20 +92,7 @@ $underline-color: #BDF5FC;
         }
 
         ul {
-            height: 0vh;
-            opacity: 0;
-            transition: all 0.5s ease-in-out;
-            backdrop-filter: blur(15px);
-            display: flex;
-            flex-flow: column;
-            position: absolute;
-            direction: rtl;
-            top: 50px;
-            background-color: rgba($color: $main-color, $alpha: 0.5);
-            left: 0;
-            right: 0;
-            padding-right: 24px;
-            z-index: -1;
+            
             
             .Active{
                 span{
@@ -112,7 +100,9 @@ $underline-color: #BDF5FC;
                 }
             }
         }
-        
+        .Logo{
+            transform: scaleX(-1);
+        }
         .ResponsiveMenu {
             backdrop-filter: blur(15px);
             display: flex;
@@ -125,9 +115,27 @@ $underline-color: #BDF5FC;
             right: 0;
             padding: 104px 24px 115px 0;
             z-index: -1;
-            height: 57vh;
+            height: 100vh;
             opacity: 1;
-            transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-out;
+        }
+        .hideResponsiveMenu{
+            height: 0vh;
+            opacity: 0;
+            backdrop-filter: blur(15px);
+            display: flex;
+            flex-flow: column;
+            position: absolute;
+            direction: rtl;
+            top: 50px;
+            background-color: rgba($color: $main-color, $alpha: 0.5);
+            left: 0;
+            right: 0;
+            padding-right: 24px;
+            transition: all 0.4s ease-out;
+            li{
+                display: none;
+            }
         }
     }
 }
