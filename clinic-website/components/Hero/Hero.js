@@ -7,7 +7,7 @@ const HeroContent = [
     {
         id: 'home',
         image: 'HomePage.svg',
-        text: 'کلینیـک روانشـناسی ستایش',
+        text: 'کلینیـک روانشـناسی سایه',
         subText: 'مجموعه‌ی آموزشی ، پژوهشی ، درمانی'
     },
     {
