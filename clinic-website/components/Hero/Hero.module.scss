@@ -27,11 +27,10 @@ $subsidiary-color: #bdf5fc;
     
     .HeroContent{
         position: relative;
-        top: 57px;
+        top: 65px;
         display: flex;
         flex-direction: column;
-        height: 100px;
-        justify-content: space-evenly;
+        height: fit-content;
         align-items: center;
         .Line{
             width:50vw ;
@@ -40,6 +39,7 @@ $subsidiary-color: #bdf5fc;
         }
         h1 {
             font-size: 27px;
+            margin: 20px 0 10px 0;
         }
         h5 {
             font-weight: normal;
