@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import style from './Footer.module.scss';
-import Logo from '../../assets/icons/ClinicVertical.svg';
+import Logo from '../../assets/icons/FooterLogo.svg';
 import {Information} from '../../public/text';
 
 const Footer = () => {
@@ -16,14 +16,14 @@ const Footer = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href='/our-team'>
-                            <a>تیم ما</a>
+                        <Link href='/workshops'>
+                            <a>کارگاه‌های آموزشی</a>
                         </Link>
 
                     </li>
                     <li>
-                        <Link href='/our-projects'>
-                            <a>پروژه‌های ما</a>
+                        <Link href='/colleagues'>
+                            <a>رزومه‌ی همکاران</a>
                         </Link>
                     </li>
                     <li>
@@ -32,8 +32,8 @@ const Footer = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href='/job-opportunities'>
-                            <a>فرصت‌های شغلی</a>
+                        <Link href='/about-us'>
+                            <a>درباره ما</a>
                         </Link>
                     </li>
                 </ul>
@@ -50,9 +50,9 @@ const Footer = () => {
                     />
                 </div>
                 <div className={style.Icons}>
-                    <a href='https://instagram.com/bamdadtech?igshid=p5t5hajmnrk5' target='_blank' rel="noreferrer"><div className={style.instagram}></div></a>
-                    <a href='https://www.linkedin.com/company/bamdad-tech' target='_blank' rel="noreferrer"><div className={style.linkedin}></div></a>
-                    <a href='https://twitter.com/BamdadTech?s=08' target='_blank' rel="noreferrer"><div className={style.twitter}></div></a>
+                    <a href='https://www.instagram.com/seti_ab/' target='_blank' rel="noreferrer"><div className={style.instagram}></div></a>
+                    <a href='https://www.linkedin.com/in/setayesh-abouei-57a987226/' target='_blank' rel="noreferrer"><div className={style.linkedin}></div></a>
+                    <a href='https://twitter.com/Seti_ab' target='_blank' rel="noreferrer"><div className={style.twitter}></div></a>
                 </div>
             </div>
             <div className={style.Left}>

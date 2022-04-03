@@ -25,15 +25,15 @@ $underline-color: #BDF5FC;
         .Right {
             padding-right: 28px;
             ul {
-                list-style: disc;
+                list-style: square;
                 line-height: 37px;
             }
         }
         .Middle {
             gap: 16px;
             .Image {
-                width: 125px;
-                height: 125px;
+                width: 150px;
+                height: 150px;
             }
             .Icons {
                 display: flex;
@@ -68,7 +68,7 @@ $underline-color: #BDF5FC;
                     object-fit: contain;
                     background-position: 0px -125px;
                     background-size: 500%;
-                    margin-bottom: 4px;
+                    margin-bottom: 0;
                     background-image: url(../../assets/icons/clinic-sprite.svg);
                 }
             }
@@ -83,7 +83,7 @@ $underline-color: #BDF5FC;
                 .LocationContainer {
                     p{
                         white-space: pre-line;
-                        line-height: 27px;
+                        line-height: 29px;
                     }
                     
                 }
