@@ -11,29 +11,29 @@ $subsidiary-color: #bdf5fc;
     align-items: center;
     position: relative;
     .HeroOval {
+        //background-color: $subsidiary-color;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         position: absolute;
         border-radius: 0 0 520px 520px;
-        //background-color: $subsidiary-color;
-        background-image: linear-gradient(0deg, $subsidiary-color, $main-color);
-        bottom: 125px;
+        background-image: linear-gradient(0deg, #bdf5fc, #22afc1);
         transform: scaleX(3);
-        width: 67vw;
-        height: 100%;
+        width: 60vw;
+        height: 60vh;
+        top: 64px;
     }
-    
-    .HeroContent{
+
+    .HeroContent {
         position: relative;
         top: 65px;
         display: flex;
         flex-direction: column;
         height: fit-content;
         align-items: center;
-        .Line{
-            width:50vw ;
+        .Line {
+            width: 50vw;
             height: 1px;
             background-color: #ffffff;
         }
@@ -54,30 +54,28 @@ $subsidiary-color: #bdf5fc;
         height: 70%;
     }
 }
-@media only screen and (max-width: 600px) and (min-height:800px){
+@media only screen and (max-width: 600px) and (min-height: 800px) {
     .Hero {
         position: relative;
         height: 57vh;
-        .Image{
+        .Image {
             top: 152px;
             width: 90%;
         }
-        .HeroOval{
+        .HeroOval {
             height: 62%;
         }
-        
     }
 }
-@media only screen and (min-height:1300px){
+@media only screen and (min-height: 1300px) {
     .Hero {
         position: relative;
         height: 57vh;
-        .Image{
+        .Image {
             top: 150px;
         }
-        .HeroOval{
+        .HeroOval {
             height: 50%;
         }
-        
     }
 }
