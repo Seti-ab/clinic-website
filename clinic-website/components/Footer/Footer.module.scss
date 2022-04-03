@@ -1,0 +1,148 @@
+$main-color: #22AFC1;
+$underline-color: #BDF5FC;
+.Footer {
+    margin-top: 40px;
+    background-color: $main-color;
+    width: 100%;
+    padding: 32px 0;
+
+    > div {
+        height: fit-content;
+        color: #ffffff;
+        display: flex;
+        flex-flow: wrap;
+        align-items: center;
+        row-gap: 48px;
+        justify-content: center;
+
+        > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 340px;
+        }
+        .Right {
+            padding-right: 28px;
+            ul {
+                list-style: square;
+                line-height: 37px;
+            }
+        }
+        .Middle {
+            gap: 16px;
+            .Image {
+                width: 150px;
+                height: 150px;
+            }
+            .Icons {
+                display: flex;
+                flex-flow: row;
+                align-items: center;
+                justify-content: center;
+                gap: 27px;
+                > div {
+                    cursor: pointer;
+                }
+                .instagram {
+                    width: 25px;
+                    height: 25px;
+                    object-fit: contain;
+                    background-position: -75px -100px;
+                    background-size: 500%;
+
+                    background-image: url(../../assets/icons/clinic-sprite.svg);
+                }
+                .linkedin {
+                    width: 25px;
+                    height: 25px;
+                    object-fit: contain;
+                    background-position: -100px -99px;
+                    background-size: 500%;
+                    margin-bottom: 4px;
+                    background-image: url(../../assets/icons/clinic-sprite.svg);
+                }
+                .twitter {
+                    width: 25px;
+                    height: 25px;
+                    object-fit: contain;
+                    background-position: 0px -125px;
+                    background-size: 500%;
+                    margin-bottom: 0;
+                    background-image: url(../../assets/icons/clinic-sprite.svg);
+                }
+            }
+        }
+        .Left {
+            padding-right: 28px;
+            > div {
+                display: flex;
+                flex-flow: column;
+                gap: 22px;
+                width: 100%;
+                .LocationContainer {
+                    p{
+                        white-space: pre-line;
+                        line-height: 29px;
+                    }
+                    
+                }
+                > div {
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    
+                    .Icon {
+                        max-width: 20px;
+                        width: 100%;
+                        height: 20px;
+                        background-size: 500%;
+                        background-image: url(../../assets/icons/clinic-sprite.svg);
+                    }
+                    .location {
+                        margin-top: -24px;
+                        background-position: -480px 0px;
+                    }
+                    .email {
+                        background-position: -460px 0px;
+                    }
+                    .phone {
+                        direction: rtl;
+                        background-position: 0px -20px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 995px) {
+    .Footer {
+        > div {
+            width: 100%;
+            > div {
+                flex: 1 1 100%;
+                align-items: flex-start;
+                margin: 0 60px;
+            }
+        }
+        .Right {
+            padding-right: 16px;
+        }
+        .Left {
+            margin-top: 20px;
+            padding: 0 !important;
+            > div {
+                .LocationContainer {
+                    
+                    align-items: flex-start;
+                    p{
+                        white-space:normal !important;
+                    }
+                    .location {
+                        margin-top: 5px !important;
+                    }
+                }
+            }
+        }
+    }
+}
