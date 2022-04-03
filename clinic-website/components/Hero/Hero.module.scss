@@ -19,10 +19,10 @@ $subsidiary-color: #bdf5fc;
         border-radius: 0 0 520px 520px;
         //background-color: $subsidiary-color;
         background-image: linear-gradient(0deg, $subsidiary-color, $main-color);
-        top: 63px;
+        bottom: 125px;
         transform: scaleX(3);
         width: 67vw;
-        height: 72%;
+        height: 100%;
     }
     
     .HeroContent{
