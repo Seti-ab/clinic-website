@@ -9,17 +9,17 @@ $title-color: #105c91;
     column-gap: 30px;
     row-gap: 20px;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     border: 2px solid #bdf5fc;
-    padding: 10px 25px;
+    padding: 20px 25px;
     border-radius: 8px;
     .Text {
         display: flex;
         flex-direction: column;
-        height: 318px;
         max-width: 492px;
         justify-content: space-evenly;
-        text-align: justify;
+        //text-align: justify;
+        gap: 20px;
         h2 {
             color: $main-color;
             font-size: 18px;
@@ -28,6 +28,7 @@ $title-color: #105c91;
         ul {
             list-style: none;
             line-height: 37px;
+            margin-top: 20px;
             li{
                 p{
                     display: inline;
@@ -35,17 +36,17 @@ $title-color: #105c91;
                 }
             }
         }
-        >p {
-            padding-left: 18px;
-        }
-        > div {
+        
+        .Content {
+           
             white-space: pre-line;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
         }
     }
-
+    .Image{
+        display: flex;
+        align-items: center;
+    }
+    
     a {
         display: flex;
         flex-flow: row;

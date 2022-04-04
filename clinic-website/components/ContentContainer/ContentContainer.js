@@ -1,14 +1,14 @@
 import React from 'react';
-import style from './ContentContainer.module.scss';
+import styles from './ContentContainer.module.scss';
 
 const ContentContainer = (props) => {
-    return <div className={style.ContentContainer} >
-        <div className={style.Title}>
-            <div className={props.UnderLine && style.Line}>
+    return <div className={styles.ContentContainer} >
+        <div className={styles.Title}>
+            <div className={props.UnderLine && styles.Line}>
                 <p>{props.Title}</p>
             </div>
         </div>
-        <div className={style.Content}>
+        <div className={styles.Content}>
             {props.children}
         </div>
     </div>;

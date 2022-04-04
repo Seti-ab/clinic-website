@@ -1,8 +1,8 @@
 import React from 'react';
-import style from './Input.module.scss';
+import styles from './Input.module.scss';
 
 const Input = (props) => {
-    return <div className={style.Input}>
+    return <div className={styles.Input}>
         <div>
             {props.config.type === 'textarea' ?
                 <label>

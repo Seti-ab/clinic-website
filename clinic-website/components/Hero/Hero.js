@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router'
-import style from './Hero.module.scss';
+import styles from './Hero.module.scss';
 
 const HeroContent = [
     {
@@ -48,16 +48,16 @@ const Hero = () => {
         return content;
     }
 
-    return <div className={style.Hero}>
+    return <div className={styles.Hero}>
 
-        <div className={style.HeroOval}></div>
-        <div className={style.HeroContent}>
-            <div className={style.Line}></div>
+        <div className={styles.HeroOval}></div>
+        <div className={styles.HeroContent}>
+            <div className={styles.Line}></div>
             <h1>{heroContentHandler()?.text}</h1>
             <h5>{heroContentHandler()?.subText}</h5>
-            {/* <div className={style.Line}></div> */}
+            {/* <div className={styles.Line}></div> */}
         </div>
-        <div className={style.Image}>
+        <div className={styles.Image}>
             {heroContentHandler() &&
                 <Image
                     src={require(`../../assets/images/Hero/${heroContentHandler().image}`)}
