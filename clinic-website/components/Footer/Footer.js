@@ -3,8 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import style from './Footer.module.scss';
 import Logo from '../../assets/icons/FooterLogo.svg';
-import {Information} from '../../public/text';
-
+import { Information } from '../../public/text';
+import { BsTelegram, BsInstagram, BsWhatsapp } from 'react-icons/bs'
+import { MdLocationOn, MdPhoneEnabled, MdEmail } from 'react-icons/md'
 const Footer = () => {
     return <footer className={style.Footer}>
         <div>
@@ -45,28 +46,28 @@ const Footer = () => {
                     <Image
                         src={Logo.src}
                         alt='Clinic'
-                        width={150}
-                        height={150}
+                        width={200}
+                        height={200}
                     />
                 </div>
                 <div className={style.Icons}>
-                    <a href='https://www.instagram.com/seti_ab/' target='_blank' rel="noreferrer"><div className={style.instagram}></div></a>
-                    <a href='https://www.linkedin.com/in/setayesh-abouei-57a987226/' target='_blank' rel="noreferrer"><div className={style.linkedin}></div></a>
-                    <a href='https://twitter.com/Seti_ab' target='_blank' rel="noreferrer"><div className={style.twitter}></div></a>
+                    <a href='https://www.instagram.com/seti_ab/' target='_blank' rel="noreferrer"><BsInstagram /></a>
+                    <a href='https://t.me/seti_ab' target='_blank' rel="noreferrer"><BsTelegram /></a>
+                    <a href='https://wa.me/+989908833012' target='_blank' rel="noreferrer"><BsWhatsapp /></a>
                 </div>
             </div>
             <div className={style.Left}>
                 <div>
                     <div className={style.LocationContainer}>
-                        <div className={style.Icon + ' ' + style.location}></div>
+                        <div className={style.Icon +' '+style.LocationIcon}><MdLocationOn /></div>
                         <p>{Information.Address}</p>
                     </div>
                     <div>
-                        <div className={style.Icon + ' '+ style.phone}></div>
+                        <div className={style.Icon}><MdPhoneEnabled /></div>
                         <p>{Information.PhoneNumber}</p>
                     </div>
                     <div>
-                        <div className={ style.Icon + ' ' + style.email}></div>
+                        <div className={style.Icon}><MdEmail/></div>
                         <p>{Information.Email}</p>
                     </div>
                 </div>

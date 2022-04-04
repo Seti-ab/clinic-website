@@ -1,4 +1,4 @@
-$main-color: #22AFC1;
+$title-color: #105c91;
 $subsidiary-color: #BDF5FC;
 .ContentContainer {
     display: flex;
@@ -14,22 +14,25 @@ $subsidiary-color: #BDF5FC;
         flex-direction: row;
 
         > div {
-            width: fit-content;
-            border-bottom: 3px solid $subsidiary-color;
-            margin-top: 50px;
+            
             p {
                 text-align: center;
                 font-size: 24px;
                 line-height: 36px;
                 font-weight: bold;
                 margin-bottom: 9px;
-                color: $main-color;
+                color: $title-color;
                 padding: 0 47px;
             }
         }
+        .Line{
+            width: fit-content;
+            border-bottom: 3px solid $subsidiary-color;
+            margin-top: 50px;
+        }
     }
     .Content{
-        margin: 40px;
+        margin: 25px;
         display: flex;
         flex-direction: column;
         justify-content: center;

@@ -1,0 +1,22 @@
+$main-color: #22AFC1;
+$subsidiary-color: #BDF5FC;
+.Button {
+    button {
+        color: #ffffff;
+        background-image: linear-gradient(to left, $main-color, $subsidiary-color);
+        font-family: "IRANSans";
+        border: none;
+        border-radius: 8px;
+        padding: 8px 24px;
+        min-width: 119px;
+        font-size: 16px;
+        font-weight: 300;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+}
+.Button button:hover {
+    background-image: linear-gradient(to right, $main-color, $subsidiary-color);
+    background-position: 100% 50%;
+    background-size: 200% 200%;
+}

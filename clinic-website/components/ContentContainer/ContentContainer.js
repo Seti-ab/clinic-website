@@ -4,7 +4,7 @@ import style from './ContentContainer.module.scss';
 const ContentContainer = (props) => {
     return <div className={style.ContentContainer} >
         <div className={style.Title}>
-            <div>
+            <div className={props.UnderLine && style.Line}>
                 <p>{props.Title}</p>
             </div>
         </div>
