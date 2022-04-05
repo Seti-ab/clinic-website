@@ -12,9 +12,8 @@ $subsidiary-color: #BDF5FC;
         justify-content: center;
         align-items: center;
         flex-direction: row;
-
         > div {
-            
+            margin-top: 70px;
             p {
                 text-align: center;
                 font-size: 24px;
@@ -28,7 +27,6 @@ $subsidiary-color: #BDF5FC;
         .Line{
             width: fit-content;
             border-bottom: 3px solid $subsidiary-color;
-            margin-top: 50px;
         }
     }
     .Content{
@@ -37,7 +35,7 @@ $subsidiary-color: #BDF5FC;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        row-gap: 38px;
+        row-gap: 5px;
         line-height: 28px;
     }
 }

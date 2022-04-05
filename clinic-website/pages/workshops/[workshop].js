@@ -7,7 +7,6 @@ import ContentContainer from '../../components/ContentContainer/ContentContainer
 import Workshops from '../../components/Workshops/Workshops';
 
 import { workshopsInfo } from '../../public/text';
-import {BsArrowLeft} from 'react-icons/bs';
 
 const WorkShop = (props) => {
   const router = useRouter(null)
@@ -21,8 +20,8 @@ const WorkShop = (props) => {
     if (router.asPath === (props.data.Link + '#description')) {
       router.replace(props.data.Link)
       scroller.scrollTo("scroll", {
-        duration: 1000,
-        delay: 10,
+        duration: 900,
+        delay: 0,
         smooth: true,
       });
     }
@@ -37,7 +36,6 @@ const WorkShop = (props) => {
         </div>
       </Workshops>
     </ContentContainer>
-    {console.log([props.data.Introduction])}
   </div>;
 };
 

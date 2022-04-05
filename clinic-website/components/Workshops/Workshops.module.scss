@@ -24,26 +24,37 @@ $title-color: #105c91;
         }
         ul {
             list-style: none;
-            line-height: 37px;
-            margin-top: 20px;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             li{
-                white-space: pre;
+                white-space:pre-wrap;
                 display: flex;
-                align-items: center;
-                svg{
-                    color: $title-color;
-                    font-size: 20px;
-                    margin-left: 3px;
-                }
+                flex-direction: row;
+                align-items: flex-start;
                 p{
-                    display: inline;
+                    display: flex;
+                    align-items: center;
                     color:$title-color ;
+                    svg{
+                        color: $title-color;
+                        font-size: 20px;
+                        margin-left: 3px;
+                    }
+                }
+                span{
+                    display: flex;
+                    line-height: 28px;
                 }
             }
         }
         
         .Content {
             white-space: pre-line;
+            >div{
+                margin-bottom: 20px;
+            }
         }
     }
     .Image{
@@ -76,4 +87,19 @@ $title-color: #105c91;
     border: 2px solid #bdf5fc;
     padding: 20px 25px;
     border-radius: 8px;
+    margin-bottom: 25px;
+}
+@media only screen and (max-width:500px){
+    .Workshops{
+        .Text{
+            ul{
+                li{
+                    flex-direction: column;
+                    p{
+                        margin-bottom: 4px;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -34,5 +34,6 @@ a {
 .container {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 45px;
+  align-items: center;
 }

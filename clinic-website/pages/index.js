@@ -1,9 +1,11 @@
 
+import Link from 'next/link';
 import styles from '../styles/Home.module.scss'
 import ContentContainer from '../components/ContentContainer/ContentContainer'
 import Workshops from '../components/Workshops/Workshops'
 import { workshopsInfo } from '../public/text';
-
+import Button from '../components/UI/Button/Button';
+import Gallery from '../components/Gallery/Gallery'
 export default function Home() {
   return (
     <>
@@ -20,7 +22,17 @@ export default function Home() {
             Link={workshopsInfo[0].Link + '#description'}
             Border>
           </Workshops>
+          <Link href='/workshops'>
+            <a>
+              <Button Type='button'>همه‌ی کارگاه‌ها</Button>
+            </a>
+          </Link>
         </ContentContainer>
+
+        <ContentContainer Title="گالری تصاویر" UnderLine>
+          <Gallery />
+        </ContentContainer>
+
       </div>
     </>
   )

@@ -1,0 +1,164 @@
+$small: 200px;
+$medium: 230px;
+$large: 260px;
+$fadeOut: 200px;
+$main-color: #22afc1;
+$subsidiary-color: #bdf5fc;
+.SliderContainer {
+    position: relative;
+    margin: auto;
+    width: 1050px;
+
+    > div {
+        margin: auto;
+        overflow: hidden;
+        max-width: 970px;
+        display: flex;
+        align-items: center;
+
+        .Gallery {
+            margin: auto;
+            display: flex;
+            flex-flow: row;
+            gap: 12px;
+            align-items: center;
+            position: relative;
+            height: 270px;
+            width: 100%;
+            left: 100px;
+
+            > div {
+                flex-shrink: 0;
+                transition: all 0.7s ease-in-out;
+                display: flex;
+                position: absolute;
+                
+                img {
+                    transition: all 0.7s ease-in-out;
+                    height: fit-content !important;
+                    object-fit: contain;
+                    background-color: $subsidiary-color;
+                    border-radius: 8px;
+                }
+            }
+            .Active {
+                left: 255px;
+                width: $large;
+                height: $large;
+                z-index: 5;
+                img {
+                    width: $large !important;
+                }
+            }
+            .FirstLeft,
+            .FirstRight {
+                width: $medium;
+                height: $medium;
+
+                img {
+                    width: $medium !important;
+                }
+            }
+            .SecondLeft,
+            .SecondRight {
+
+                width: $small;
+                height: $small;
+
+                img {
+                    width: $small !important;
+                }
+            }
+            .ThirdLeft,
+            .ThirdRight {
+                width: $fadeOut;
+                height: $fadeOut;
+            }
+            .FirstLeft {
+                left: 12px;
+                z-index: 5;
+            }
+            .SecondLeft {
+                left: -200px;
+                z-index: 4;
+            }
+            .FirstRight {
+                left: 528px;
+                z-index: 3;
+            }
+            .SecondRight {
+                left: 770px;
+                z-index: 2;
+            }
+            .ThirdLeft {
+                left: -412px;
+                z-index: 1;
+            }
+            .ThirdRight {
+                left: 975px;
+            }
+            .Hidden {
+                display: none;
+                // position: absolute;
+                // left: -300px;
+                // z-index: 0;
+                // width: 100px;
+                // height: 100px;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 995px) {
+    .SliderContainer {
+        width: 365px;
+        > div {
+            max-width: 280px;
+            .Gallery {
+                position: relative;
+                left: 0;
+                height: 280px;
+                > div {
+                    display: none;
+                }
+                .FirstLeft {
+                    display: flex;
+                    left: -235px;
+                }
+                .FirstRight {
+                    display: flex;
+                    left: 370px;
+                }
+                .Active {
+                    left: 0;
+                    margin: auto;
+                    display: flex;
+                    width: 280px;
+                    height: 280px;
+                    img {
+                        width: 280px !important;
+                        transition: all 0.7s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 400px) {
+    .SliderContainer {
+        width: 320px;
+        > div {
+            max-width: 260px;
+            .Gallery {
+                height: 260px;
+                .Active {
+                    width: 260px;
+                    height: 260px;
+                    img {
+                        width: 260px !important;
+                        transition: all 0.7s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -13,7 +13,6 @@ const WorkshopsPage = () => {
           Title={workshop.Title}
           Link={workshop.Link + '#description'}
           Border>
-          {workshop.Introduction}
         </Workshops>
       })}
     </ContentContainer>

@@ -1,9 +1,10 @@
 $main-color: #22AFC1;
 $subsidiary-color: #BDF5FC;
+$title-color: #105c91;
 .Button {
     button {
         color: #ffffff;
-        background-image: linear-gradient(to left, $main-color, $subsidiary-color);
+        background-image: linear-gradient(to right, $main-color, $title-color);
         font-family: "IRANSans";
         border: none;
         border-radius: 8px;
@@ -16,7 +17,7 @@ $subsidiary-color: #BDF5FC;
     }
 }
 .Button button:hover {
-    background-image: linear-gradient(to right, $main-color, $subsidiary-color);
+    background-image: linear-gradient(to left, $main-color, $title-color);
     background-position: 100% 50%;
     background-size: 200% 200%;
 }

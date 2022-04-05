@@ -12,10 +12,10 @@ const Workshops = (props) => {
             <div className={styles.Content}>
                 {props.children}
                 <ul>
-                    <li><IoMdPerson /><p>مدرس: </p>{props.Info.Lecturer}</li>
-                    <li><IoIosTime /><p>مدت زمان: </p>{props.Info.Time}</li>
-                    <li><IoMdCalendar /><p>تاریخ: </p>{props.Info.Date}</li>
-                    <li><IoIosPricetags /><p>قیمت: </p>{props.Info.Price} تومان </li>
+                    <li><p><IoMdPerson />مدرس: </p><span>{props.Info.Lecturer}</span></li>
+                    <li><p><IoIosTime />مدت زمان: </p><span>{props.Info.Time}</span></li>
+                    <li><p><IoMdCalendar />تاریخ: </p><span>{props.Info.Date}</span></li>
+                    <li><p><IoIosPricetags />قیمت: </p><span>{props.Info.Price} تومان </span></li>
                     {props.Info.Special && <li className={styles.Special}>*{props.Info.Special}</li>}
                 </ul>
             </div>

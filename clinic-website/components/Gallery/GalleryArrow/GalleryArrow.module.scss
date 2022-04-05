@@ -1,0 +1,42 @@
+$distance: 5px;
+$title-color: #105c91;
+.GalleryArrow {
+    width: 40px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+        svg {
+            font-size: 20px;
+            color: $title-color;
+        }
+    
+}
+.next {
+    right: 0;
+}
+.prev {
+    left: 0;
+    transform: rotate(180deg);
+}
+@media only screen and (max-width: 400px) {
+    .GalleryArrow {
+        width: 20px;
+        svg {
+            font-size: 17px;
+            color: $title-color;
+        }
+    }
+    .next {
+        right: $distance;
+    }
+    .prev {
+        left: $distance;
+        transform: rotate(180deg);
+    }
+}
