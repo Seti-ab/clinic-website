@@ -15,10 +15,10 @@ export default function Home() {
         </ContentContainer>
         <ContentContainer Title='کارگاه آموزشی پرطرفدار '>
           <Workshops
-            key={workshopsInfo[0].id}
+            Title={workshopsInfo[0].Title}
             Info={workshopsInfo[0].Info}
-            Link={workshopsInfo[0].Link + '#description'}>
-            {workshopsInfo[0].Introduction}
+            Link={workshopsInfo[0].Link + '#description'}
+            Border>
           </Workshops>
         </ContentContainer>
       </div>

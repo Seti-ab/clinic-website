@@ -8,9 +8,11 @@ const WorkshopsPage = () => {
     <ContentContainer Title='کـارگاه‌های آموزشـی'>
       {workshopsInfo.map(workshop => {
         return <Workshops
-        key={workshop.id}
-        Info={workshop.Info}
-        Link={workshop.Link + '#description'}>
+          key={workshop.id}
+          Info={workshop.Info}
+          Title={workshop.Title}
+          Link={workshop.Link + '#description'}
+          Border>
           {workshop.Introduction}
         </Workshops>
       })}

@@ -2,19 +2,20 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Workshops.module.scss';
-import {BsArrowLeft} from 'react-icons/bs'
+import { BsArrowLeft } from 'react-icons/bs'
+import { IoIosPricetags, IoIosTime, IoMdCalendar, IoMdPerson } from 'react-icons/io';
 
 const Workshops = (props) => {
-    return <div className={styles.Workshops}>
+    return <div className={styles.Workshops + ' ' + (props.Border && styles.Border)}>
         <div className={styles.Text}>
-           <h2>{props.Info.Title}</h2>
+            <h2>{props.Title}</h2>
             <div className={styles.Content}>
                 {props.children}
                 <ul>
-                    <li><p>مدرس: </p>{props.Info.Lecturer}</li>
-                    <li><p> مدت زمان: </p>{props.Info.Time}</li>
-                    <li><p> تاریخ: </p>{props.Info.Date}</li>
-                    <li><p> قیمت: </p>{props.Info.Price} تومان </li>
+                    <li><IoMdPerson /><p>مدرس: </p>{props.Info.Lecturer}</li>
+                    <li><IoIosTime /><p>مدت زمان: </p>{props.Info.Time}</li>
+                    <li><IoMdCalendar /><p>تاریخ: </p>{props.Info.Date}</li>
+                    <li><IoIosPricetags /><p>قیمت: </p>{props.Info.Price} تومان </li>
                     {props.Info.Special && <li className={styles.Special}>*{props.Info.Special}</li>}
                 </ul>
             </div>
@@ -22,7 +23,7 @@ const Workshops = (props) => {
                 <Link href={props.Link} >
                     <a>توضیحات بیشتر
                         <div>
-                            <BsArrowLeft/>
+                            <BsArrowLeft />
                         </div>
                     </a>
                 </Link>

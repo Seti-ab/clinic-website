@@ -10,16 +10,13 @@ $title-color: #105c91;
     row-gap: 20px;
     justify-content: center;
     align-items: center;
-    border: 2px solid #bdf5fc;
-    padding: 20px 25px;
-    border-radius: 8px;
+    
     .Text {
         display: flex;
         flex-direction: column;
         max-width: 492px;
-        justify-content: space-evenly;
-        //text-align: justify;
         gap: 20px;
+        text-align: justify;
         h2 {
             color: $main-color;
             font-size: 18px;
@@ -30,6 +27,14 @@ $title-color: #105c91;
             line-height: 37px;
             margin-top: 20px;
             li{
+                white-space: pre;
+                display: flex;
+                align-items: center;
+                svg{
+                    color: $title-color;
+                    font-size: 20px;
+                    margin-left: 3px;
+                }
                 p{
                     display: inline;
                     color:$title-color ;
@@ -38,7 +43,6 @@ $title-color: #105c91;
         }
         
         .Content {
-           
             white-space: pre-line;
         }
     }
@@ -67,4 +71,9 @@ $title-color: #105c91;
             display: flex;
         }
     }
+}
+.Border{
+    border: 2px solid #bdf5fc;
+    padding: 20px 25px;
+    border-radius: 8px;
 }

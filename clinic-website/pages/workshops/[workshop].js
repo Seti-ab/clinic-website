@@ -18,39 +18,31 @@ const WorkShop = (props) => {
       left: 0,
       behavior: 'auto'
     });
-    if (router.asPath === (props.data.Info.More + '#description')) {
-      router.replace(props.data.Info.More)
+    if (router.asPath === (props.data.Link + '#description')) {
+      router.replace(props.data.Link)
       scroller.scrollTo("scroll", {
-        duration: 900,
-        delay: 0,
+        duration: 1000,
+        delay: 10,
         smooth: true,
       });
     }
   }
-    , [props.data.Info.More,router])
+    , [props.data.Link,router])
 
   return <div className='scroll'>
-    <ContentContainer Title={props.data.Title}>
-      <Workshops Image={props.data.Info.Image}  >
+    <ContentContainer Title={props.data.Title} UnderLine>
+      <Workshops Info={props.data.Info} >
         <div style={{ whiteSpace: "pre-line" }}>
-          {props.data.Info.Description}
+          {props.data.Introduction}
         </div>
-        {/* todo use next link */}
-        <a target="_blank" href={props.data.Link} rel="noreferrer">
-          مشاهده وب‌سایت
-          <div>
-            <BsArrowLeft/>
-          </div>
-        </a>
-
       </Workshops>
     </ContentContainer>
+    {console.log([props.data.Introduction])}
   </div>;
 };
 
 export async function getStaticProps(context) {
 
-  //const pdata.Info = workshopsInfo.find(item => item.id === context.params.prj);
   const { params } = context;
   const workshop = workshopsInfo.find((w) => w.id === params.workshop);
   return {
@@ -65,7 +57,7 @@ export async function getStaticPaths() {
     paths: [
       { params: { workshop: "couple-eft" } },
     ],
-    fallback: false,
+    fallback: true,
   }
 }
 
