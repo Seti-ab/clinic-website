@@ -11,11 +11,12 @@ $title-color: #105c91;
     justify-content: center;
     cursor: pointer;
     z-index: 3;
-        svg {
-            font-size: 20px;
-            color: $title-color;
-        }
-    
+    top: -15px;
+    svg {
+        
+        font-size: 20px;
+        color: $title-color;
+    }
 }
 .next {
     right: 0;

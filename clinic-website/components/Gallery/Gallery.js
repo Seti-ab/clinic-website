@@ -8,20 +8,20 @@ const Gallery = () => {
     const [slideIndex, setSlideIndex] = useState(4);
 
     const nextSlide = () => {
-        if (slideIndex !== (galleryData.length -1)) {
+        if (slideIndex !== (galleryData.length -3)) {
             setSlideIndex(slideIndex + 1);
         }
-        else if (slideIndex === galleryData.length -1) {
-            setSlideIndex(0);
+        else if (slideIndex === galleryData.length -3) {
+            setSlideIndex(2);
         }
         
     }
     const previousSlide = () => {
-        if (slideIndex !== 0) {
+        if (slideIndex !== 2) {
             setSlideIndex(slideIndex - 1)
         }
-        else if (slideIndex === 0) {
-            setSlideIndex(galleryData.length- 1)
+        else if (slideIndex === 2) {
+            setSlideIndex(galleryData.length- 3)
         }
         
     }

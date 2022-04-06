@@ -21,9 +21,9 @@ $subsidiary-color: #a2ecf3;
             display: flex;
             flex-flow: row;
             gap: 12px;
-            align-items: center;
+            align-items: flex-start;
             position: relative;
-            height: 270px;
+            height: 400px;
             width: 100%;
             left: 100px;
 
@@ -37,7 +37,7 @@ $subsidiary-color: #a2ecf3;
                     transition: all 0.7s ease-in-out;
                     height: fit-content !important;
                     object-fit: contain;
-                    background-color: $subsidiary-color;
+                    background-color: #c7ecef;
                     border-radius: 8px;
                 }
             }
@@ -45,7 +45,9 @@ $subsidiary-color: #a2ecf3;
                 left: 255px;
                 width: $large;
                 height: $large;
-                z-index: 5;
+                z-index: 10;
+                top: 50px;
+                cursor: pointer;
                 img {
                     width: $large !important;
                 }
@@ -54,17 +56,16 @@ $subsidiary-color: #a2ecf3;
             .FirstRight {
                 width: $medium;
                 height: $medium;
-
+                top: 65px;
                 img {
                     width: $medium !important;
                 }
             }
             .SecondLeft,
             .SecondRight {
-
                 width: $small;
                 height: $small;
-
+                top: 80px;
                 img {
                     width: $small !important;
                 }
@@ -73,6 +74,7 @@ $subsidiary-color: #a2ecf3;
             .ThirdRight {
                 width: $fadeOut;
                 height: $fadeOut;
+                top: 80px;
             }
             .FirstLeft {
                 left: 12px;
@@ -99,11 +101,16 @@ $subsidiary-color: #a2ecf3;
             }
             .Hidden {
                 display: none;
-                // position: absolute;
-                // left: -300px;
-                // z-index: 0;
-                // width: 100px;
-                // height: 100px;
+            }
+
+            .Active:hover {
+                width: 400px !important;
+                height: 400px !important;
+                left: 187px;
+                top: 0;
+                img {
+                    width: 400px !important;
+                }
             }
         }
     }
@@ -116,7 +123,6 @@ $subsidiary-color: #a2ecf3;
             .Gallery {
                 position: relative;
                 left: 0;
-                height: 280px;
                 > div {
                     display: none;
                 }
@@ -137,6 +143,15 @@ $subsidiary-color: #a2ecf3;
                     img {
                         width: 280px !important;
                         transition: all 0.7s ease-in-out;
+                    }
+                }
+                .Active:hover{
+                    left: 0;
+                    width: 280px !important;
+                    height: 280px !important;
+                    top: 50px;
+                    img {
+                        width: 280px !important;
                     }
                 }
             }
