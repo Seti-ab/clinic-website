@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from './Workshops.module.scss';
+import styles from './Workshop.module.scss';
 import { BsArrowLeft } from 'react-icons/bs'
 import { IoIosPricetags, IoIosTime, IoMdCalendar, IoMdPerson } from 'react-icons/io';
 
-const Workshops = (props) => {
-    return <div className={styles.Workshops + ' ' + (props.Border && styles.Border)}>
+const Workshop = (props) => {
+    return <div className={styles.Workshop + ' ' + (props.Border && styles.Border)}>
         <div className={styles.Text}>
             <h2>{props.Title}</h2>
             <div className={styles.Content}>
@@ -40,4 +40,4 @@ const Workshops = (props) => {
     </div>;
 };
 
-export default Workshops;
+export default Workshop;

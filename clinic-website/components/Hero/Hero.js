@@ -5,28 +5,28 @@ import styles from './Hero.module.scss';
 
 const HeroContent = [
     {
-        id: 'home',
+        ID: 'home',
         image: 'HomePage.svg',
         text: 'کلینیـک روانشـناسی سایه',
         subText: 'مجموعه‌ی آموزشی ، پژوهشی ، درمانی'
     },
     {
-        id: 'workshops',
+        ID: 'workshops',
         image: 'workshops.svg',
         text: 'کـارگاه‌های آمـوزشی'
     },
     {
-        id: 'colleagues',
+        ID: 'colleagues',
         image: 'colleagues.svg',
         text: 'رزومـه‌ی همـکاران'
     },
     {
-        id: 'contact-us',
+        ID: 'contact-us',
         image: 'contactUs.svg',
         text: 'تـمـاس بـا مـا'
     },
     {
-        id: 'about-us',
+        ID: 'about-us',
         image: 'aboutUs.svg',
         text: 'دربـاره‌ی ما'
     }
@@ -37,13 +37,13 @@ const Hero = () => {
     const router = useRouter(null);
 
     const heroContentHandler = () => {
-        let content = HeroContent.find(content => content.id.includes(router.pathname));
+        let content = HeroContent.find(content => content.ID.includes(router.pathname));
 
         if (router.pathname === '/') {
-            content = HeroContent.find(content => content.id === 'home');
+            content = HeroContent.find(content => content.ID === 'home');
         }
         else {
-            content = HeroContent.find(content => router.pathname.includes(content.id));
+            content = HeroContent.find(content => router.pathname.includes(content.ID));
         }
         return content;
     }

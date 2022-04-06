@@ -1,7 +1,7 @@
-$main-color: #22afc1;
-$subsidiary-color: #bdf5fc;
+$main-color: #22a6b3;
+$subsidiary-color: #a2ecf3;
 $title-color: #105c91;
-.Workshops {
+.Workshop {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap-reverse;
@@ -84,13 +84,13 @@ $title-color: #105c91;
     }
 }
 .Border{
-    border: 2px solid #bdf5fc;
+    border: 2px solid $subsidiary-color;
     padding: 20px 25px;
     border-radius: 8px;
-    margin-bottom: 25px;
+    margin-bottom: 80px;
 }
 @media only screen and (max-width:500px){
-    .Workshops{
+    .Workshop{
         .Text{
             ul{
                 li{

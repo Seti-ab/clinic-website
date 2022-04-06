@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { scroller } from "react-scroll";
 
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
-import Workshops from '../../components/Workshops/Workshops';
+import Workshop from '../../components/Workshop/Workshop';
 
 import { workshopsInfo } from '../../public/text';
 
@@ -30,11 +30,11 @@ const WorkShop = (props) => {
 
   return <div className='scroll'>
     <ContentContainer Title={props.data.Title} UnderLine>
-      <Workshops Info={props.data.Info} >
+      <Workshop Info={props.data.Info} >
         <div style={{ whiteSpace: "pre-line" }}>
           {props.data.Introduction}
         </div>
-      </Workshops>
+      </Workshop>
     </ContentContainer>
   </div>;
 };
@@ -42,7 +42,7 @@ const WorkShop = (props) => {
 export async function getStaticProps(context) {
 
   const { params } = context;
-  const workshop = workshopsInfo.find((w) => w.id === params.workshop);
+  const workshop = workshopsInfo.find((w) => w.ID === params.workshop);
   return {
     props: {
       data: workshop
@@ -54,8 +54,9 @@ export async function getStaticPaths() {
   return {
     paths: [
       { params: { workshop: "couple-eft" } },
+      { params: { workshop: "couple-eft2" } },
     ],
-    fallback: true,
+    fallback: false,
   }
 }
 

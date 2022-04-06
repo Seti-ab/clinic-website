@@ -1,5 +1,5 @@
-$main-color: #22afc1;
-$subsidiary-color: #bdf5fc;
+$main-color: #22a6b3;
+$subsidiary-color: #a2ecf3;
 .Hero {
     z-index: 0;
     height: 85vh;
@@ -18,7 +18,7 @@ $subsidiary-color: #bdf5fc;
         align-items: center;
         position: absolute;
         border-radius: 0 0 520px 520px;
-        background-image: linear-gradient(0deg, #bdf5fc, #22afc1);
+        background-image: linear-gradient(0deg, $subsidiary-color, $main-color);
         transform: scaleX(3);
         width: 60vw;
         height: 60vh;

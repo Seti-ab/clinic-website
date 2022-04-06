@@ -1,0 +1,41 @@
+$main-color: #22a6b3;
+$subsidiary-color: #a2ecf3;
+$title-color: #105c91;
+.Colleague {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 358px;
+    font-size: 16px;
+    .Picture {
+        img {
+            border-radius: 8px;
+            object-fit: cover;
+        }
+    }
+    .Name {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .Link {
+        color: $main-color;
+        display: flex;
+        align-items: center;
+
+        position: relative;
+        span {
+            display: none;
+        }
+    }
+    :hover {
+        span {
+            display: flex;
+            svg {
+                position: absolute;
+                left: -20px;
+                margin-top: -5px;
+            }
+        }
+    }
+}
