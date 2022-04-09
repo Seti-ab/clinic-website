@@ -1,5 +1,22 @@
-html,
-body {
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../assets/IranSans/eot/IRANSansWeb.eot");
+  src: url("../assets/IranSans/eot/IRANSansWeb.eot?#iefix")
+      format("embedded-opentype"),
+      url("../assets/IranSans/woff2/IRANSansWeb.woff2") format("woff2"),
+      url("../assets/IranSans/woff/IRANSansWeb.woff")
+      format("woff"),
+      url("../assets/IranSans/ttf/IRANSansWeb.ttf") format("truetype");
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body {
+  direction: rtl;
   padding: 0;
   margin: 0;
   font-family: IranSans;
