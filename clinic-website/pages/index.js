@@ -5,7 +5,8 @@ import ContentContainer from '../components/ContentContainer/ContentContainer'
 import Workshop from '../components/Workshop/Workshop'
 import { workshopsInfo } from '../public/text';
 import Button from '../components/UI/Button/Button';
-import Gallery from '../components/Gallery/Gallery'
+import Gallery from '../components/Gallery/Gallery';
+
 export default function Home() {
   return (
     <>
@@ -23,17 +24,17 @@ export default function Home() {
             Border>
           </Workshop>
         </ContentContainer>
-          <Link href='/workshops'>
-            <a className={styles.MoreWorkshops}>
-              <Button Type='button'>همه‌ی کارگاه‌ها</Button>
-            </a>
-          </Link>
+        <Link href='/workshops'>
+          <a className={styles.MoreWorkshops}>
+            <Button Type='button'>همه‌ی کارگاه‌ها</Button>
+          </a>
+        </Link>
 
         <ContentContainer Title="گالری تصاویر" UnderLine>
           <Gallery />
         </ContentContainer>
 
       </div>
-    </>
-  )
+      </>
+      )
 }
