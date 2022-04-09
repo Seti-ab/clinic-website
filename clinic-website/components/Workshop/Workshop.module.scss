@@ -1,0 +1,105 @@
+$main-color: #22a6b3;
+$subsidiary-color: #a2ecf3;
+$title-color: #105c91;
+.Workshop {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    max-width: 1032px;
+    column-gap: 30px;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    
+    .Text {
+        display: flex;
+        flex-direction: column;
+        max-width: 492px;
+        gap: 20px;
+        text-align: justify;
+        h2 {
+            color: $main-color;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        ul {
+            list-style: none;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            li{
+                white-space:pre-wrap;
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                p{
+                    display: flex;
+                    align-items: center;
+                    color:$title-color ;
+                    svg{
+                        color: $title-color;
+                        font-size: 20px;
+                        margin-left: 3px;
+                    }
+                }
+                span{
+                    display: flex;
+                    line-height: 28px;
+                }
+            }
+        }
+        
+        .Content {
+            white-space: pre-line;
+            >div{
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .Image{
+        display: flex;
+        align-items: center;
+    }
+    
+    a {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        column-gap: 4px;
+        color: $main-color;
+        font-weight: 500;
+        font-size: 18px;
+        position: relative;
+        > div {
+            display: none;
+            position: relative;
+            top: 2px;
+        }
+    }
+    a:hover {
+        > div {
+            display: flex;
+        }
+    }
+}
+.Border{
+    border: 2px solid $subsidiary-color;
+    padding: 20px 25px;
+    border-radius: 8px;
+    margin-bottom: 80px;
+}
+@media only screen and (max-width:500px){
+    .Workshop{
+        .Text{
+            ul{
+                li{
+                    flex-direction: column;
+                    p{
+                        margin-bottom: 4px;
+                    }
+                }
+            }
+        }
+    }
+}
