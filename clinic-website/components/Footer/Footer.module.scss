@@ -1,5 +1,5 @@
 $main-color: #22a6b3;
-$subsidiary-color: #a2ecf3;
+$sub-color: #a2ecf3;
 .Footer {
     margin-top: 40px;
     background-color: $main-color;
@@ -39,7 +39,7 @@ $subsidiary-color: #a2ecf3;
                 display: flex;
                 flex-flow: row;
                 align-items: center;
-                width: 150px;
+                width: 147px;
                 justify-content: space-between;
                 cursor: pointer;
                 font-size: 25px;
@@ -54,7 +54,7 @@ $subsidiary-color: #a2ecf3;
                 width: 100%;
                 .LocationContainer {
                     .LocationIcon {
-                        margin-top: 15px ;
+                        margin-top: 4px ;
                     }
                     p{
                         white-space: pre-line;
@@ -88,6 +88,11 @@ $subsidiary-color: #a2ecf3;
         .Right {
             padding-right: 16px;
         }
+        .Middle{
+            .Icons{
+                width: 167px !important;
+            }
+        }
         .Left {
             margin-top: 20px;
             padding: 0 !important;
@@ -97,9 +102,6 @@ $subsidiary-color: #a2ecf3;
                     align-items: flex-start;
                     p{
                         white-space:normal !important;
-                    }
-                    .LocationIcon {
-                        margin-top: 5px !important;
                     }
                 }
             }

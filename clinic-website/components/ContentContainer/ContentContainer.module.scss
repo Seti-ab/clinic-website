@@ -1,5 +1,5 @@
 $title-color: #105c91;
-$subsidiary-color: #a2ecf3;
+$sub-color: #a2ecf3;
 .ContentContainer {
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@ $subsidiary-color: #a2ecf3;
         }
         .Line{
             width: fit-content;
-            border-bottom: 3px solid $subsidiary-color;
+            border-bottom: 3px solid $sub-color;
         }
     }
     .Content{

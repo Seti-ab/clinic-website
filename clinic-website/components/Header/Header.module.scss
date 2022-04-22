@@ -1,5 +1,5 @@
 $main-color: #22a6b3;
-$subsidiary-color: #a2ecf3;
+$sub-color: #a2ecf3;
 .Header {
     position: fixed;
     background-color: rgba($color: $main-color, $alpha: 1);
@@ -60,7 +60,7 @@ $subsidiary-color: #a2ecf3;
                 border-radius: 50px;
                 position: absolute;
                 height: 3px;
-                background-color: $subsidiary-color;
+                background-color: $sub-color;
                 display: block;
                 bottom: -4px;
                 right: 0;

@@ -1,0 +1,50 @@
+$main-color: #22a6b3;
+$sub-color: #a2ecf3;
+$title-color: #105c91;
+.AboutUsPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    margin: 48px 0;
+    .Information {
+        max-width: 1032px;
+        width: 88vw;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        > div {
+            display: flex;
+            .InfoTitle {
+                font-size: 16px;
+                font-family: "IRANSANS";
+                color: $main-color;
+            }
+        }
+
+        .Icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top:5px;
+            svg{
+                display: flex;
+                font-size: 22px;
+                color:$main-color ;
+            }
+        }
+    }
+    .Map {
+        border: none;
+        max-width: 1032px;
+        width: 88vw;
+        height: 280px;
+        border-radius: 8px;
+    }
+}
+@media only screen and (max-width: 995px) {
+    .Map {
+        width: 90vw;
+        height: 420px;
+    }
+}

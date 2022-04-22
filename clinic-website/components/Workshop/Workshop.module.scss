@@ -1,5 +1,5 @@
 $main-color: #22a6b3;
-$subsidiary-color: #a2ecf3;
+$sub-color: #a2ecf3;
 $title-color: #105c91;
 .Workshop {
     display: flex;
@@ -84,7 +84,7 @@ $title-color: #105c91;
     }
 }
 .Border{
-    border: 2px solid $subsidiary-color;
+    border: 2px solid $sub-color;
     padding: 20px 25px;
     border-radius: 8px;
     margin-bottom: 80px;

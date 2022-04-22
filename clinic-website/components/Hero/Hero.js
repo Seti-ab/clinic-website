@@ -6,28 +6,28 @@ import styles from './Hero.module.scss';
 const HeroContent = [
     {
         ID: 'home',
-        image: 'HomePage.svg',
+        image: 'HomePage.png',
         text: 'کلینیـک روانشـناسی سایه',
         subText: 'مجموعه‌ی آموزشی ، پژوهشی ، درمانی'
     },
     {
         ID: 'workshops',
-        image: 'workshops.svg',
+        image: 'workshops.png',
         text: 'کـارگاه‌های آمـوزشی'
     },
     {
         ID: 'colleagues',
-        image: 'colleagues.svg',
+        image: 'colleagues.png',
         text: 'رزومـه‌ی همـکاران'
     },
     {
         ID: 'contact-us',
-        image: 'contactUs.svg',
+        image: 'contactUs.png',
         text: 'تـمـاس بـا مـا'
     },
     {
         ID: 'about-us',
-        image: 'aboutUs.svg',
+        image: 'aboutUs.png',
         text: 'دربـاره‌ی ما'
     }
 ]
@@ -58,13 +58,17 @@ const Hero = () => {
             {/* <div className={styles.Line}></div> */}
         </div>
         <div className={styles.Image}>
-            {heroContentHandler() &&
-                <Image
-                    src={require(`../../assets/images/Hero/${heroContentHandler().image}`)}
-                    alt='Setayesh Clinic'
-                    layout='fill'
-                />
-            }
+          
+                {heroContentHandler() &&
+                    <Image
+                        src={require(`../../assets/images/Hero/${heroContentHandler().image}`)}
+                        alt='Setayesh Clinic'
+                        layout='fill'
+                        objectFit='contain'
+                        priority
+                    />
+                }
+            
         </div>
     </div>;
 };
