@@ -3,40 +3,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Footer.module.scss';
 import Logo from '../../assets/icons/FooterLogo.svg';
-import { Information } from '../../public/text';
-import { BsTelegram, BsInstagram, BsWhatsapp } from 'react-icons/bs'
-import { MdLocationOn, MdPhoneEnabled, MdEmail } from 'react-icons/md'
+import { Information } from '../../public/data';
+import { BsTelegram, BsInstagram, BsWhatsapp } from 'react-icons/bs';
+import { MdLocationOn, MdPhoneEnabled, MdEmail } from 'react-icons/md';
+import { navItems } from '../../public/data';
+
 const Footer = () => {
     return <footer className={styles.Footer}>
         <div>
             <div className={styles.Right}>
                 <ul>
-                    <li>
-                        <Link href='/'>
-                            <a>صفحه‌اصلی</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href='/workshops'>
-                            <a>کارگاه‌های آموزشی</a>
-                        </Link>
-
-                    </li>
-                    <li>
-                        <Link href='/colleagues'>
-                            <a>رزومه‌ی همکاران</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href='/contact-us'>
-                            <a>تماس با ما</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href='/about-us'>
-                            <a>درباره ما</a>
-                        </Link>
-                    </li>
+                    {navItems.map(item => {
+                        return <li key={item.id}>
+                            <Link href={item.link}>
+                                <a>{item.title}</a>
+                            </Link>
+                        </li>
+                    })}
                 </ul>
 
             </div>
@@ -59,7 +42,7 @@ const Footer = () => {
             <div className={styles.Left}>
                 <div>
                     <div className={styles.LocationContainer}>
-                        <div className={styles.Icon +' '+styles.LocationIcon}><MdLocationOn /></div>
+                        <div className={styles.Icon + ' ' + styles.LocationIcon}><MdLocationOn /></div>
                         <p>{Information.Address}</p>
                     </div>
                     <div>
@@ -67,7 +50,7 @@ const Footer = () => {
                         <p>{Information.PhoneNumber}</p>
                     </div>
                     <div>
-                        <div className={styles.Icon}><MdEmail/></div>
+                        <div className={styles.Icon}><MdEmail /></div>
                         <p>{Information.Email}</p>
                     </div>
                 </div>

@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import style from './Gallery.module.scss';
-import { galleryData } from '../../public/text';
+import { galleryData } from '../../public/data';
 import GalleryArrow from './GalleryArrow/GalleryArrow';
 
 const Gallery = () => {
-    const [slideIndex, setSlideIndex] = useState(4);
+    const [slideIndex, setSlideIndex] = useState(2);
 
     const nextSlide = () => {
         if (slideIndex !== (galleryData.length -3)) {
@@ -61,14 +61,13 @@ const Gallery = () => {
                 <div className={style.Gallery} >
 
                     {galleryData.map((slide, index) => {
-
                         return (
                             <div key={index} className={chooseSlideHandler(index)}>
                                 <Image
-                                    src={require(`../../assets/images/Gallery/${slide}`)}
-                                    width={200}
-                                    height={180}
-                                    alt={'Gallery'}
+                                    src={`/images/Gallery/${slide}`}
+                                    width='740'
+                                    height='555'
+                                    alt='Gallery'
                                 />
                             </div>
                         )
@@ -76,8 +75,8 @@ const Gallery = () => {
                     
 
                 </div>
-                <GalleryArrow direction={'next'} moveSlide={previousSlide} />
-                <GalleryArrow direction={'prev'} moveSlide={nextSlide} />
+                <GalleryArrow direction='next' moveSlide={previousSlide} />
+                <GalleryArrow direction='prev' moveSlide={nextSlide} />
             </div>
 
         </div>

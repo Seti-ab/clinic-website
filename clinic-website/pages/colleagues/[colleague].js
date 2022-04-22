@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import styles from '../../styles/ColleaguesPage.module.scss';
-import { colleaguesInfo } from '../../public/text';
+import { colleaguesInfo } from '../../public/data';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 import { HiOutlineMail } from 'react-icons/hi';
 import { scroller } from "react-scroll";
@@ -31,7 +31,7 @@ const ColleaguePage = (props) => {
         <div className={styles.EachColleaguePage}>
           <div >
             <Image
-              src={require(`../../assets/images/Colleagues/${props.data.Info.Picture}`)}
+              src={`/images/Colleagues/${props.data.Info.Picture}`)}
               width={250}
               height={250}
               layout='intrinsic'

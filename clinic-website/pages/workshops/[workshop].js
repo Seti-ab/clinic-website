@@ -6,7 +6,7 @@ import { scroller } from "react-scroll";
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 import Workshop from '../../components/Workshop/Workshop';
 
-import { workshopsInfo } from '../../public/text';
+import { workshopsInfo } from '../../public/data';
 
 const WorkShop = (props) => {
   const router = useRouter(null)

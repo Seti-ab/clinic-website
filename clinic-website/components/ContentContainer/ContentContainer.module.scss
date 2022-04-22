@@ -41,6 +41,13 @@ $sub-color: #a2ecf3;
 }
 @media only screen and(max-width:995px){
     .ContentContainer{
+        .Title {
+            > div { 
+                p {
+                    padding: 0 10px;
+                }
+            }
+        }
         .Content{
             row-gap: 65px;
         }

@@ -4,7 +4,7 @@ import styles from '../../styles/ColleaguesPage.module.scss';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 import Colleague from '../../components/Colleague/Colleague';
 
-import { colleaguesInfo } from '../../public/text';
+import { colleaguesInfo } from '../../public/data';
 
 const ColleaguesPage = () => {
 

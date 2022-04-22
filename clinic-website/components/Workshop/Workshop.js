@@ -31,7 +31,7 @@ const Workshop = (props) => {
         </div>
         <div className={styles.Image}>
             <Image
-                src={require(`../../assets/images/workshops/${props.Info.Image}`)}
+                src={`/images/workshops/${props.Info.Image}`}
                 alt={props.Title}
                 width={450}
                 height={330}

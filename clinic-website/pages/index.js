@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.scss'
 import ContentContainer from '../components/ContentContainer/ContentContainer'
 import Workshop from '../components/Workshop/Workshop'
-import { workshopsInfo } from '../public/text';
+import { workshopsInfo } from '../public/data';
 import Button from '../components/UI/Button/Button';
 import Gallery from '../components/Gallery/Gallery'
 export default function Home() {

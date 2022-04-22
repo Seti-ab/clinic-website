@@ -1,6 +1,6 @@
 import React from 'react';
 import style from '../styles/AboutUsPage.module.scss'
-import { Information } from '../public/text';
+import { Information } from '../public/data';
 import { BsTelegram, BsInstagram, BsWhatsapp } from 'react-icons/bs';
 
 const AboutUsPage = () => {

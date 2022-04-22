@@ -48,8 +48,8 @@ $sub-color: #a2ecf3;
     }
     .Image {
         display: block;
-        position: absolute;
-        top: 157px;
+        position: relative;
+        top: 100px;
         width: 100vw;
         height: 70%;
     }
@@ -59,7 +59,7 @@ $sub-color: #a2ecf3;
         position: relative;
         height: 57vh;
         .Image {
-            top: 152px;
+            top: 50px;
             width: 90%;
         }
         .HeroOval {
@@ -72,7 +72,7 @@ $sub-color: #a2ecf3;
         position: relative;
         height: 57vh;
         .Image {
-            top: 150px;
+            top: 50px;
         }
         .HeroOval {
             height: 50%;

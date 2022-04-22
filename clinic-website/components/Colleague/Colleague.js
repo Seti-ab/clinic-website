@@ -8,7 +8,7 @@ function Colleague(props) {
         <div className={styles.Colleague} key={props.Info.ID}>
             <div className={styles.Picture}>
                 <Image
-                    src={require(`../../assets/images/Colleagues/${props.Info.Picture}`)}
+                    src={(`/images/Colleagues/${props.Info.Picture}`)}
                     width={240}
                     height={240}
                     alt='CVPicture'

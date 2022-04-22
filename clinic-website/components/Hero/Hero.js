@@ -61,7 +61,7 @@ const Hero = () => {
           
                 {heroContentHandler() &&
                     <Image
-                        src={require(`../../assets/images/Hero/${heroContentHandler().image}`)}
+                        src={(`/images/Hero/${heroContentHandler().image}`)}
                         alt='Setayesh Clinic'
                         layout='fill'
                         objectFit='contain'

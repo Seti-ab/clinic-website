@@ -1,7 +1,4 @@
-$small: 200px;
-$medium: 230px;
-$large: 260px;
-$fadeOut: 200px;
+
 $main-color: #22a6b3;
 $sub-color: #a2ecf3;
 .SliderContainer {
@@ -23,7 +20,7 @@ $sub-color: #a2ecf3;
             gap: 12px;
             align-items: flex-start;
             position: relative;
-            height: 400px;
+            height: 300px;
             width: 100%;
             left: 100px;
 
@@ -43,37 +40,37 @@ $sub-color: #a2ecf3;
             }
             .Active {
                 left: 255px;
-                width: $large;
-                height: $large;
+                width: 260px;
+                height: 195px;
                 z-index: 10;
                 top: 50px;
                 cursor: pointer;
                 img {
-                    width: $large !important;
+                    width: 260px !important;
                 }
             }
             .FirstLeft,
             .FirstRight {
-                width: $medium;
-                height: $medium;
+                width: 230px;
+                height: 173px;
                 top: 65px;
                 img {
-                    width: $medium !important;
+                    width: 230px !important;
                 }
             }
             .SecondLeft,
             .SecondRight {
-                width: $small;
-                height: $small;
+                width: 200px;
+                height: 150px;
                 top: 80px;
                 img {
-                    width: $small !important;
+                    width: 200px !important;
                 }
             }
             .ThirdLeft,
             .ThirdRight {
-                width: $fadeOut;
-                height: $fadeOut;
+                width: 200px;
+                height: 150px;
                 top: 80px;
             }
             .FirstLeft {
@@ -105,7 +102,7 @@ $sub-color: #a2ecf3;
 
             .Active:hover {
                 width: 400px !important;
-                height: 400px !important;
+                height: 300px !important;
                 left: 187px;
                 top: 0;
                 img {
@@ -115,7 +112,7 @@ $sub-color: #a2ecf3;
         }
     }
 }
-@media only screen and (max-width: 995px) {
+@media only screen and (max-width: 1050px) {
     .SliderContainer {
         width: 365px;
         > div {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 import Workshop from '../../components/Workshop/Workshop';
-import { workshopsInfo } from '../../public/text';
+import { workshopsInfo } from '../../public/data';
 const WorkshopsPage = () => {
   return <div className='container'>
     <ContentContainer Title='کـارگاه‌های آموزشـی'>
