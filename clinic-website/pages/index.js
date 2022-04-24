@@ -29,7 +29,7 @@ export default function Home() {
             </a>
           </Link>
 
-        <ContentContainer Title="گالری تصاویر" UnderLine>
+        <ContentContainer Title="انواع اختلال‌ شخصیت" UnderLine>
           <Gallery />
         </ContentContainer>
 

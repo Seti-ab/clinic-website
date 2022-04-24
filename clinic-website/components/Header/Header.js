@@ -57,7 +57,7 @@ const Header = () => {
                     })}
                 </ul>
                 <div className={styles.Login}>
-                    <Link href='/'><a>
+                    <Link href='/login'><a>
                         <FaRegUser/>
                         <span>ورود کارمندان</span>
                     </a>

@@ -112,7 +112,7 @@ $sub-color: #a2ecf3;
         }
     }
 }
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1080px) {
     .SliderContainer {
         width: 365px;
         > div {
@@ -136,7 +136,7 @@ $sub-color: #a2ecf3;
                     margin: auto;
                     display: flex;
                     width: 280px;
-                    height: 280px;
+                    height: 210px;
                     img {
                         width: 280px !important;
                         transition: all 0.7s ease-in-out;
@@ -145,7 +145,7 @@ $sub-color: #a2ecf3;
                 .Active:hover{
                     left: 0;
                     width: 280px !important;
-                    height: 280px !important;
+                    height: 210px !important;
                     top: 50px;
                     img {
                         width: 280px !important;
@@ -164,7 +164,8 @@ $sub-color: #a2ecf3;
                 height: 260px;
                 .Active {
                     width: 260px;
-                    height: 260px;
+                    height: 195px;
+                    top: 35px !important;
                     img {
                         width: 260px !important;
                         transition: all 0.7s ease-in-out;

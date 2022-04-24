@@ -31,7 +31,7 @@ const ColleaguePage = (props) => {
         <div className={styles.EachColleaguePage}>
           <div >
             <Image
-              src={`/images/Colleagues/${props.data.Info.Picture}`)}
+              src={`/images/Colleagues/${props.data.Info.Picture}`}
               width={250}
               height={250}
               layout='intrinsic'

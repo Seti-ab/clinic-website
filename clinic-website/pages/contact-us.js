@@ -15,7 +15,9 @@ const ContactUsPage = () => {
         email: '',
         message: ''
     });
+    
     const animation = useRef(null);
+
     useEffect(() => {
         lottie.loadAnimation({
             container: animation.current,
@@ -26,36 +28,8 @@ const ContactUsPage = () => {
         });
         return () => lottie.stop();
     }, []);
+
     const [showModal, setShowModal] = useState(false)
-    const inputProperties = {
-        name: {
-            config: {
-                type: 'text',
-                placeholder: 'نام و نام‌خانوادگی',
-                name: 'name',
-            },
-            Label: 'نام و نام خانوادگی *'
-        },
-
-        email: {
-            config: {
-                type: 'email',
-                placeholder: 'example@example.com',
-                name: 'email',
-            },
-
-            Label: 'ایمیل *'
-        },
-
-        message: {
-            config: {
-                type: 'textarea',
-                placeholder: 'متن پیام',
-                name: 'message',
-            },
-            Label: 'متن پیام *'
-        },
-    }
 
     const inputChangeHandler = (event) => {
 
@@ -144,7 +118,43 @@ const ContactUsPage = () => {
     const closeModal = () => {
         setShowModal(false);
     }
+    const inputProperties = {
+        name: {
+            config: {
+                type: 'text',
+                placeholder: 'نام و نام‌خانوادگی',
+                name: 'name',
+                value: values.name
+            },
 
+            Label: 'نام و نام خانوادگی *'
+        },
+        email: {
+            config: {
+                type: 'email',
+                placeholder: 'example@example.com',
+                name: 'email',
+                value: values.email
+            },
+
+            Label: 'ایمیل *'
+        },
+
+        message: {
+            config: {
+                type: 'textarea',
+                placeholder: 'متن پیام',
+                name: 'message',
+                value: values.message
+            },
+            Label: 'متن پیام *'
+        },
+        handlers: {
+            blurHandler: inputBlurHandler,
+            changeHandler: inputChangeHandler,
+        }
+    }
+    
     return <div className={style.ContactUsPage}>
         {showModal && <Modal Subject='پیام' closeModal={closeModal} />}
 
@@ -154,28 +164,19 @@ const ContactUsPage = () => {
 
                 <Input
                     inputProperties={inputProperties.name}
-                    config={inputProperties.name.config}
-                    Value={values.name}
-                    blurHandler={inputBlurHandler}
-                    changeHandler={inputChangeHandler}
+                    handlers={inputProperties.handlers}
                     Error={error.name}
                 />
 
                 <Input
                     inputProperties={inputProperties.email}
-                    config={inputProperties.email.config}
-                    Value={values.email}
-                    blurHandler={inputBlurHandler}
-                    changeHandler={inputChangeHandler}
+                    handlers={inputProperties.handlers}
                     Error={error.email}
                 />
 
                 <Input
                     inputProperties={inputProperties.message}
-                    config={inputProperties.message.config}
-                    Value={values.message}
-                    blurHandler={inputBlurHandler}
-                    changeHandler={inputChangeHandler}
+                    handlers={inputProperties.handlers}
                     Error={error.message}
                 />
 
