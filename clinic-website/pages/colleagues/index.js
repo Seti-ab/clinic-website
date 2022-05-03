@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import styles from '../../styles/ColleaguesPage.module.scss';
 
 import ContentContainer from '../../components/ContentContainer/ContentContainer';

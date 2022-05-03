@@ -72,6 +72,7 @@ $sub-color: #a2ecf3;
         }
     }
     .Login {
+        display: flex;
         a {
             display: flex;
             align-items: center;
@@ -79,11 +80,13 @@ $sub-color: #a2ecf3;
             align-items: center;
             color: #ffffff;
             gap: 10px;
+            cursor: pointer;
             span{
-                font-size: 15px;
+                font-size: 14px;
             }
             svg{
                 font-size: 18px;
+                
             }
         }
     }
@@ -103,6 +106,9 @@ $sub-color: #a2ecf3;
             backdrop-filter: unset;
             width: 100%;
             justify-content: space-between;
+            .Items{
+                width: unset;
+            }
         }
         .MenuIcon,
         .CancelIcon {
@@ -151,6 +157,17 @@ $sub-color: #a2ecf3;
             transition: all 0.4s ease-out;
             li {
                 display: none;
+            }
+        }
+        .Login {
+            margin-right: 25px;
+            a {
+                span{
+                    display: none;
+                }
+                svg{
+                    font-size: 23px;
+                }
             }
         }
     }

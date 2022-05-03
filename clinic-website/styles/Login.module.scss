@@ -1,6 +1,7 @@
 $main-color: #22a6b3;
 $sub-color: #a2ecf3;
 $title-color: #105c91;
+$background-color:#1a93a2;
 .Login {
     display: flex;
     align-items: center;
@@ -13,7 +14,7 @@ $title-color: #105c91;
         height: 100%;
     }
     .Right {
-        background: $sub-color;
+        background: $background-color;
         color: #ffffff;
         display: flex;
         align-items: center;
@@ -27,7 +28,7 @@ $title-color: #105c91;
             border-radius: 8px;
             h2 {
                 color: $title-color;
-                border-bottom: 3px solid $sub-color;
+                border-bottom: 3px solid $background-color;
                 width: fit-content;
                 padding: 0 25px 3px;
                 margin: auto;

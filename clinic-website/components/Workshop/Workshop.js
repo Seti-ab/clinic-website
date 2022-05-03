@@ -15,7 +15,7 @@ const Workshop = (props) => {
                     <li><p><IoMdPerson />مدرس: </p><span>{props.Info.Lecturer}</span></li>
                     <li><p><IoIosTime />مدت زمان: </p><span>{props.Info.Time}</span></li>
                     <li><p><IoMdCalendar />تاریخ: </p><span>{props.Info.Date}</span></li>
-                    <li><p><IoIosPricetags />قیمت: </p><span>{props.Info.Price} تومان </span></li>
+                    <li><p><IoIosPricetags />قیمت: </p><span>{props.Info.Price} <sub>تومان</sub> </span></li>
                     {props.Info.Special && <li className={styles.Special}>*{props.Info.Special}</li>}
                 </ul>
             </div>
@@ -30,12 +30,13 @@ const Workshop = (props) => {
             }
         </div>
         <div className={styles.Image}>
-            <Image
-                src={`/images/workshops/${props.Info.Image}`}
-                alt={props.Title}
-                width={450}
-                height={330}
-            />
+            {props.Info.Image !== 'fileUpload' &&
+                <Image
+                    src={`/images/workshops/${props.Info.Image}`}
+                    alt={props.Title}
+                    width={450}
+                    height={330}
+                />}
         </div>
     </div>;
 };

@@ -10,8 +10,9 @@ import Cookies from 'js-cookie';
 const Login = () => {
   const [error, setError] = useState({});
   const [values, setValues] = useState();
-  const router=useRouter();
+  const router = useRouter();
   const animation = useRef(null);
+  
 
   useEffect(() => {
     lottie.loadAnimation({
@@ -22,7 +23,14 @@ const Login = () => {
       animationData: login,
     });
     return () => lottie.stop();
-  }, []);
+  }, [lottie]);
+
+  useEffect(()=>{
+    const token= Cookies.get('token');
+    if(token){
+      router.push('/');
+    }
+  },[]);
 
   const inputChangeHandler = (event) => {
     let temp = { ...values };
@@ -36,7 +44,7 @@ const Login = () => {
     if (event.target.value === '') {
       temp[event.target.name] = 'تکمیل این فیلد الزامی است!'
       setError(temp)
-    }else if (event.target.name === 'email' && !emailRegex.test(event.target.value)) {
+    } else if (event.target.name === 'email' && !emailRegex.test(event.target.value)) {
       temp.email = 'ایمیل وارد شده صحیح نمی باشد!'
       setError(temp)
     }
@@ -47,7 +55,7 @@ const Login = () => {
   }
 
   const formValidationHandler = () => {
-    let emailError,passwordError;
+    let emailError, passwordError;
     let emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
 
     if (!values || !values.email || values.email === '') {
@@ -56,7 +64,7 @@ const Login = () => {
       emailError = 'ایمیل وارد شده صحیح نمی باشد!'
     }
 
-    if (!values ||!values.password || values.password === '') {
+    if (!values || !values.password || values.password === '') {
       passwordError = 'تکمیل این فیلد الزامی است!'
     }
 
@@ -71,17 +79,25 @@ const Login = () => {
       return true;
     }
   }
-    const formSubmitHandler = (event) => {
-      event.preventDefault();
-      const isValid = formValidationHandler();
-
-      if (isValid) {
-          Cookies.set('token','salam');
-          router.push('/')
+  //console.log(Object.keys(router.components)[(Object.keys(router.components).length) - 2]);
+  const formSubmitHandler = (event) => {
+    event.preventDefault();
+    const isValid = formValidationHandler();
+    const history = Object.keys(router.components)[(Object.keys(router.components).length) - 2];
+    if (isValid) {
+      Cookies.set('token', 'salam');
+      if (history !=='/login' && history!=='/_app') {
+        router.push(history);
       } else {
-          console.log("Failed");
+        router.push('/');
       }
+
+    }
+    else {
+      console.log("Failed");
+    }
   }
+
   const inputProperties = {
     email: {
       config: {
@@ -104,7 +120,6 @@ const Login = () => {
       changeHandler: inputChangeHandler,
     }
   }
-  console.log("check :", values)
   return (
     <div className={styles.Login}>
       <div className={styles.Right}>
@@ -130,7 +145,9 @@ const Login = () => {
 
       <div className={styles.Left}>
         <div ref={animation}></div>
-        <p className={styles.CopyRight}>۱۴۰۱<AiOutlineCopyright /> طراحی و توسعه توسط <b>ستایش ابوئی</b> </p>
+        <p className={styles.CopyRight}>
+          ۱۴۰۱<AiOutlineCopyright /> طراحی و توسعه توسط <b>ستایش ابوئی</b>
+        </p>
       </div>
 
 

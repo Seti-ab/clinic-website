@@ -5,7 +5,7 @@ $sub-color: #a2ecf3;
     background-color: $main-color;
     width: 100%;
     padding: 32px 0;
-
+    position: relative;
     > div {
         height: fit-content;
         color: #ffffff;
@@ -73,6 +73,20 @@ $sub-color: #a2ecf3;
                 }
             }
         }
+    }
+    .CopyRight {
+        font-size: 11px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        background: #065a61;
+        color: #ffffff;
+        position: absolute;
+        bottom: -30px;
+        height: fit-content;
+        width: 100%;
+        padding: 8px;
     }
 }
 @media only screen and (max-width: 995px) {

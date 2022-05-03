@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from "next/router";
@@ -7,10 +7,26 @@ import Logo from '../../assets/icons/Clinic_Logo.svg';
 import Menu from '../../assets/icons/menu.svg';
 import Cancel from '../../assets/icons/cancel.svg';
 import { navItems } from '../../public/data';
-import { FaRegUser } from 'react-icons/fa';
+import { FiLogOut, FiLogIn } from 'react-icons/fi'
+import Cookies from 'js-cookie';
+
 const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
     const router = useRouter();
+    const [isLogged, setIsLogged] = useState(false);
+
+    useEffect(() => {
+        const token = Cookies.get("token");
+        if (token) {
+            setIsLogged(true);
+        }
+    }, [])
+
+    const logoutHandler = () => {
+        Cookies.remove("token");
+        router.reload()
+    }
+
     return <div className={styles.Header}>
         <div>
             <div className={styles.Logo}>
@@ -25,23 +41,6 @@ const Header = () => {
                     </a>
                 </Link>
             </div>
-            {!showMenu ? <div className={styles.MenuIcon} onClick={() => setShowMenu(true)}>
-                <Image
-                    src={Menu}
-                    alt="Menu"
-                    width="40px"
-                    height="40px"
-                />
-            </div> :
-                <div className={styles.CancelIcon} onClick={() => setShowMenu(false)}>
-                    <Image
-                        src={Cancel}
-                        alt="icon"
-                        width="40px"
-                        height="40px"
-                    />
-                </div>
-            }
 
             <div className={styles.Items}>
                 <ul className={showMenu ? styles.ResponsiveMenu : styles.hideResponsiveMenu}>
@@ -56,14 +55,43 @@ const Header = () => {
                         </li>
                     })}
                 </ul>
+
                 <div className={styles.Login}>
-                    <Link href='/login'><a>
-                        <FaRegUser/>
-                        <span>ورود کارمندان</span>
-                    </a>
-                    </Link>
+                    {isLogged ?
+
+                        <a onClick={() => logoutHandler()}>
+                            <span>خروج</span>
+                            <FiLogOut />
+                        </a>
+
+                        :
+                        <Link href='/login'><a>
+                            <span>ورود کارمندان</span>
+                            <FiLogIn />
+                        </a>
+                        </Link>
+                    }
                 </div>
+                {!showMenu ? <div className={styles.MenuIcon} onClick={() => setShowMenu(true)}>
+                    <Image
+                        src={Menu}
+                        alt="Menu"
+                        width="40px"
+                        height="40px"
+                    />
+                </div> :
+                    <div className={styles.CancelIcon} onClick={() => setShowMenu(false)}>
+                        <Image
+                            src={Cancel}
+                            alt="icon"
+                            width="40px"
+                            height="40px"
+                        />
+                    </div>
+                }
             </div>
+
+
 
         </div>
 

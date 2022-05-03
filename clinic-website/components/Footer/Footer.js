@@ -7,6 +7,7 @@ import { Information } from '../../public/data';
 import { BsTelegram, BsInstagram, BsWhatsapp } from 'react-icons/bs';
 import { MdLocationOn, MdPhoneEnabled, MdEmail } from 'react-icons/md';
 import { navItems } from '../../public/data';
+import {AiOutlineCopyright} from 'react-icons/ai';
 
 const Footer = () => {
     return <footer className={styles.Footer}>
@@ -56,6 +57,9 @@ const Footer = () => {
                 </div>
             </div>
         </div>
+        <p className={styles.CopyRight}>
+          ۱۴۰۱<AiOutlineCopyright /> طراحی و توسعه توسط <b>ستایش ابوئی</b>
+        </p>
     </footer>;
 };
 
