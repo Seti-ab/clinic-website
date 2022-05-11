@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 let mongoose = require('mongoose')
 var logger = require('morgan');
-
+var cors=require('cors');
 
 mongoose.connect('mongodb://localhost:27017/clinic', {})
   .catch(error => console.log(error));
@@ -19,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 let Psychologist = require('./routes/Psychologist')
 app.use('/Psychologist', Psychologist)

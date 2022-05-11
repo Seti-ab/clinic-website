@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import { useRouter } from 'next/router';
 import styles from '../styles/Login.module.scss';
 import login from '../assets/animations/login.json';
@@ -12,7 +13,7 @@ const Login = () => {
   const [values, setValues] = useState();
   const router = useRouter();
   const animation = useRef(null);
-  
+
 
   useEffect(() => {
     lottie.loadAnimation({
@@ -25,12 +26,12 @@ const Login = () => {
     return () => lottie.stop();
   }, [lottie]);
 
-  useEffect(()=>{
-    const token= Cookies.get('token');
-    if(token){
+  useEffect(() => {
+    const token = Cookies.get('token');
+    if (token) {
       router.push('/');
     }
-  },[]);
+  }, []);
 
   const inputChangeHandler = (event) => {
     let temp = { ...values };
@@ -79,18 +80,28 @@ const Login = () => {
       return true;
     }
   }
-  //console.log(Object.keys(router.components)[(Object.keys(router.components).length) - 2]);
+
   const formSubmitHandler = (event) => {
     event.preventDefault();
     const isValid = formValidationHandler();
     const history = Object.keys(router.components)[(Object.keys(router.components).length) - 2];
     if (isValid) {
-      Cookies.set('token', 'salam');
-      if (history !=='/login' && history!=='/_app') {
-        router.push(history);
-      } else {
-        router.push('/');
+      const data = {
+        Email: values.email,
+        Password: values.password
       }
+      axios.post('http://localhost:4500/Psychologist/login', data)
+        .then(response => {
+          console.log("response", response);
+          Cookies.set('token', response.data.token);
+          if (history !== '/login' && history !== '/_app') {
+            router.push(history);
+          } else {
+            router.push('/');
+          }
+        }).catch(error => {
+          console.log("error", error);
+        })
 
     }
     else {

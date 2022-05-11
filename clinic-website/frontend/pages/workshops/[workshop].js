@@ -55,11 +55,11 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
+  const paths=workshopsInfo.map(w=>{
+    return { params: { workshop: w.ID } }
+  })
   return {
-    paths: [
-      { params: { workshop: "couple-eft" } },
-      { params: { workshop: "couple-eft2" } },
-    ],
+    paths,
     fallback: false,
   }
 }
