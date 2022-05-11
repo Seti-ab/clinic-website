@@ -18,16 +18,19 @@ export default function Home() {
         <ContentContainer Title='کارگاه آموزشی پرطرفدار '>
           <Workshop
             Title={workshopsInfo[0].Title}
-            Info={workshopsInfo[0].Info}
+            Lecturer={workshopsInfo[0].Lecturer}
+            Price={workshopsInfo[0].Price}
+            Date={workshopsInfo[0].Date}
+            Time={workshopsInfo[0].Time}
             Link={workshopsInfo[0].Link + '#description'}
             Border>
           </Workshop>
         </ContentContainer>
-          <Link href='/workshops'>
-            <a className={styles.MoreWorkshops}>
-              <Button Type='button'>همه‌ی کارگاه‌ها</Button>
-            </a>
-          </Link>
+        <Link href='/workshops'>
+          <a className={styles.MoreWorkshops}>
+            <Button Type='button'>همه‌ی کارگاه‌ها</Button>
+          </a>
+        </Link>
 
         <ContentContainer Title="انواع اختلال‌ شخصیت" UnderLine>
           <Gallery />

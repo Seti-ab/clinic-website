@@ -1,26 +1,26 @@
 export const navItems = [
   {
-    id:'home',
+    id: 'home',
     title: 'صفحه اصلی',
     link: '/',
   },
   {
-    id:'workshops',
+    id: 'workshops',
     title: 'کارگاه‌های آموزشی',
     link: '/workshops',
   },
   {
-    id:'colleagues',
+    id: 'colleagues',
     title: 'رزومه همکاران',
     link: '/colleagues',
   },
   {
-    id:'contactus',
+    id: 'contactus',
     title: 'تماس با ما',
     link: '/contact-us',
   },
   {
-    id:'aboutus',
+    id: 'aboutus',
     title: 'درباره ما',
     link: '/about-us',
   }
@@ -37,29 +37,23 @@ export const workshopsInfo = [
     ID: "couple-eft",
     Title: 'کارگاه زوج درمانی هیجان مدار',
     Link: '/workshops/couple-eft',
-    Introduction: 'زوج‌ درمانی شاخه‌‌ای از روان‌ درمانگری است که اساس آن تمرکز بر حل مشکلات و بهبود رابطه بین همسران می‌باشد. زوج‌ درمانی راهی برای حل مشکلات و کشمکش‌های زوج‌هایی است که خود به تنهایی قادر به حل مشکلاتشان نیستند. فرایند زوج‌ درمانی شامل زن و شوهر، و یک فرد آموزش دیده و متخصص در این زمینه است که در خصوص احساسات و افکارشان بحث می‌کنند'
-    ,
-    Info: {
-      Image: 'couple-eft.jpg',
-      Lecturer: 'جناب آقای دکتر مهدی قربانی',
-      Time: '۲۴ ساعت',
-      Date: 'پنجشنبه ها ساعت ۸ الی ۱۲ از ۱ تیرماه ۱۴۰۱',
-      Price: '۲,۵۰۰,۰۰۰',
-    },
+    Introduction: 'زوج‌ درمانی شاخه‌‌ای از روان‌ درمانگری است که اساس آن تمرکز بر حل مشکلات و بهبود رابطه بین همسران می‌باشد. زوج‌ درمانی راهی برای حل مشکلات و کشمکش‌های زوج‌هایی است که خود به تنهایی قادر به حل مشکلاتشان نیستند. فرایند زوج‌ درمانی شامل زن و شوهر، و یک فرد آموزش دیده و متخصص در این زمینه است که در خصوص احساسات و افکارشان بحث می‌کنند',
+    Image: 'couple-eft.jpg',
+    Lecturer: 'جناب آقای دکتر مهدی قربانی',
+    Time: '۲۴ ساعت',
+    Date: 'پنجشنبه ها ساعت ۸ الی ۱۲ از ۱ تیرماه ۱۴۰۱',
+    Price: '۲,۵۰۰,۰۰۰',
   },
   {
     ID: "eft2",
     Title: 'کارگاه درمان فردی هیجان مدار',
     Link: '/workshops/eft2',
-    Introduction: 'توضیحات'
-    ,
-    Info: {
-      Image: 'eft.jpg',
-      Lecturer: 'دکتر زهرا سلطانی',
-      Time: '۲۴ ساعت',
-      Date: 'پنجشنبه ها ساعت ۸ الی ۱۲ از ۱ تیرماه ۱۴۰۱',
-      Price: '۲,۵۰۰,۰۰۰',
-    },
+    Introduction: 'توضیحات',
+    Lecturer: 'دکتر زهرا سلطانی',
+    Time: '۲۴ ساعت',
+    Date: 'پنجشنبه ها ساعت ۸ الی ۱۲ از ۱ تیرماه ۱۴۰۱',
+    Price: '۲,۵۰۰,۰۰۰',
+
   },
 ];
 
@@ -70,31 +64,20 @@ export const galleryData = [
 export const colleaguesInfo = [
   {
     ID: 'maryam-soleymani',
-    Info: {
-      Picture: 'Female.jpg',
-      Name: 'مریم سلیمانی',
-      JobTitle: 'درمانگر و مدرس',
-      Link: '/colleagues/maryam-soleymani',
-    },
+    Picture: 'Female.jpg',
+    Name: 'مریم سلیمانی',
+    JobTitle: 'درمانگر و مدرس',
+    Link: '/colleagues/maryam-soleymani',
     Education: 'دکتری تخصصی روان شناسی',
     Introduction: '10 سال سابقه کار در مرکز ترک اعتیاد',
     Email: 'Maryam.Soleymani@gmail.com',
   },
   {
     ID: 'ٰreza-mirzaee',
-    Info: {
-      Picture: 'Male.jpg',
-      Name: 'رضا میرزایی',
-      JobTitle: 'درمانگر',
-      Link: '/colleagues/reza-mirzaee',
-    },
-    ID: 'reza-mirzaee',
-    Info: {
-      Picture: 'Male.jpg',
-      Name: 'رضا میرزایی',
-      JobTitle: 'درمانگر',
-      Link: '/colleagues/reza-mirzaee',
-    },
+    Picture: 'Male.jpg',
+    Name: 'رضا میرزایی',
+    JobTitle: 'درمانگر',
+    Link: '/colleagues/reza-mirzaee',
     Education: 'کارشناس ارشد روانشناسی عمومی',
     Introduction: '11 سال سابقه رواندرمانگری با رویکرد روابط اُبژه',
     Email: 'mirzaee5068@gmail.com',

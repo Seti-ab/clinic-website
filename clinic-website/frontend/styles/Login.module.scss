@@ -24,6 +24,7 @@ $background-color:#1a93a2;
             width: 60%;
             min-width: 320px;
             max-height: 500px;
+            max-width: 410px;
             padding: 40px;
             border-radius: 8px;
             h2 {
@@ -74,9 +75,27 @@ $background-color:#1a93a2;
 }
 @media screen and (max-width: 995px) {
     .Login {
-        flex-direction: column-reverse;
+        flex-direction: column;
         > div {
             width: 100%;
+        }
+        .Right{
+            height: 100vh;
+            position: fixed;
+            z-index: 5;
+        }
+        .Left{
+            >div{
+                display: none;
+            }
+            .CopyRight{
+                z-index: 5;
+                color: #ffffff;
+                width: fit-content;
+                bottom: 5px;
+                font-size: 0.7rem;
+            }
+
         }
     }
 }

@@ -12,11 +12,11 @@ const Workshop = (props) => {
             <div className={styles.Content}>
                 {props.children}
                 <ul>
-                    <li><p><IoMdPerson />مدرس: </p><span>{props.Info.Lecturer}</span></li>
-                    <li><p><IoIosTime />مدت زمان: </p><span>{props.Info.Time}</span></li>
-                    <li><p><IoMdCalendar />تاریخ: </p><span>{props.Info.Date}</span></li>
-                    <li><p><IoIosPricetags />قیمت: </p><span>{props.Info.Price} <sub>تومان</sub> </span></li>
-                    {props.Info.Special && <li className={styles.Special}>*{props.Info.Special}</li>}
+                    <li><p><IoMdPerson />مدرس: </p><span>{props.Lecturer}</span></li>
+                    <li><p><IoIosTime />مدت زمان: </p><span>{props.Time}</span></li>
+                    <li><p><IoMdCalendar />تاریخ: </p><span>{props.Date}</span></li>
+                    <li><p><IoIosPricetags />قیمت: </p><span>{props.Price} <sub>تومان</sub> </span></li>
+                    {props.Special && <li className={styles.Special}>*{props.Special}</li>}
                 </ul>
             </div>
             {props.Link &&
@@ -30,9 +30,9 @@ const Workshop = (props) => {
             }
         </div>
         <div className={styles.Image}>
-            {props.Info.Image !== 'fileUpload' &&
+            {props.Image !== 'fileUpload' &&
                 <Image
-                    src={`/images/workshops/${props.Info.Image}`}
+                    src={`/images/workshops/${props.Image ? props.Image : 'default.jpg'}`}
                     alt={props.Title}
                     width={450}
                     height={330}

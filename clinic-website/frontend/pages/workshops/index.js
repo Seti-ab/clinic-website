@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-
-
+import axios from 'axios';
+import style from '../../styles/Workshops.module.scss';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 import Workshop from '../../components/Workshop/Workshop';
 import { workshopsInfo } from '../../public/data';
 import Cookies from 'js-cookie';
 import Input from '../../components/UI/Input/Input';
+import Button from '../../components/UI/Button/Button';
 
 const WorkshopsPage = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [newWorkshop, setNewWorkshop] = useState();
+  const [workshops,setWorkshops]=useState();
 
   useEffect(() => {
     const token = Cookies.get("token");
@@ -17,6 +19,18 @@ const WorkshopsPage = () => {
       setIsLogged(true);
     }
   }, [isLogged]);
+
+  useEffect(() => {
+    
+    axios.get('http://localhost:4500/workshop/get')
+    .then(response=>{
+      console.log("response",response);
+    }).catch(error=>{
+      console.log("error",error)
+    })
+  }, [])
+  
+
   const inputChangeHandler = (event) => {
     let temp = { ...newWorkshop };
     temp[event.target.name] = event.target.value;
@@ -57,11 +71,11 @@ const WorkshopsPage = () => {
         //value:newWorkshop.time
       }
     },
-    introduction:{
-      config:{
-        type:'textarea',
-        placeholder:'توضیحات',
-        name:'introduction'
+    introduction: {
+      config: {
+        type: 'textarea',
+        placeholder: 'توضیحات',
+        name: 'introduction'
       }
     },
     handlers: {
@@ -70,20 +84,24 @@ const WorkshopsPage = () => {
 
   }
   //blurHandler: inputBlurHandler,
-  const info = {
-    Lecturer: <Input inputProperties={inputProperties.lecturer} handlers={inputProperties.handlers} />,
-    Price: <Input inputProperties={inputProperties.price} handlers={inputProperties.handlers} />,
-    Date: <Input inputProperties={inputProperties.date} handlers={inputProperties.handlers} />,
-    Time: <Input inputProperties={inputProperties.time} handlers={inputProperties.handlers} />,
-    Image: 'fileUpload'
+
+  const addWorkshopHandler=()=>{
+    let temp={...workshops};
+    temp.push(newWorkshop);
+    setWorkshops(temp);
   }
+
   console.log("newWorkshop", newWorkshop);
-  return <div className='container'>
+  return <div className={'container ' + style.WorkshopsPage}>
     <ContentContainer Title='کـارگاه‌های آموزشـی'>
-      {workshopsInfo.map(workshop => {
+      {workshops?.map(workshop => {
         return <Workshop
           key={workshop.ID}
-          Info={workshop.Info}
+          Lecturer={workshop.Lecturer}
+          Price={workshop.Price}
+          Date={workshop.Date}
+          Time={workshop.Time}
+          Image={workshop.Image}
           Title={workshop.Title}
           Link={workshop.Link + '#description'}
           Border>
@@ -91,13 +109,20 @@ const WorkshopsPage = () => {
       })}
       {isLogged &&
         <ContentContainer Title='افزودن کارگاه جدید'>
-          <form>
+          <form onSubmit={()=>addWorkshopHandler()}>
             <Workshop
-              Info={info}
+              Lecturer= {<Input inputProperties={inputProperties.lecturer} handlers={inputProperties.handlers} />}
+              Price= {<Input inputProperties={inputProperties.price} handlers={inputProperties.handlers} />}
+              Date= {<Input inputProperties={inputProperties.date} handlers={inputProperties.handlers} />}
+              Time= {<Input inputProperties={inputProperties.time} handlers={inputProperties.handlers} />}
+              Image= 'fileUpload'
               Title={<Input inputProperties={inputProperties.title} handlers={inputProperties.handlers} />}
               Border>
-                <Input inputProperties={inputProperties.introduction} handlers={inputProperties.handlers}/>
+              <Input inputProperties={inputProperties.introduction} handlers={inputProperties.handlers} />
             </Workshop>
+            <div className={style.SubmitButton}>
+              <Button Type='submit'>ثبت</Button>
+            </div>
           </form>
         </ContentContainer>
       }

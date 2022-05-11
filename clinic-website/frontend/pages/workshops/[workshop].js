@@ -30,7 +30,11 @@ const WorkShop = (props) => {
 
   return <div className='scroll'>
     <ContentContainer Title={props.data.Title} UnderLine>
-      <Workshop Info={props.data.Info} >
+      <Workshop Lecturer={props.data.Lecturer}
+          Price={props.data.Price}
+          Date={props.data.Date}
+          Time={props.data.Time}
+          >
         <div style={{ whiteSpace: "pre-line" }}>
           {props.data.Introduction}
         </div>

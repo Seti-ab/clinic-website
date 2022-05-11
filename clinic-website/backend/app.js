@@ -6,7 +6,7 @@ let mongoose = require('mongoose')
 var logger = require('morgan');
 
 
-mongoose.connect('mongodb://localhost:27017/setiprj', {})
+mongoose.connect('mongodb://localhost:27017/clinic', {})
   .catch(error => console.log(error));
 var app = express();
 
@@ -23,8 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 let Psychologist = require('./routes/Psychologist')
 app.use('/Psychologist', Psychologist)
 
-let worhshop = require('./routes/worhshop')
-app.use('/worhshop', worhshop)
+let workshop = require('./routes/workshop')
+app.use('/workshop', workshop)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

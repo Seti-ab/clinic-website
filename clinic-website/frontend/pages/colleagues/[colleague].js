@@ -15,30 +15,30 @@ const ColleaguePage = (props) => {
       left: 0,
       behavior: 'auto'
     });
-    if (router.asPath === (props.data.Info.Link + '#description')) {
-      router.replace(props.data.Info.Link)
+    if (router.asPath === (props.data.Link + '#description')) {
+      router.replace(props.data.Link)
       scroller.scrollTo("scroll", {
         duration: 1000,
         delay: 0,
         smooth: true,
       });
     }
-  }, [props.data.Info.Link, router])
+  }, [props.data.Link, router])
 
   return (
     <div className='scroll'>
-      <ContentContainer Title={props.data.Info.Name} UnderLine >
+      <ContentContainer Title={props.data.Name} UnderLine >
         <div className={styles.EachColleaguePage}>
           <div >
             <Image
-              src={`/images/Colleagues/${props.data.Info.Picture}`}
+              src={`/images/Colleagues/${props.data.Picture}`}
               width={250}
               height={250}
               layout='intrinsic'
             />
           </div>
           <div className={styles.Text}>
-            <h3>{props.data.Info.JobTitle}</h3>
+            <h3>{props.data.JobTitle}</h3>
             <p>{props.data.Education}</p>
             <p>{props.data.Introduction}</p>
             <p className={styles.Email}><HiOutlineMail />{props.data.Email}</p>
