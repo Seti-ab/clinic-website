@@ -15,15 +15,21 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
         <meta httpEquiv="content-type" content="text/html;charset=utf-8" />
       </Head>
-      {router.pathname !== '/login' ?
+      {router.pathname !== '/login' && router.pathname !== '/404'?
         <>
-
           <Header />
           <Hero />
           <Component {...pageProps} />
           <Footer />
         </>
         : <Component {...pageProps} />
+      }
+      {router.pathname === '/404' &&
+        <>
+          <Header />
+          <Hero />
+          <Component {...pageProps} />
+        </>
       }
     </>
   )

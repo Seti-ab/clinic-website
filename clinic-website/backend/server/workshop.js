@@ -24,7 +24,17 @@ methods.Add = (Title, date, Time, Link, Lecturer, Introduction, price, callback)
     })
 }
 
-methods.getlist = (callback) => {
+// methods.getlist = (callback) => {
+//     workshopTable.find().populate('Lecturer', 'Name').lean().exec((err, list) => {
+//         if (err) {
+//             callback(500, err)
+//         } else {
+//             callback(null, null, list)
+//         }
+//     })
+// }
+
+methods.getAllList = (callback) => {
     workshopTable.find().populate('Lecturer', 'Name').lean().exec((err, list) => {
         if (err) {
             callback(500, err)
@@ -33,6 +43,7 @@ methods.getlist = (callback) => {
         }
     })
 }
+
 methods.del = (id, callback) => {
     console.log('server');
     workshopTable.findOneAndRemove({ _id: id }).lean().exec((err, deleted) => {

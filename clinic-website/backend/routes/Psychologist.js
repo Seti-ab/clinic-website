@@ -71,7 +71,8 @@ router.post('/login', (req, res) => {
         })
     } else {
         if (pr.validateEmail(req.body.Email)) {
-            PsychologistSrvices.login(req.body.Email, req.body.Password, (errorcode, errortext, token) => {
+            PsychologistSrvices.login(req.body.Email, req.body.Password, (errorcode, errortext
+                , Psychologist, token) => {
                 if (errorcode) {
                     res.status(errorcode).send({
                         success: false,
@@ -80,6 +81,7 @@ router.post('/login', (req, res) => {
                 } else {
                     res.status(200).send({
                         success: true,
+                        Psychologist:Psychologist.Name,
                         token: token
                     })
                 }

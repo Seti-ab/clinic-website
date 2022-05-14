@@ -16,6 +16,7 @@ const ColleaguesPage = () => {
       }).catch(error => {
         console.log("error", error);
       })
+      axios.get('http://localhost:4500/')
   }, [])
 
   return <ContentContainer Title='رزومه‌ی همکاران' UnderLine>

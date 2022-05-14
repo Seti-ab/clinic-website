@@ -9,9 +9,19 @@ import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 
 const WorkshopsPage = () => {
+  const initialValue = {
+    Title: '',
+    Price: '',
+    Date: '',
+    Time: '',
+    Introduction: '',
+  }
+
   const [isLogged, setIsLogged] = useState(false);
-  const [newWorkshop, setNewWorkshop] = useState();
-  const [workshops,setWorkshops]=useState();
+  const [newWorkshop, setNewWorkshop] = useState(initialValue);
+  const [workshops, setWorkshops] = useState();
+  const [length, setLength] = useState();
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const token = Cookies.get("token");
@@ -21,15 +31,15 @@ const WorkshopsPage = () => {
   }, [isLogged]);
 
   useEffect(() => {
-    
-    axios.get('http://localhost:4500/workshop/get')
-    .then(response=>{
-      console.log("response",response);
-    }).catch(error=>{
-      console.log("error",error)
-    })
-  }, [])
-  
+    axios.get('http://localhost:4500/workshop/getall')
+      .then(response => {
+        console.log("response", response);
+        setWorkshops(response.data.workshops);
+      }).catch(error => {
+        console.log("error", error)
+      })
+  }, [length])
+
 
   const inputChangeHandler = (event) => {
     let temp = { ...newWorkshop };
@@ -41,32 +51,27 @@ const WorkshopsPage = () => {
     title: {
       config: {
         placeholder: 'عنوان',
-        name: 'title',
+        name: 'Title',
         //value: newWorkshop.title
       },
 
     },
-    lecturer: {
-      config: {
-        name: 'lecturer',
-        //value:newWorkshop.lecturer
-      }
-    },
+
     price: {
       config: {
-        name: 'price',
+        name: 'Price',
         //value:newWorkshop.price
       }
     },
     date: {
       config: {
-        name: 'date',
+        name: 'Date',
         //value:newWorkshop.date
       }
     },
     time: {
       config: {
-        name: 'time',
+        name: 'Time',
         placeholder: '__ ساعت'
         //value:newWorkshop.time
       }
@@ -75,7 +80,7 @@ const WorkshopsPage = () => {
       config: {
         type: 'textarea',
         placeholder: 'توضیحات',
-        name: 'introduction'
+        name: 'Introduction'
       }
     },
     handlers: {
@@ -83,39 +88,71 @@ const WorkshopsPage = () => {
     }
 
   }
-  //blurHandler: inputBlurHandler,
 
-  const addWorkshopHandler=()=>{
-    let temp={...workshops};
-    temp.push(newWorkshop);
-    setWorkshops(temp);
+  const validationHandler = () => {
+    let TitleError = '', DateError = '';
+    if (newWorkshop.Title === '') {
+      TitleError = "لطفا عنوان کارگاه مورد نظر خود را وارد نمایید."
+    }
+    else if (newWorkshop.Date === '') {
+      DateError = 'لطفا تاریخ برگزاری کارگاه مورد نظر خود را وارد نمایید.'
+    }
+    if (TitleError || DateError) {
+      setError(TitleError || DateError) 
+      return false;
+    } else return true;
+  }
+
+  const addWorkshopHandler = (event) => {
+    event.preventDefault();
+    const isValid = validationHandler();
+    if (isValid) {
+      const token = Cookies.get("token");
+      const data = {
+        ...newWorkshop,
+        Link: 'workshop' + workshops.length
+      }
+      axios.post('http://localhost:4500/workshop/add', data, { headers: { token } })
+        .then(response => {
+          console.log("response", response);
+          setLength(workshops.length);
+          setError('');
+          setNewWorkshop(initialValue);
+        }).catch(error => {
+          console.log("error", error.response.data.error);
+          setError(error.response.data.error);
+
+        })
+    } else (
+      console.log("something went wrong")
+    )
   }
 
   console.log("newWorkshop", newWorkshop);
   return <div className={'container ' + style.WorkshopsPage}>
     <ContentContainer Title='کـارگاه‌های آموزشـی'>
-      {workshops?.map(workshop => {
+      {workshops?.map((workshop, index) => {
         return <Workshop
-          key={workshop.ID}
-          Lecturer={workshop.Lecturer}
+          key={index}
+          Lecturer={workshop.Lecturer?.Name}
           Price={workshop.Price}
           Date={workshop.Date}
           Time={workshop.Time}
           Image={workshop.Image}
           Title={workshop.Title}
-          Link={workshop.Link + '#description'}
+          Link={workshop.Link +'#description'}
           Border>
         </Workshop>
       })}
       {isLogged &&
         <ContentContainer Title='افزودن کارگاه جدید'>
-          <form onSubmit={()=>addWorkshopHandler()}>
+          <p className={error === '' ? style.HideError : style.ShowError}>{error}</p>
+          <form onSubmit={(event) => addWorkshopHandler(event)}>
             <Workshop
-              Lecturer= {<Input inputProperties={inputProperties.lecturer} handlers={inputProperties.handlers} />}
-              Price= {<Input inputProperties={inputProperties.price} handlers={inputProperties.handlers} />}
-              Date= {<Input inputProperties={inputProperties.date} handlers={inputProperties.handlers} />}
-              Time= {<Input inputProperties={inputProperties.time} handlers={inputProperties.handlers} />}
-              Image= 'fileUpload'
+              Price={<Input inputProperties={inputProperties.price} handlers={inputProperties.handlers} />}
+              Date={<Input inputProperties={inputProperties.date} handlers={inputProperties.handlers} />}
+              Time={<Input inputProperties={inputProperties.time} handlers={inputProperties.handlers} />}
+              Image='fileUpload'
               Title={<Input inputProperties={inputProperties.title} handlers={inputProperties.handlers} />}
               Border>
               <Input inputProperties={inputProperties.introduction} handlers={inputProperties.handlers} />

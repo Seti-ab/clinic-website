@@ -1,12 +1,24 @@
-
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/Home.module.scss'
 import ContentContainer from '../components/ContentContainer/ContentContainer'
 import Workshop from '../components/Workshop/Workshop'
-import { workshopsInfo } from '../public/data';
 import Button from '../components/UI/Button/Button';
 import Gallery from '../components/Gallery/Gallery'
+import axios from 'axios';
+
 export default function Home() {
+  const [workshop, setWorkshop] = useState();
+  useEffect(() => {
+    axios.get('http://localhost:4500/workshop/getall')
+    .then(response=>{
+      console.log("response",response.data.workshops[0]);
+      setWorkshop(response.data.workshops[0])
+    }).catch(error=>{
+      console.log("error",error);
+    })
+  }, [])
+  
   return (
     <>
       <div className='container'>
@@ -17,12 +29,12 @@ export default function Home() {
         </ContentContainer>
         <ContentContainer Title='کارگاه آموزشی پرطرفدار '>
           <Workshop
-            Title={workshopsInfo[0].Title}
-            Lecturer={workshopsInfo[0].Lecturer}
-            Price={workshopsInfo[0].Price}
-            Date={workshopsInfo[0].Date}
-            Time={workshopsInfo[0].Time}
-            Link={workshopsInfo[0].Link + '#description'}
+            Title={workshop?.Title}
+            Lecturer={workshop?.Lecturer.Name}
+            Price={workshop?.Price}
+            Date={workshop?.Date}
+            Time={workshop?.Time}
+            Link={workshop?.Link + '#description'}
             Border>
           </Workshop>
         </ContentContainer>

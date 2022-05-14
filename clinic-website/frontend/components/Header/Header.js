@@ -58,7 +58,6 @@ const Header = () => {
 
                 <div className={styles.Login}>
                     {isLogged ?
-
                         <a onClick={() => logoutHandler()}>
                             <span>خروج</span>
                             <FiLogOut />

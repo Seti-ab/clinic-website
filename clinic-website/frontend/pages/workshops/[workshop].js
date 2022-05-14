@@ -1,12 +1,8 @@
 import React, { useEffect } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { scroller } from "react-scroll";
-
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 import Workshop from '../../components/Workshop/Workshop';
-
-import { workshopsInfo } from '../../public/data';
 
 const WorkShop = (props) => {
   const router = useRouter(null)
@@ -17,7 +13,8 @@ const WorkShop = (props) => {
       left: 0,
       behavior: 'auto'
     });
-    if (router.asPath === (props.data.Link + '#description')) {
+
+    if (router.asPath === ('/workshops/' + props.data.Link + '#description')) {
       router.replace(props.data.Link)
       scroller.scrollTo("scroll", {
         duration: 900,
@@ -26,15 +23,16 @@ const WorkShop = (props) => {
       });
     }
   }
-    , [props.data.Link,router])
+    , [props?.data?.Link, router])
 
   return <div className='scroll'>
     <ContentContainer Title={props.data.Title} UnderLine>
-      <Workshop Lecturer={props.data.Lecturer}
-          Price={props.data.Price}
-          Date={props.data.Date}
-          Time={props.data.Time}
-          >
+      <Workshop
+        Lecturer={props.data.Lecturer.Name}
+        Price={props.data.Price}
+        Date={props.data.Date}
+        Time={props.data.Time}
+      >
         <div style={{ whiteSpace: "pre-line" }}>
           {props.data.Introduction}
         </div>
@@ -43,24 +41,23 @@ const WorkShop = (props) => {
   </div>;
 };
 
-export async function getStaticProps(context) {
-
+export async function getServerSideProps(context) {
   const { params } = context;
-  const workshop = workshopsInfo.find((w) => w.ID === params.workshop);
-  return {
-    props: {
-      data: workshop
+  const res = await fetch('http://localhost:4500/workshop/getall')
+  const list = await res.json();
+  const workshop = list.workshops.find((workshop) => workshop.Link === params.workshop);
+  if (workshop) {
+    return {
+      props: {
+        data: workshop
+      },
     }
-  };
-}
+  } else return {
+    redirect: {
+      destination: '/404',
+      permanent: false,
+    },
 
-export async function getStaticPaths() {
-  const paths=workshopsInfo.map(w=>{
-    return { params: { workshop: w.ID } }
-  })
-  return {
-    paths,
-    fallback: false,
   }
 }
 

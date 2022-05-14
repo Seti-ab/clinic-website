@@ -1,13 +1,27 @@
+$error-color: #ff4040;
 .WorkshopsPage {
+    .ShowError {
+        position: relative;
+        top: -18px;
+        font-size: 0.9rem;
+        color: $error-color;
+        transition: all 0.5s ease-in-out;
+        opacity: 1;
+    }
+    .HideError{
+        opacity: 0;
+        top: -10px;
+        transition: all 0.5s ease-in-out;
+    }
     form {
-        margin-top: -110px;
-        >div {
-            padding-top: 120px ;
+        margin-top: -130px;
+        > div {
+            padding-top: 110px;
         }
-        .SubmitButton{
+        .SubmitButton {
             padding-top: 0;
             text-align: center;
-            margin-top: -60px;
+            margin-top: -15px;
         }
     }
 }

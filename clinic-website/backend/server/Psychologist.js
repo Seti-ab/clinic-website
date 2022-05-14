@@ -66,7 +66,7 @@ methods.login = function (Email, password, callback) {
                     } else {
                         if (success) {
                             let token = pr.generateJWT(PsychologistRecord.id)
-                            callback(null, null, token)
+                            callback(null, null, PsychologistRecord, token)
                         } else {
                             callback(400, 'رمز اشتباه است', null)
                         }
