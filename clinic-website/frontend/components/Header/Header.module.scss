@@ -73,6 +73,17 @@ $sub-color: #a2ecf3;
     }
     .Login {
         display: flex;
+        div {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            >span {
+                font-weight: 600;
+                font-size: 15px;
+                color: #00416b;
+                cursor: default;
+            }
+        }
         a {
             display: flex;
             align-items: center;
@@ -81,12 +92,11 @@ $sub-color: #a2ecf3;
             color: #ffffff;
             gap: 10px;
             cursor: pointer;
-            span{
+            span {
                 font-size: 14px;
             }
-            svg{
+            svg {
                 font-size: 18px;
-                
             }
         }
     }
@@ -106,7 +116,7 @@ $sub-color: #a2ecf3;
             backdrop-filter: unset;
             width: 100%;
             justify-content: space-between;
-            .Items{
+            .Items {
                 width: unset;
             }
         }
@@ -161,11 +171,16 @@ $sub-color: #a2ecf3;
         }
         .Login {
             margin-right: 25px;
-            a {
-                span{
+            div {
+                >span {
                     display: none;
                 }
-                svg{
+            }
+            a {
+                span {
+                    display: none;
+                }
+                svg {
                     font-size: 23px;
                 }
             }

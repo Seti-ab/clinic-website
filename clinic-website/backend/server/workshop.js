@@ -3,7 +3,7 @@ let workshopTable = require('../tables/workshop')
 
 let methods = {}
 
-methods.Add = (Title, date, Time, Link, Lecturer, Introduction, price, callback) => {
+methods.Add = (Title, date, Time, Link, Lecturer, Introduction, price, Image, callback) => {
     console.log('server');
     let newWorkshop = new workshopTable({
         Title: Title,
@@ -12,7 +12,8 @@ methods.Add = (Title, date, Time, Link, Lecturer, Introduction, price, callback)
         Time: Time,
         Link: Link,
         Date: date,
-        Price: price
+        Price: price,
+        Image:Image
     })
     console.log(newWorkshop);
     newWorkshop.save((err, workshop) => {

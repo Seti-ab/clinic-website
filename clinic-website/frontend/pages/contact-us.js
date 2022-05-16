@@ -9,12 +9,13 @@ import lottie from "lottie-web";
 import contactUs from '../assets/animations/contact-us.json';
 
 const ContactUsPage = () => {
-    const [error, setError] = useState({});
-    const [values, setValues] = useState({
+    const initialValues={
         name: '',
         email: '',
         message: ''
-    });
+    }
+    const [error, setError] = useState({});
+    const [values, setValues] = useState(initialValues);
     
     const animation = useRef(null);
 
@@ -106,6 +107,7 @@ const ContactUsPage = () => {
                 .then((response) => {
                     if (response.status == 200) {
                         setShowModal(true);
+                        setValues(initialValues);
                     }
                 })
                 .catch((error) => console.log(error));

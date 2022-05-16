@@ -12,7 +12,7 @@ const Workshop = (props) => {
             <div className={styles.Content}>
                 {props.children}
                 <ul>
-                    {props.Lecturer&&<li><p><IoMdPerson />مدرس: </p><span>{props.Lecturer}</span></li>}
+                    {props.Lecturer && <li><p><IoMdPerson />مدرس: </p><span>{props.Lecturer}</span></li>}
                     {props.Time && <li><p><IoIosTime />مدت زمان: </p><span>{props.Time}</span></li>}
                     <li><p><IoMdCalendar />تاریخ: </p><span>{props.Date}</span></li>
                     {props.Price && <li><p><IoIosPricetags />قیمت: </p><span>{props.Price} <sub>تومان</sub> </span></li>}
@@ -20,7 +20,7 @@ const Workshop = (props) => {
                 </ul>
             </div>
             {props.Link &&
-                <Link href={'/workshops/'+ props.Link}>
+                <Link href={'/workshops/' + props.Link}>
                     <a>توضیحات بیشتر
                         <div>
                             <BsArrowLeft />
@@ -30,7 +30,9 @@ const Workshop = (props) => {
             }
         </div>
         <div className={styles.Image}>
-            {props.Image !== 'fileUpload' &&
+            {props.Image?.type ?
+                props.Image
+                :
                 <Image
                     src={`/images/workshops/${props.Image ? props.Image : 'default.jpg'}`}
                     alt={props.Title}

@@ -1,27 +1,83 @@
 $error-color: #ff4040;
+$title-color: #105c91;
 .WorkshopsPage {
     .ShowError {
-        position: relative;
-        top: -18px;
+        position: absolute;
+        top: 120px;
         font-size: 0.9rem;
         color: $error-color;
         transition: all 0.5s ease-in-out;
         opacity: 1;
     }
-    .HideError{
+    .HideError {
+        position: absolute;
+        font-size: 0.9rem;
         opacity: 0;
-        top: -10px;
+        top: 135px;
         transition: all 0.5s ease-in-out;
     }
     form {
-        margin-top: -130px;
+        margin-top: -90px;
         > div {
-            padding-top: 110px;
+            padding-top: 100px;
         }
         .SubmitButton {
             padding-top: 0;
             text-align: center;
             margin-top: -15px;
+        }
+        .ChooseImage {
+            display: flex;
+            width: 100%;
+            flex-flow: column;
+            margin-top: 10px;
+            position: relative;
+            gap: 5px;
+            p {
+                color: $title-color;
+                position: absolute;
+                right: 0;
+                display: flex;
+                align-items: center;
+                svg {
+                    font-size: 20px;
+                    margin-left: 3px;
+                }
+            }
+            label {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                position: relative;
+                right: 100px;
+                width: fit-content;
+                input{
+                    cursor: pointer;
+                }
+            }
+        }
+        
+    }
+}
+@media screen and (max-width:950px) {
+    .WorkshopsPage {
+        .ShowError{
+            top: unset;
+            bottom: 72px;
+        }
+        .HideError{
+            top: unset;
+            bottom: 80px;
+        }
+        form{
+            margin-top: 0;
+            >div{
+                padding-top: 20px;
+            }
+            .SubmitButton {
+                margin-top: 0;
+            }
         }
     }
 }

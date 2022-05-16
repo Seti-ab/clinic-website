@@ -6,6 +6,7 @@ $sub-color: #a2ecf3;
     justify-content: center;
     align-items: center;
     width: 100%;
+    position: relative;
     .Title {
         width: 100%;
         display: flex;
@@ -49,7 +50,7 @@ $sub-color: #a2ecf3;
             }
         }
         .Content{
-            row-gap: 65px;
+            row-gap: 40px;
         }
     }
 }

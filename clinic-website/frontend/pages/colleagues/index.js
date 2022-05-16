@@ -7,16 +7,15 @@ import Colleague from '../../components/Colleague/Colleague';
 
 const ColleaguesPage = () => {
   const [psychologists, setPsychologists] = useState();
-
+  
   useEffect(() => {
     axios.get('http://localhost:4500/Psychologist/getlist')
       .then(response => {
         console.log("response", response);
-        setPsychologists(response.data.list)
+        setPsychologists(response.data.list);
       }).catch(error => {
         console.log("error", error);
       })
-      axios.get('http://localhost:4500/')
   }, [])
 
   return <ContentContainer Title='رزومه‌ی همکاران' UnderLine>

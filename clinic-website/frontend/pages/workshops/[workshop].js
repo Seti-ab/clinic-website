@@ -32,6 +32,7 @@ const WorkShop = (props) => {
         Price={props.data.Price}
         Date={props.data.Date}
         Time={props.data.Time}
+        Image={props.data.Image}
       >
         <div style={{ whiteSpace: "pre-line" }}>
           {props.data.Introduction}

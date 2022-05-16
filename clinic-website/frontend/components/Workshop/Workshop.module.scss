@@ -15,7 +15,7 @@ $title-color: #105c91;
         display: flex;
         flex-direction: column;
         max-width: 492px;
-        gap: 50px;
+        gap: inherit;
         text-align: justify;
         width: 370px;
         h2 {
@@ -51,8 +51,8 @@ $title-color: #105c91;
                     align-items: center;
                     position: absolute;
                     right: 100px;
-                    sub{
-                        margin: 10px 10px 0 0;
+                    sub {
+                        margin: 7px 10px 0 0;
                     }
                 }
             }
@@ -60,7 +60,30 @@ $title-color: #105c91;
 
         .Content {
             white-space: pre-line;
+            
+            // Custom ScrollBar
+            /* width */
+            ::-webkit-scrollbar {
+                width: 7px;
+            }
+            
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: #f3f3f3;
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: $main-color;
+                border-radius: 10px;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: $title-color;
+            }
             > div {
+                line-height: 30px;
                 margin-bottom: 20px;
             }
         }
@@ -118,7 +141,7 @@ $title-color: #105c91;
                 span {
                     position: unset !important;
                     right: unset !important;
-                    sub{
+                    sub {
                         position: absolute;
                         left: 12px;
                     }

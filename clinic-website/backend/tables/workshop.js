@@ -27,5 +27,8 @@ let workshop = new schema({
     Price: {
         type: String
     },
+    Image: {
+        type: String
+    }
 })
 module.exports = mongoose.model('workshop', workshop)

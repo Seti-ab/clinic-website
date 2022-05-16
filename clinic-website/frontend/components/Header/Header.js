@@ -14,12 +14,15 @@ const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
     const router = useRouter();
     const [isLogged, setIsLogged] = useState(false);
+    const [userName, setUserName] = useState();
 
     useEffect(() => {
         const token = Cookies.get("token");
         if (token) {
             setIsLogged(true);
         }
+        const userName = Cookies.get("userName");
+        setUserName(userName);
     }, [])
 
     const logoutHandler = () => {
@@ -58,13 +61,14 @@ const Header = () => {
 
                 <div className={styles.Login}>
                     {isLogged ?
-                        <a onClick={() => logoutHandler()}>
-                            <span>خروج</span>
-                            <FiLogOut />
-                        </a>
-
-                        :
-                        <Link href='/login'><a>
+                        <div>
+                            <span>{userName}</span>
+                            <a onClick={() => logoutHandler()}>
+                                <span>خروج</span>
+                                <FiLogOut />
+                            </a>
+                        </div>
+                        : <Link href='/login'><a>
                             <span>ورود کارمندان</span>
                             <FiLogIn />
                         </a>

@@ -94,6 +94,7 @@ const Login = () => {
         .then(response => {
           console.log("response", response);
           Cookies.set('token', response.data.token);
+          Cookies.set("userName",response.data.Psychologist);
           if (history !== '/login' && history !== '/_app') {
             router.push(history);
           } else {

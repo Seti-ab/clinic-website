@@ -9,7 +9,7 @@ let auth = require('./Authentication').authentication()
 
 router.post('/add', auth, (req, res) => {
     if (typeof req.body.Title === 'undefined' || typeof req.body.Date === 'undefined' || typeof req.body.Time === 'undefined' ||
-        typeof req.body.Link === 'undefined' || typeof req.body.Introduction === 'undefined'
+        typeof req.body.Link === 'undefined' || typeof req.body.Introduction === 'undefined' || typeof req.body.Image==='undefined'
         || typeof req.body.Price === 'undefined') {
         res.status(400).send({
             success: false,
@@ -18,7 +18,7 @@ router.post('/add', auth, (req, res) => {
     } else {
         console.log(req.Psychologist)
         workshopServices.Add(req.body.Title, req.body.Date, req.body.Time, req.body.Link, req.Psychologist._id, req.body.Introduction,
-            req.body.Price, (errorcode, errortext, workshop) => {
+            req.body.Price,req.body.Image ,(errorcode, errortext, workshop) => {
                 if (errorcode) {
                     res.status(errorcode).send({
                         success: false,

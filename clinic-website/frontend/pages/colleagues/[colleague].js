@@ -50,25 +50,24 @@ const ColleaguePage = (props) => {
 }
 
 
-export async function getStaticProps(context) {
-
+export async function getServerSideProps(context) {
   const { params } = context;
-  const colleague = colleaguesInfo.find((c) => c.ID === params.colleague);
-  return {
-    props: {
-      data: colleague
+  const res = await fetch('http://localhost:4500/Psychologist/getlist')
+  const colleagues = await res.json();
+  console.log("list",list);
+  const colleague = colleagues.list.find((colleague) => colleague.Link === params.colleague);
+  if (workshop) {
+    return {
+      props: {
+        data: colleague
+      },
     }
-  };
-}
+  } else return {
+    redirect: {
+      destination: '/404',
+      permanent: false,
+    },
 
-export async function getStaticPaths() {
-  return {
-    paths: [
-      { params: { colleague: "maryam-soleymani" } },
-      { params: { colleague: "reza-mirzaee" } },
-    ],
-    fallback: false,
   }
 }
-
 export default ColleaguePage;
