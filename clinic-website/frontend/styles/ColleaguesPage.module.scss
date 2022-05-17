@@ -8,6 +8,94 @@ $title-color: #105c91;
     row-gap: 40px;
     column-gap: 40px;
     max-width: 1032px;
+    position: relative;
+    .AddColleague {
+        position: absolute;
+        bottom: -50px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        button {
+            border: none;
+            background: #22a6b3;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            svg {
+                font-size: 25px;
+                color: #ffffff;
+            }
+        }
+    }
+}
+.Modal {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba($color: #000000, $alpha: 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 150;
+    cursor: pointer;
+    > div {
+        background: #ffffff;
+        padding: 35px 25px;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        width: 50%;
+        max-width: 500px;
+        min-width: 300px;
+        cursor: normal;
+        h3 {
+            margin-bottom: 20px;
+            color: $title-color;
+            font-size: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-height: 70vh;
+            overflow: auto;
+            
+            label {
+                display: flex;
+                align-items: center;
+                column-gap: 10px;
+                white-space: nowrap;
+            }
+            > div {
+                display: flex;
+                gap: 20px;
+                width: 100%;
+            }
+            .Passwords {
+                margin-top: 20px;
+                position: relative;
+                span {
+                    position: absolute;
+                    top: -25px;
+                    z-index: 50;
+                }
+            }
+            .SubmitButton {
+                justify-content: center;
+                margin-top: 20px;
+            }
+            
+        }
+    }
+    
 }
 .EachColleaguePage {
     display: flex;
@@ -15,11 +103,10 @@ $title-color: #105c91;
     align-items: center;
     justify-content: center;
     .Text {
-        width: 350px;
         display: flex;
         flex-direction: column;
         gap: 10px;
-        h3{
+        h3 {
             color: $main-color;
             margin-bottom: 4px;
         }
@@ -27,11 +114,31 @@ $title-color: #105c91;
             direction: ltr;
             display: flex;
             align-items: center;
-            gap: 2px;
+            gap: 5px;
             margin-top: 5px;
             svg {
                 font-size: 21px;
                 color: $main-color;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .Modal {
+        > div {
+            form {
+                label {
+                    align-items: flex-start;
+                    flex-direction: column;
+                    textarea {
+                        height: 50px;
+                    }
+                }
+                > div {
+                    display: flex;
+                    flex-direction: column;
+                }
             }
         }
     }

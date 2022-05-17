@@ -1,8 +1,10 @@
 $title-color: #105c91;
 $error-color: #ff4040;
 .Input {
+    
     > div {
         position: relative;
+        width: 100%;
         input,
         textarea {
             margin-top: 8px;
@@ -42,7 +44,7 @@ $error-color: #ff4040;
         line-height: 1.5;
         margin-top: 2px;
     }
-    .PasswordShowToggler{
+    .PasswordShowToggler {
         position: absolute;
         left: 0;
         bottom: 0;
@@ -53,7 +55,7 @@ $error-color: #ff4040;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        svg{
+        svg {
             font-size: 18px;
             color: rgba($color: $title-color, $alpha: 0.75);
         }

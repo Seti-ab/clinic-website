@@ -10,21 +10,21 @@ const Input = (props) => {
                     <label>
                         <div className={styles.PasswordShowToggler} onClick={()=>setIsShown(!isShown)}>{isShown ? <FaRegEyeSlash /> : <FaRegEye />}</div>
                         {props.inputProperties.Label}
-                        <input {...props.inputProperties.config} type={isShown ? 'text' : 'password'} onChange={(event) => props.handlers.changeHandler(event)} onBlur={(event) => (props.handlers.blurHandler && props.handlers.blurHandler(event))} />
+                        <input {...props.inputProperties.config} type={isShown ? 'text' : 'password'} onChange={(event) => props.handlers.changeHandler(event)} onBlur={(event) => (props.handlers?.blurHandler && props.handlers.blurHandler(event))} />
                     </label>
                 )
             case 'textarea':
                 return (
                     <label>
                         {props.inputProperties.Label}
-                        <textarea {...props.inputProperties.config} onChange={(event) => props.handlers.changeHandler(event)} onBlur={(event) => (props.handlers.blurHandler && props.handlers.blurHandler(event))} />
+                        <textarea {...props.inputProperties.config} onChange={(event) => props.handlers.changeHandler(event)} onBlur={(event) => (props.handlers?.blurHandler && props.handlers.blurHandler(event))} />
                     </label>
                 )
             default:
                 return (
                     <label>
                         {props.inputProperties.Label}
-                        <input {...props.inputProperties.config} onChange={(event) => props.handlers.changeHandler(event)} onBlur={(event) => (props.handlers.blurHandler && props.handlers.blurHandler(event))} />
+                        <input {...props.inputProperties.config} onChange={(event) => props.handlers.changeHandler(event)} onBlur={(event) => (props.handlers?.blurHandler && props.handlers.blurHandler(event))} />
                     </label>
                 )
         }
