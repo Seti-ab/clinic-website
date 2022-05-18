@@ -32,14 +32,13 @@ const ContactUsPage = () => {
 
     const [showModal, setShowModal] = useState(false)
 
-    const inputChangeHandler = (event) => {
-
+    const changeHandler = (event) => {
         let temp = { ...values };
         temp[event.target.name] = event.target.value;
         setValues(temp);
     }
 
-    const inputBlurHandler = (event) => {
+    const blurHandler = (event) => {
         let temp = { ...error }
         let emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
 
@@ -129,7 +128,9 @@ const ContactUsPage = () => {
                 value: values.name
             },
 
-            Label: 'نام و نام خانوادگی *'
+            Label: 'نام و نام خانوادگی *',
+            blurHandler,
+            changeHandler,
         },
         email: {
             config: {
@@ -139,7 +140,9 @@ const ContactUsPage = () => {
                 value: values.email
             },
 
-            Label: 'ایمیل *'
+            Label: 'ایمیل *',
+            blurHandler,
+            changeHandler,
         },
 
         message: {
@@ -149,12 +152,10 @@ const ContactUsPage = () => {
                 name: 'message',
                 value: values.message
             },
-            Label: 'متن پیام *'
+            Label: 'متن پیام *',
+            blurHandler,
+            changeHandler,
         },
-        handlers: {
-            blurHandler: inputBlurHandler,
-            changeHandler: inputChangeHandler,
-        }
     }
     
     return <div className={style.ContactUsPage}>
@@ -166,19 +167,16 @@ const ContactUsPage = () => {
 
                 <Input
                     inputProperties={inputProperties.name}
-                    handlers={inputProperties.handlers}
                     Error={error.name}
                 />
 
                 <Input
                     inputProperties={inputProperties.email}
-                    handlers={inputProperties.handlers}
                     Error={error.email}
                 />
 
                 <Input
                     inputProperties={inputProperties.message}
-                    handlers={inputProperties.handlers}
                     Error={error.message}
                 />
 

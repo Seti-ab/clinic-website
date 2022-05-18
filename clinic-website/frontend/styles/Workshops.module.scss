@@ -17,7 +17,20 @@ $title-color: #105c91;
         transition: all 0.5s ease-in-out;
     }
     form {
-        margin-top: -90px;
+        //Hide Arrows
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        margin-top: -95px;
         > div {
             padding-top: 100px;
         }
@@ -52,27 +65,26 @@ $title-color: #105c91;
                 position: relative;
                 right: 100px;
                 width: fit-content;
-                input{
+                input {
                     cursor: pointer;
                 }
             }
         }
-        
     }
 }
-@media screen and (max-width:950px) {
+@media screen and (max-width: 950px) {
     .WorkshopsPage {
-        .ShowError{
+        .ShowError {
             top: unset;
             bottom: 72px;
         }
-        .HideError{
+        .HideError {
             top: unset;
             bottom: 80px;
         }
-        form{
+        form {
             margin-top: 0;
-            >div{
+            > div {
                 padding-top: 20px;
             }
             .SubmitButton {

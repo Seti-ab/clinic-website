@@ -15,7 +15,7 @@ const Workshop = (props) => {
                     {props.Lecturer && <li><p><IoMdPerson />مدرس: </p><span>{props.Lecturer}</span></li>}
                     {props.Time && <li><p><IoIosTime />مدت زمان: </p><span>{props.Time}</span></li>}
                     <li><p><IoMdCalendar />تاریخ: </p><span>{props.Date}</span></li>
-                    {props.Price && <li><p><IoIosPricetags />قیمت: </p><span>{props.Price} <sub>تومان</sub> </span></li>}
+                    {props.Price && <li><p><IoIosPricetags />قیمت: </p><span>{props.Price} </span></li>}
                     {props.Special && <li className={styles.Special}>*{props.Special}</li>}
                 </ul>
             </div>

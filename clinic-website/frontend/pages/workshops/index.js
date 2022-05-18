@@ -10,12 +10,12 @@ import { IoIosImages } from 'react-icons/io';
 import { toPersianNumber } from '../../helpers/action'
 const WorkshopsPage = () => {
   const initialValues = {
-    Title: '',
-    Price: '',
-    Date: '',
-    Time: '',
-    Introduction: '',
-    Image: ''
+    title: '',
+    price: '',
+    date: '',
+    time: '',
+    introduction: '',
+    image: ''
   }
 
   const [isLogged, setIsLogged] = useState(false);
@@ -42,13 +42,17 @@ const WorkshopsPage = () => {
   }, [length])
 
 
-  const inputChangeHandler = (event) => {
+  const changeHandler = (event) => {
     let temp = { ...newWorkshop };
     temp[event.target.name] = event.target.value;
-    if (event.target.name === 'Price') {
-        const formattedValue = (Number(event.target.value.replace(/\D/g, '')) || '').toLocaleString();
-        temp[event.target.name] = formattedValue;
-        setNewWorkshop(temp);
+    if (event.target.name === 'time') {
+      if (event.target.value.length > 3) {
+        return;
+      }
+    }
+    if (event.target.name === 'price') {
+      const formattedValue = (Number(event.target.value.replace(/\D/g, '')) || '').toLocaleString();
+      temp[event.target.name] = formattedValue;
     }
     setNewWorkshop(temp);
   }
@@ -57,51 +61,54 @@ const WorkshopsPage = () => {
     title: {
       config: {
         placeholder: 'عنوان',
-        name: 'Title',
-        value: newWorkshop.Title,
-      }
+        name: 'title',
+        value: newWorkshop.title,
+      },
+      changeHandler
     },
 
     price: {
       config: {
-        name: 'Price',
-        value: newWorkshop.Price,
-      }
+        name: 'price',
+        value: newWorkshop.price,
+      },
+      changeHandler
     },
     date: {
       config: {
-        name: 'Date',
+        name: 'date',
         placeholder: 'روزها و ساعت برگزاری',
-        value: newWorkshop.Date,
-      }
+        value: newWorkshop.date,
+      },
+      changeHandler
     },
     time: {
       config: {
-        name: 'Time',
+        type: 'number',
+        name: 'time',
         placeholder: '__ ساعت',
-        value: newWorkshop.Time,
-      }
+        value: newWorkshop.time,
+      },
+      changeHandler
     },
     introduction: {
       config: {
         type: 'textarea',
         placeholder: 'توضیحات',
-        name: 'Introduction',
-        value: newWorkshop.Introduction,
-      }
+        name: 'introduction',
+        value: newWorkshop.introduction,
+      },
+      changeHandler
     },
-    handlers: {
-      changeHandler: inputChangeHandler,
-    }
 
   }
 
   const validationHandler = () => {
     let TitleError = '', DateError = '';
-    if (newWorkshop.Title === '') {
+    if (newWorkshop.title === '') {
       TitleError = "لطفا عنوان کارگاه مورد نظر خود را وارد نمایید."
     }
-    else if (newWorkshop.Date === '') {
+    else if (newWorkshop.date === '') {
       DateError = 'لطفا تاریخ برگزاری کارگاه مورد نظر خود را وارد نمایید.'
     }
     if (TitleError || DateError) {
@@ -117,7 +124,9 @@ const WorkshopsPage = () => {
       const token = Cookies.get("token");
       const data = {
         ...newWorkshop,
-        Link: 'workshop' + workshops.length
+        time: newWorkshop.time + ' ساعت',
+        price: newWorkshop.price + ' تومان',
+        link: 'workshop' + workshops?.length
       }
       axios.post('http://localhost:4500/workshop/add', data, { headers: { token } })
         .then(response => {
@@ -126,15 +135,15 @@ const WorkshopsPage = () => {
           setError('');
           setNewWorkshop(initialValues);
         }).catch(error => {
-          console.log("error", error.response.data.error);
-          setError(error.response.data.error);
+          console.log("error", error.response.data?.error);
+          setError(error.response.data?.error);
 
         })
     } else (
       console.log("something went wrong")
     )
   }
-
+  console.log("newWorkshop",newWorkshop);
   return <div className={'container ' + style.WorkshopsPage}>
     <ContentContainer Title='کـارگاه‌های آموزشـی'>
       {workshops?.length !== 0 ?
@@ -142,13 +151,13 @@ const WorkshopsPage = () => {
         workshops.map((workshop, index) => {
           return <Workshop
             key={index}
-            Lecturer={workshop.Lecturer?.Name}
-            Price={toPersianNumber(workshop.Price)}
-            Date={toPersianNumber(workshop.Date)}
-            Time={toPersianNumber(workshop.Time)}
-            Image={workshop.Image}
-            Title={workshop.Title}
-            Link={workshop.Link + '#description'}
+            Lecturer={workshop.lecturer.name}
+            Price={toPersianNumber(workshop.price)}
+            Date={toPersianNumber(workshop.date)}
+            Time={toPersianNumber(workshop.time)}
+            Image={workshop.image}
+            Title={workshop.title}
+            Link={workshop.link + '#description'}
             Border>
           </Workshop>
         })
@@ -160,19 +169,19 @@ const WorkshopsPage = () => {
       {isLogged &&
         <ContentContainer Title='افزودن کارگاه جدید'>
           <p className={error === '' ? style.HideError : style.ShowError}>{error}</p>
-          <form onSubmit={(event) => addWorkshopHandler(event)}>
+          <form onSubmit={(event) => addWorkshopHandler(event)} autoComplete='no'>
             <Workshop
-              Price={<Input inputProperties={inputProperties.price} handlers={inputProperties.handlers} />}
-              Date={<Input inputProperties={inputProperties.date} handlers={inputProperties.handlers} />}
-              Time={<Input inputProperties={inputProperties.time} handlers={inputProperties.handlers} />}
+              Price={<Input inputProperties={inputProperties.price}/>}
+              Date={<Input inputProperties={inputProperties.date}/>}
+              Time={<Input inputProperties={inputProperties.time}/>}
               Image={<div className={style.ChooseImage}>
                 <p><IoIosImages />گروه:</p>
                 <label>
                   <input
                     type='radio'
                     value='couple.jpg'
-                    name='Image'
-                    onChange={(event) => inputChangeHandler(event)}
+                    name='image'
+                    onChange={(event) => changeHandler(event)}
                   />
                   زوج درمانی
                 </label>
@@ -180,8 +189,8 @@ const WorkshopsPage = () => {
                   <input
                     type='radio'
                     value='single.jpg'
-                    name='Image'
-                    onChange={(event) => inputChangeHandler(event)}
+                    name='image'
+                    onChange={(event) => changeHandler(event)}
                   />
                   فردی
                 </label>
@@ -189,8 +198,8 @@ const WorkshopsPage = () => {
                   <input
                     type='radio'
                     value='kids.jpg'
-                    name='Image'
-                    onChange={(event) => inputChangeHandler(event)}
+                    name='image'
+                    onChange={(event) => changeHandler(event)}
                   />
                   کودک و نوجوان
                 </label>

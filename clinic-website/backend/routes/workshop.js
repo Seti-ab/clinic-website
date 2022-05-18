@@ -8,29 +8,26 @@ const workshop = require('../tables/workshop')
 let auth = require('./Authentication').authentication()
 
 router.post('/add', auth, (req, res) => {
-    if (typeof req.body.Title === 'undefined' || typeof req.body.Date === 'undefined' || typeof req.body.Time === 'undefined' ||
-        typeof req.body.Link === 'undefined' || typeof req.body.Introduction === 'undefined' || typeof req.body.Image==='undefined'
-        || typeof req.body.Price === 'undefined') {
+    if (typeof req.body.title === 'undefined' || typeof req.body.date === 'undefined' || typeof req.body.time === 'undefined' || typeof req.body.link === 'undefined' || typeof req.body.introduction === 'undefined' || typeof req.body.image === 'undefined' || typeof req.body.price === 'undefined') {
         res.status(400).send({
             success: false,
             error: "missing data"
         })
     } else {
         console.log(req.Psychologist)
-        workshopServices.Add(req.body.Title, req.body.Date, req.body.Time, req.body.Link, req.Psychologist._id, req.body.Introduction,
-            req.body.Price,req.body.Image ,(errorcode, errortext, workshop) => {
-                if (errorcode) {
-                    res.status(errorcode).send({
-                        success: false,
-                        error: errortext
-                    })
-                } else {
-                    res.status(200).send({
-                        success: true,
-                        workshop: workshop
-                    })
-                }
-            })
+        workshopServices.Add(req.body.title, req.body.date, req.body.time, req.body.link, req.Psychologist._id, req.body.introduction, req.body.price, req.body.image, (errorcode, errortext, workshop) => {
+            if (errorcode) {
+                res.status(errorcode).send({
+                    success: false,
+                    error: errortext
+                })
+            } else {
+                res.status(200).send({
+                    success: true,
+                    workshop: workshop
+                })
+            }
+        })
         // res.status(200).send({ success: true })
     }
 })

@@ -9,7 +9,6 @@ import axios from 'axios';
 
 export default function Home() {
   const [workshop, setWorkshop] = useState();
-  console.log("psy", !workshop);
   useEffect(() => {
     axios.get('http://localhost:4500/workshop/getall')
       .then(response => {
@@ -32,13 +31,13 @@ export default function Home() {
           <>
             <ContentContainer Title='کارگاه آموزشی پرطرفدار '>
               <Workshop
-                Title={workshop?.Title}
-                Lecturer={workshop?.Lecturer.Name}
-                Price={workshop?.Price}
-                Date={workshop?.Date}
-                Time={workshop?.Time}
-                Link={workshop?.Link + '#description'}
-                Image={workshop?.Image}
+                Title={workshop?.title}
+                Lecturer={workshop?.lecturer}
+                Price={workshop?.price}
+                Date={workshop?.date}
+                Time={workshop?.time}
+                Link={workshop?.link + '#description'}
+                Image={workshop?.image}
                 Border>
               </Workshop>
             </ContentContainer>

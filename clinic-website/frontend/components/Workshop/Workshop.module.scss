@@ -51,9 +51,6 @@ $title-color: #105c91;
                     align-items: center;
                     position: absolute;
                     right: 100px;
-                    sub {
-                        margin: 7px 10px 0 0;
-                    }
                 }
             }
         }
@@ -70,6 +67,9 @@ $title-color: #105c91;
     .Image {
         display: flex;
         align-items: center;
+        img{
+            object-fit: contain;
+        }
     }
 
     a {
@@ -120,10 +120,6 @@ $title-color: #105c91;
                 span {
                     position: unset !important;
                     right: unset !important;
-                    sub {
-                        position: absolute;
-                        left: 12px;
-                    }
                 }
             }
         }

@@ -3,25 +3,25 @@ let schema = mongoose.Schema
 let bcrypt = require('bcrypt')
 
 let Psychologist = new schema({
-    Name: {
+    name: {
         type: String,
     },
-    Email: {
+    email: {
         type: String
     },
-    JobTitle: {
+    jobTitle: {
         type: String
     },
-    Education: {
+    education: {
         type: String
     },
-    Link: {
+    link: {
         type: String
     },
-    Introduction: {
+    introduction: {
         type: String
     },
-    Password: {
+    password: {
         type: String
     },
 })
@@ -29,18 +29,18 @@ let Psychologist = new schema({
 
 Psychologist.pre('save', function (next) {
     let Psychologist = this;
-    if (this.isModified('Password')) {
+    if (this.isModified('password')) {
         bcrypt.genSalt(10, (err, salt) => {
             if (err) {
                 console.log(err);
                 return next(err)
             } else {
-                bcrypt.hash(Psychologist.Password, salt, (err, hash) => {
+                bcrypt.hash(Psychologist.password, salt, (err, hash) => {
                     if (err) {
                         console.log(err);
                         return next(err)
                     } else {
-                        Psychologist.Password = hash
+                        Psychologist.password = hash
                         next()
                     }
                 })
@@ -53,7 +53,7 @@ Psychologist.pre('save', function (next) {
 
 
 Psychologist.methods.comparePassword = function (pass, cb) {
-    bcrypt.compare(pass, this.Password, (err, isMatch) => {
+    bcrypt.compare(pass, this.password, (err, isMatch) => {
         if (err) {
             return cb(err)
         } else {

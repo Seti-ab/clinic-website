@@ -9,8 +9,8 @@ let pr = {
 }
 let methods = {}
 
-methods.AddPsychologist = (Name, Email, Password, JobTitle, Link, Education, Introduction, callback) => {
-    PsychologistTable.findOne({ Email: Email }).lean().exec((err, Psychologist) => {
+methods.AddPsychologist = (name, email, password, jobTitle, link, education, introduction, callback) => {
+    PsychologistTable.findOne({ email: email }).lean().exec((err, Psychologist) => {
         if (err) {
             callback(500, err, null)
         } else {
@@ -18,13 +18,13 @@ methods.AddPsychologist = (Name, Email, Password, JobTitle, Link, Education, Int
                 callback(400, 'کاربر تکراری است', Psychologist)
             } else {
                 let newPsychologist = new PsychologistTable({
-                    Name: Name,
-                    Email: Email,
-                    JobTitle: JobTitle,
-                    Link: Link,
-                    Education: Education,
-                    Introduction: Introduction,
-                    Password: Password
+                    name: name,
+                    email: email,
+                    jobTitle: jobTitle,
+                    link: link,
+                    education: education,
+                    introduction: introduction,
+                    password: password
                 })
 
                 newPsychologist.save((err, Psychologist) => {
@@ -54,8 +54,8 @@ methods.getPsychologist = (callback) => {
     })
 }
 
-methods.login = function (Email, password, callback) {
-    PsychologistTable.findOne({ Email: Email }).exec((err, PsychologistRecord) => {
+methods.login = function (email, password, callback) {
+    PsychologistTable.findOne({ email: email }).exec((err, PsychologistRecord) => {
         if (err) {
             callback(500, err, null)
         } else {

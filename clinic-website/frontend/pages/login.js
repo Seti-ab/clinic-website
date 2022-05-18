@@ -33,12 +33,12 @@ const Login = () => {
     }
   }, []);
 
-  const inputChangeHandler = (event) => {
+  const changeHandler = (event) => {
     let temp = { ...values };
     temp[event.target.name] = event.target.value;
     setValues(temp);
   }
-  const inputBlurHandler = (event) => {
+  const blurHandler = (event) => {
     let temp = { ...error }
     let emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
 
@@ -80,17 +80,13 @@ const Login = () => {
       return true;
     }
   }
-
+  console.log(values);
   const formSubmitHandler = (event) => {
     event.preventDefault();
     const isValid = formValidationHandler();
     const history = Object.keys(router.components)[(Object.keys(router.components).length) - 2];
     if (isValid) {
-      const data = {
-        Email: values.email,
-        Password: values.password
-      }
-      axios.post('http://localhost:4500/Psychologist/login', data)
+      axios.post('http://localhost:4500/Psychologist/login', values)
         .then(response => {
           console.log("response", response);
           Cookies.set('token', response.data.token);
@@ -101,7 +97,7 @@ const Login = () => {
             router.push('/');
           }
         }).catch(error => {
-          console.log("error", error);
+          console.log("error", error.response.data);
         })
 
     }
@@ -117,7 +113,9 @@ const Login = () => {
         placeholder: 'example@example.com',
         name: 'email',
       },
-      Label: 'ایمیل'
+      Label: 'ایمیل',
+      blurHandler,
+      changeHandler
     },
     password: {
       config: {
@@ -125,12 +123,11 @@ const Login = () => {
         placeholder: '******',
         name: 'password'
       },
-      Label: 'کلمه‌عبور'
+      Label: 'کلمه‌عبور',
+      blurHandler,
+      changeHandler
     },
-    handlers: {
-      blurHandler: inputBlurHandler,
-      changeHandler: inputChangeHandler,
-    }
+
   }
   
   return (
@@ -141,12 +138,10 @@ const Login = () => {
           <form autoComplete='no' onSubmit={(event) => formSubmitHandler(event)} noValidate>
             <Input
               inputProperties={inputProperties.email}
-              handlers={inputProperties.handlers}
               Error={error.email}
             />
             <Input
               inputProperties={inputProperties.password}
-              handlers={inputProperties.handlers}
               Error={error.password}
             />
             <div className={styles.Button}>

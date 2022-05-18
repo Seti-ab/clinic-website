@@ -2,32 +2,29 @@ let mongoose = require('mongoose')
 let schema = mongoose.Schema
 
 let workshop = new schema({
-    Title: {
+    title: {
         type: String,
     },
-    Introduction: {
+    introduction: {
+        type: String
+    },
+    lecturer: {
+        type: mongoose.Types.ObjectId,
+        ref: 'Psychologist'
+    },
+    time: {
+        type: String
+    },
+    link: {
         type: String
     },
     date: {
         type: String
     },
-    Lecturer: {
-        type: mongoose.Types.ObjectId,
-        ref: 'Psychologist'
-    },
-    Time: {
+    price: {
         type: String
     },
-    Link: {
-        type: String
-    },
-    Date: {
-        type: String
-    },
-    Price: {
-        type: String
-    },
-    Image: {
+    image: {
         type: String
     }
 })

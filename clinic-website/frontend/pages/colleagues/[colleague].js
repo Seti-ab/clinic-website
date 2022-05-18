@@ -15,8 +15,8 @@ const ColleaguePage = (props) => {
       left: 0,
       behavior: 'auto'
     });
-    if (router.asPath === ('/colleagues/'+props.data.Link + '#description')) {
-      router.replace(props.data.Link)
+    if (router.asPath === ('/colleagues/'+props.data.link + '#description')) {
+      router.replace(props.data.link)
       scroller.scrollTo("scroll", {
         duration: 1000,
         delay: 0,
@@ -27,14 +27,14 @@ const ColleaguePage = (props) => {
 
   return (
     <div className='scroll'>
-      <ContentContainer Title={props.data.Name} UnderLine >
+      <ContentContainer Title={props.data.name} UnderLine >
         <div className={styles.EachColleaguePage}>
           
           <div className={styles.Text}>
-            <h3>{props.data.JobTitle}</h3>
-            <p>{props.data.Education}</p>
-            <p>{props.data.Introduction}</p>
-            <p className={styles.Email}><HiOutlineMail />{props.data.Email}</p>
+            <h3>{props.data.jobTitle}</h3>
+            <p>{props.data.education}</p>
+            <p>{props.data.introduction}</p>
+            <p className={styles.Email}><HiOutlineMail />{props.data.email}</p>
           </div>
         </div>
       </ContentContainer>
@@ -47,18 +47,18 @@ export async function getServerSideProps(context) {
   const { params } = context;
   const res = await fetch('http://localhost:4500/Psychologist/getlist')
   const colleagues = await res.json();
-  const colleague = colleagues.list.find((colleague) => colleague.Link === params.colleague);
+  const colleague = colleagues.list.find((colleague) => colleague.link === params.colleague);
   if (colleague) {
     return {
       props: {
         data: colleague
       },
     }
-  } else return {
-    redirect: {
-      destination: '/404',
-      permanent: false,
-    },
+  // } else return {
+  //   redirect: {
+  //     destination: '/404',
+  //     permanent: false,
+  //   },
 
   }
 }
