@@ -34,10 +34,10 @@ const WorkshopsPage = () => {
   useEffect(() => {
     axios.get('http://localhost:4500/workshop/getall')
       .then(response => {
-        console.log("response", response);
+        //console.log("response", response);
         setWorkshops(response.data.workshops);
       }).catch(error => {
-        console.log("error", error)
+        //console.log("error", error)
       })
   }, [length])
 
@@ -130,20 +130,20 @@ const WorkshopsPage = () => {
       }
       axios.post('http://localhost:4500/workshop/add', data, { headers: { token } })
         .then(response => {
-          console.log("response", response);
+          //console.log("response", response);
           setLength(workshops.length);
           setError('');
           setNewWorkshop(initialValues);
         }).catch(error => {
-          console.log("error", error.response.data?.error);
+          //console.log("error", error.response.data?.error);
           setError(error.response.data?.error);
 
         })
-    } else (
-      console.log("something went wrong")
-    )
+    } else {
+      //console.log("something went wrong")
+    }
   }
-  console.log("newWorkshop",newWorkshop);
+  //console.log("newWorkshop",newWorkshop);
   return <div className={'container ' + style.WorkshopsPage}>
     <ContentContainer Title='کـارگاه‌های آموزشـی'>
       {workshops?.length !== 0 ?

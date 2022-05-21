@@ -15,6 +15,14 @@ $title-color: #105c91;
         cursor: pointer;
         transition: all 0.3s ease;
     }
+    .Cancel {
+        min-width: 80px !important;
+        color: $title-color;
+        background: #ebebeb;
+    }
+    .Cancel:hover{
+        background: #ebebeb;
+    }
 }
 .Button button:hover {
     background-image: linear-gradient(to left, $main-color, $title-color);

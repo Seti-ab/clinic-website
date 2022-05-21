@@ -12,10 +12,10 @@ export default function Home() {
   useEffect(() => {
     axios.get('http://localhost:4500/workshop/getall')
       .then(response => {
-        console.log("response", response.data.workshops[0]);
+        //console.log("response", response.data.workshops[0]);
         setWorkshop(response.data.workshops[0])
       }).catch(error => {
-        console.log("error", error);
+        //console.log("error", error);
       })
   }, [])
 
@@ -32,7 +32,7 @@ export default function Home() {
             <ContentContainer Title='کارگاه آموزشی پرطرفدار '>
               <Workshop
                 Title={workshop?.title}
-                Lecturer={workshop?.lecturer}
+                Lecturer={workshop?.lecturer.name}
                 Price={workshop?.price}
                 Date={workshop?.date}
                 Time={workshop?.time}

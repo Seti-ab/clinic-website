@@ -54,11 +54,11 @@ export async function getServerSideProps(context) {
         data: colleague
       },
     }
-  // } else return {
-  //   redirect: {
-  //     destination: '/404',
-  //     permanent: false,
-  //   },
+  } else return {
+    redirect: {
+      destination: '/404',
+      permanent: false,
+    },
 
   }
 }

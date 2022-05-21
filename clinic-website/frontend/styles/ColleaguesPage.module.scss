@@ -79,9 +79,10 @@ $title-color: #105c91;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 15px;
+                gap: 18px;
                 max-height: 70vh;
-                overflow: auto;
+                overflow-y: auto;
+                //overflow-x: hidden;
 
                 label {
                     display: flex;
@@ -94,7 +95,7 @@ $title-color: #105c91;
                 }
                 > div {
                     display: flex;
-                    gap: 20px;
+                    column-gap: 15px;
                     width: 100%;
                 }
                 .Passwords {
@@ -104,11 +105,24 @@ $title-color: #105c91;
                         position: absolute;
                         top: -25px;
                         z-index: 50;
+                        right: 8px;
+                    }
+                    div{
+                        margin-right: 0;
+                    }
+                    small {
+                        top: -27px;
                     }
                 }
-                .SubmitButton {
-                    justify-content: center;
+                .Buttons {
+                    justify-content: end;
                     margin-top: 20px;
+                    gap: 15px;
+                    button {
+                        font-size: 15px;
+                        min-width: 100px;
+                        padding: 7px 20px;
+                    }
                 }
             }
         }
@@ -143,19 +157,27 @@ $title-color: #105c91;
 }
 
 @media screen and (max-width: 800px) {
-    .Modal {
-        > div {
-            form {
-                label {
-                    align-items: flex-start;
-                    flex-direction: column;
-                    textarea {
-                        height: 50px;
+    .ColleaguesPage {
+        .ModalContainer {
+            .Modal {
+                form {
+                    
+                    label {
+                        align-items: flex-start;
+                        flex-direction: column;
+                        
+                        textarea {
+                            height: 50px;
+                        }
                     }
-                }
-                > div {
-                    display: flex;
-                    flex-direction: column;
+                    > div {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .Buttons{
+                        flex-direction: row;
+                        justify-content: center;
+                    }
                 }
             }
         }

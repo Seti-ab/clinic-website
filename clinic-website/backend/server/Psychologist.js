@@ -68,12 +68,12 @@ methods.login = function (email, password, callback) {
                             let token = pr.generateJWT(PsychologistRecord.id)
                             callback(null, null, PsychologistRecord, token)
                         } else {
-                            callback(400, 'رمز اشتباه است', null)
+                            callback(400, 'رمز عبور وارد شده صحیح نمی باشد.', null)
                         }
                     }
                 })
             } else {
-                callback(400, 'ایمیل شما در سیستم ثبت نشده', null)
+                callback(400, 'ایمیل در سیستم ثبت نشده است.', null)
             }
         }
     })

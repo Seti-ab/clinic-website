@@ -14,7 +14,6 @@ const Login = () => {
   const router = useRouter();
   const animation = useRef(null);
 
-
   useEffect(() => {
     lottie.loadAnimation({
       container: animation.current,
@@ -69,7 +68,6 @@ const Login = () => {
       passwordError = 'تکمیل این فیلد الزامی است!'
     }
 
-
     if (emailError || passwordError) {
       let temp = { ...error };
       temp.email = emailError;
@@ -80,7 +78,7 @@ const Login = () => {
       return true;
     }
   }
-  console.log(values);
+
   const formSubmitHandler = (event) => {
     event.preventDefault();
     const isValid = formValidationHandler();
@@ -88,21 +86,22 @@ const Login = () => {
     if (isValid) {
       axios.post('http://localhost:4500/Psychologist/login', values)
         .then(response => {
-          console.log("response", response);
+          //console.log("response", response);
           Cookies.set('token', response.data.token);
-          Cookies.set("userName",response.data.Psychologist);
+          Cookies.set("userName", response.data.Psychologist);
           if (history !== '/login' && history !== '/_app') {
             router.push(history);
           } else {
             router.push('/');
           }
         }).catch(error => {
-          console.log("error", error.response.data);
+          //console.log("error", error.response.data.error);
+          setError({ ...error, server: error.response.data.error });
         })
 
     }
     else {
-      console.log("Failed");
+      console.log("Something went wrong");
     }
   }
 
@@ -129,12 +128,13 @@ const Login = () => {
     },
 
   }
-  
+
   return (
     <div className={styles.Login}>
       <div className={styles.Right}>
         <div className={styles.LoginBox}>
           <h2>ورود</h2>
+          <span className={error.server ? styles.ShowError : styles.HideError}>{error.server}</span>
           <form autoComplete='no' onSubmit={(event) => formSubmitHandler(event)} noValidate>
             <Input
               inputProperties={inputProperties.email}

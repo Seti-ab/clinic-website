@@ -109,10 +109,12 @@ const ContactUsPage = () => {
                         setValues(initialValues);
                     }
                 })
-                .catch((error) => console.log(error));
+                .catch((error) => {
+                    //console.log(error)
+                });
 
         } else {
-            console.log("Failed");
+            //console.log("something went wrong");
         }
     }
 
@@ -128,7 +130,7 @@ const ContactUsPage = () => {
                 value: values.name
             },
 
-            Label: 'نام و نام خانوادگی *',
+            Label: 'نام و نام خانوادگی',
             blurHandler,
             changeHandler,
         },
@@ -140,7 +142,7 @@ const ContactUsPage = () => {
                 value: values.email
             },
 
-            Label: 'ایمیل *',
+            Label: 'ایمیل',
             blurHandler,
             changeHandler,
         },
@@ -152,7 +154,7 @@ const ContactUsPage = () => {
                 name: 'message',
                 value: values.message
             },
-            Label: 'متن پیام *',
+            Label: 'متن پیام',
             blurHandler,
             changeHandler,
         },
@@ -168,16 +170,19 @@ const ContactUsPage = () => {
                 <Input
                     inputProperties={inputProperties.name}
                     Error={error.name}
+                    Required
                 />
 
                 <Input
                     inputProperties={inputProperties.email}
                     Error={error.email}
+                    Required
                 />
 
                 <Input
                     inputProperties={inputProperties.message}
                     Error={error.message}
+                    Required
                 />
 
                 <div>

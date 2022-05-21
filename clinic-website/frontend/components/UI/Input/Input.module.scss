@@ -1,7 +1,16 @@
+$main-color: #22a6b3;
 $title-color: #105c91;
 $error-color: #ff4040;
 .Input {
     position: relative;
+    .Required{
+        position: absolute;
+        color: $main-color;
+        top: 6px;
+    }
+    .RequiredPlace {
+        margin-right: 8px;
+    }
     > div {
         width: 100%;
         input,
@@ -57,6 +66,16 @@ $error-color: #ff4040;
         svg {
             font-size: 16px;
             color: rgba($color: $title-color, $alpha: 0.75);
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .Input {
+        .Required{
+            left: 3px;
+        }
+        .RequiredPlace {
+            margin-right: 0;
         }
     }
 }

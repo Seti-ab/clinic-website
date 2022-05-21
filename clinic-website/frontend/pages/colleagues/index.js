@@ -9,10 +9,12 @@ import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 
 const ColleaguesPage = () => {
-  const [psychologists, setPsychologists] = useState();
+  const [colleagues, setColleagues] = useState();
   const [formShow, setFormShow] = useState(false);
   const [values, setValues] = useState({});
   const [error, setError] = useState({});
+  const [length, setLength] = useState(colleagues?.length);
+
   const errors = {
     name: 'لطفا فیلد نام و نام خانوادگی را تکمیل کنید.',
     jobTitle: 'لطفا فیلد عنوان شغلی را تکمیل کنید.',
@@ -22,12 +24,12 @@ const ColleaguesPage = () => {
   useEffect(() => {
     axios.get('http://localhost:4500/Psychologist/getlist')
       .then(response => {
-        console.log("response", response);
-        setPsychologists(response.data.list);
+        //console.log("response", response);
+        setColleagues(response.data.list);
       }).catch(error => {
-        console.log("error", error);
+        //console.log("error", error);
       })
-  }, [])
+  }, [length])
 
   const changeHandler = (event) => {
     let temp = { ...values };
@@ -77,19 +79,19 @@ const ColleaguesPage = () => {
   const addColleagueHandler = (event) => {
     event.preventDefault();
     const isValid = validationHandler();
-    console.log("isValid", isValid);
     if (isValid) {
       const data = {
         ...values,
-        link: 'colleague' + psychologists?.length
+        link: 'colleague' + colleagues?.length
       }
       axios.post('http://localhost:4500/Psychologist/add', data)
         .then(response => {
-          console.log("response", response);
+          //console.log("response", response);
+          setLength(colleagues.length);
           setFormShow(false);
         }).catch(error => {
           console.log("error", error.response.data);
-          //setError({ ...error, server: error.response.data.error })
+          setError({ server: error.response.data.errortext })
         })
       setError({});
     }
@@ -100,6 +102,7 @@ const ColleaguesPage = () => {
       config: {
         placeholder: 'نام و نام خانوادگی',
         name: 'name',
+        value: values.name
       },
       Label: 'نام و نام خانوادگی:',
       changeHandler,
@@ -109,6 +112,7 @@ const ColleaguesPage = () => {
       config: {
         placeholder: 'example@example.com',
         name: 'email',
+        value: values.email
       },
       Label: 'ایمیل:',
       changeHandler,
@@ -118,6 +122,7 @@ const ColleaguesPage = () => {
       config: {
         placeholder: 'عنوان شغلی',
         name: 'jobTitle',
+        value: values.jobTitle
       },
       changeHandler,
       blurHandler
@@ -126,6 +131,7 @@ const ColleaguesPage = () => {
       config: {
         placeholder: 'تحصیلات',
         name: 'education',
+        value: values.education
       },
       changeHandler,
       blurHandler
@@ -135,6 +141,7 @@ const ColleaguesPage = () => {
         type: 'textarea',
         placeholder: 'توضیحات',
         name: 'introduction',
+        value: values.introduction
       },
       Label: 'توضیحات:',
       changeHandler,
@@ -161,13 +168,13 @@ const ColleaguesPage = () => {
 
   }
 
-  console.log("values", values);
+  //console.log("values", values);
   console.log("error", error);
   return (
     <div className={styles.ColleaguesPage}>
       <ContentContainer Title='رزومه‌ی همکاران' UnderLine>
         <div className={styles.Colleagues}>
-          {psychologists?.map((colleague, index) => {
+          {colleagues?.map((colleague, index) => {
             return <Colleague
               key={index}
               Name={colleague.name}
@@ -186,28 +193,29 @@ const ColleaguesPage = () => {
       </ContentContainer >
       {formShow &&
         <div className={styles.ModalContainer}>
-          <div className={styles.Backdrop} onClick={()=>setFormShow(false)}></div>
+          <div className={styles.Backdrop} onClick={() => setFormShow(false)}></div>
           <div className={styles.Modal}>
-            
-              <h3 style={error.server && { color: '#ff4040' }}>{error.server ? error.server : 'افزودن همکار جدید'}</h3>
-              <form onSubmit={(event) => addColleagueHandler(event)} autoComplete='off'>
-                <Input inputProperties={inputProperties.name} Error={error.name} />
-                <Input inputProperties={inputProperties.email} />
-                <div>
-                  <Input inputProperties={inputProperties.jobTitle} Error={error.jobTitle} />
-                  <Input inputProperties={inputProperties.education} />
-                </div>
-                <Input inputProperties={inputProperties.introduction} />
-                <div className={styles.Passwords}>
-                  <span>رمز عبور:</span>
-                  <Input inputProperties={inputProperties.password} Error={error.password} />
-                  <Input inputProperties={inputProperties.repeatPassword} />
-                </div>
-                <div className={styles.SubmitButton}>
-                  <Button>تایید</Button>
-                </div>
-              </form>
-            
+
+            <h3 style={error.server && { color: '#ff4040' }}>{error.server ? error.server : 'افزودن همکار جدید'}</h3>
+            <form onSubmit={(event) => addColleagueHandler(event)} autoComplete='off'>
+              <Input inputProperties={inputProperties.name} Error={error.name} Required />
+              <Input inputProperties={inputProperties.email} />
+              <div>
+                <Input inputProperties={inputProperties.jobTitle} Error={error.jobTitle} Required/>
+                <Input inputProperties={inputProperties.education} />
+              </div>
+              <Input inputProperties={inputProperties.introduction} />
+              <div className={styles.Passwords}>
+                <span>رمز عبور:</span>
+                <Input inputProperties={inputProperties.password} Error={error.password} Required/>
+                <Input inputProperties={inputProperties.repeatPassword} />
+              </div>
+              <div className={styles.Buttons}>
+                <Button type='button' clicked={() => { setFormShow(false); setValues({}) }} Cancel>انصراف</Button>
+                <Button type='submit'>تایید</Button>
+              </div>
+            </form>
+
           </div>
         </div>
       }
