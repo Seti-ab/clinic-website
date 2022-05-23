@@ -7,6 +7,7 @@ import Colleague from '../../components/Colleague/Colleague';
 import { RiUserAddLine } from 'react-icons/ri';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
+import Cookies from 'js-cookie';
 
 const ColleaguesPage = () => {
   const [colleagues, setColleagues] = useState();
@@ -14,11 +15,13 @@ const ColleaguesPage = () => {
   const [values, setValues] = useState({});
   const [error, setError] = useState({});
   const [length, setLength] = useState(colleagues?.length);
+  const [token, setToken] = useState(Cookies.get('token'));
 
   const errors = {
-    name: 'لطفا فیلد نام و نام خانوادگی را تکمیل کنید.',
-    jobTitle: 'لطفا فیلد عنوان شغلی را تکمیل کنید.',
-    password: 'لطفا برای کاربر رمز عبور مشخص کنید.',
+    name: 'لطفاً فیلد نام و نام خانوادگی را تکمیل کنید.',
+    email: 'لطفاً ایمیل کاربر را وارد کنید.',
+    validEmail: 'ایمیل وارد شده صحیح نمی باشد.',
+    password: 'لطفاً برای کاربر رمز عبور مشخص کنید.',
     repeatPassword: 'تکرار رمز عبور با رمز عبور یکسان نمی باشد!',
   }
   useEffect(() => {
@@ -38,11 +41,16 @@ const ColleaguesPage = () => {
   }
 
   const blurHandler = (event) => {
+    const emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
     let temp = { ...error };
     if (event.target.value === '') {
       temp[event.target.name] = errors[event.target.name];
       setError(temp);
-    } else {
+    } else if (event.target.name === 'email' && !emailRegex.test(event.target.value)) {
+      temp.email = errors.validEmail;
+      setError(temp);
+    }
+    else {
       temp[event.target.name] = '';
       setError(temp);
     }
@@ -50,13 +58,13 @@ const ColleaguesPage = () => {
   }
 
   const validationHandler = () => {
-    let name = '', jobTitle = '', password = '';
-    let temp = { ...error };
+    let name = '', email = '', password = '';
+    const emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
     if (values.name === undefined || values.name === '') {
       name = errors.name;
     }
-    if (values.jobTitle === undefined || values.jobTitle === '') {
-      jobTitle = errors.jobTitle;
+    if (emailRegex.test(values.email) == false) {
+      email = errors.validEmail;
     }
     if (values.password === undefined || values.password === '') {
       password = errors.password;
@@ -64,9 +72,11 @@ const ColleaguesPage = () => {
     if (values.repeatPassword !== values.password) {
       password = errors.repeatPassword;
     }
-    if (name !== '' || jobTitle !== '' || password !== '') {
+
+    if (name !== '' || email !== '' || password !== '') {
+      let temp = { ...error };
       temp.name = name;
-      temp.jobTitle = jobTitle;
+      temp.email = email;
       temp.password = password;
       setError(temp);
       return false;
@@ -90,7 +100,7 @@ const ColleaguesPage = () => {
           setLength(colleagues.length);
           setFormShow(false);
         }).catch(error => {
-          console.log("error", error.response.data);
+          //console.log("error", error.response.data);
           setError({ server: error.response.data.errortext })
         })
       setError({});
@@ -102,7 +112,7 @@ const ColleaguesPage = () => {
       config: {
         placeholder: 'نام و نام خانوادگی',
         name: 'name',
-        value: values.name
+        value: values.name || ''
       },
       Label: 'نام و نام خانوادگی:',
       changeHandler,
@@ -112,7 +122,7 @@ const ColleaguesPage = () => {
       config: {
         placeholder: 'example@example.com',
         name: 'email',
-        value: values.email
+        value: values.email || '',
       },
       Label: 'ایمیل:',
       changeHandler,
@@ -122,30 +132,27 @@ const ColleaguesPage = () => {
       config: {
         placeholder: 'عنوان شغلی',
         name: 'jobTitle',
-        value: values.jobTitle
+        value: values.jobTitle || ''
       },
       changeHandler,
-      blurHandler
     },
     education: {
       config: {
         placeholder: 'تحصیلات',
         name: 'education',
-        value: values.education
+        value: values.education || ''
       },
-      changeHandler,
-      blurHandler
+      changeHandler
     },
     introduction: {
       config: {
         type: 'textarea',
         placeholder: 'توضیحات',
         name: 'introduction',
-        value: values.introduction
+        value: values.introduction || ''
       },
       Label: 'توضیحات:',
-      changeHandler,
-      blurHandler
+      changeHandler
     },
     password: {
       config: {
@@ -169,7 +176,7 @@ const ColleaguesPage = () => {
   }
 
   //console.log("values", values);
-  console.log("error", error);
+  //console.log("error", error);
   return (
     <div className={styles.ColleaguesPage}>
       <ContentContainer Title='رزومه‌ی همکاران' UnderLine>
@@ -185,9 +192,10 @@ const ColleaguesPage = () => {
               Email={colleague.email}
             />
           })}
-          <div className={styles.AddColleague}>
+          {token && <div className={styles.AddColleague}>
             <button onClick={() => setFormShow(true)}><RiUserAddLine /></button>
           </div>
+          }
         </div>
 
       </ContentContainer >
@@ -199,20 +207,20 @@ const ColleaguesPage = () => {
             <h3 style={error.server && { color: '#ff4040' }}>{error.server ? error.server : 'افزودن همکار جدید'}</h3>
             <form onSubmit={(event) => addColleagueHandler(event)} autoComplete='off'>
               <Input inputProperties={inputProperties.name} Error={error.name} Required />
-              <Input inputProperties={inputProperties.email} />
+              <Input inputProperties={inputProperties.email} Error={error.email} Required />
               <div>
-                <Input inputProperties={inputProperties.jobTitle} Error={error.jobTitle} Required/>
+                <Input inputProperties={inputProperties.jobTitle} />
                 <Input inputProperties={inputProperties.education} />
               </div>
               <Input inputProperties={inputProperties.introduction} />
               <div className={styles.Passwords}>
                 <span>رمز عبور:</span>
-                <Input inputProperties={inputProperties.password} Error={error.password} Required/>
+                <Input inputProperties={inputProperties.password} Error={error.password} Required />
                 <Input inputProperties={inputProperties.repeatPassword} />
               </div>
               <div className={styles.Buttons}>
-                <Button type='button' clicked={() => { setFormShow(false); setValues({}) }} Cancel>انصراف</Button>
-                <Button type='submit'>تایید</Button>
+                <Button Type='button' Clicked={() => { setFormShow(false); setValues({}); setError({}); }} Cancel>انصراف</Button>
+                <Button Type='submit'>تایید</Button>
               </div>
             </form>
 

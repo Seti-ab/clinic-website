@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 let mongoose = require('mongoose')
 var logger = require('morgan');
-var cors=require('cors');
+var cors = require('cors');
 
 mongoose.connect('mongodb://localhost:27017/clinic', {})
   .catch(error => console.log(error));
@@ -21,10 +21,20 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
+let initial = require('./initial')
+initial((errcode, errtext) => {
+  if (errcode) {
+    console.log('err')
+    console.log(errcode, errtext)
+  } else {
+    console.log('initial done: ', errtext);
+  }
+})
+
 let Psychologist = require('./routes/Psychologist')
 app.use('/Psychologist', Psychologist)
 
-let workshop = require('./routes/workshop')
+let workshop = require('./routes/workshop');
 app.use('/workshop', workshop)
 
 // catch 404 and forward to error handler

@@ -29,8 +29,8 @@ const Workshop = (props) => {
                     <i onClick={()=>setConfirmationModal(false)}><IoMdClose/></i>
                     <p>آیا از حذف این کارگاه اطمینان دارید؟</p>
                     <div>
-                        <Button clicked={()=>setConfirmationModal(false)} Cancel>انصراف</Button>
-                        <Button clicked={()=>confirmedHandler()}>تائید</Button>
+                        <Button Clicked={()=>setConfirmationModal(false)} Cancel>انصراف</Button>
+                        <Button Clicked={()=>confirmedHandler()}>تائید</Button>
                     </div>
                 </div>
             </div>}
