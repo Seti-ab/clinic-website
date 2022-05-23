@@ -25,16 +25,6 @@ methods.Add = (title, date, time, link, lecturer, introduction, price, image, ca
     })
 }
 
-// methods.getlist = (callback) => {
-//     workshopTable.find().populate('Lecturer', 'Name').lean().exec((err, list) => {
-//         if (err) {
-//             callback(500, err)
-//         } else {
-//             callback(null, null, list)
-//         }
-//     })
-// }
-
 methods.getAllList = (callback) => {
     workshopTable.find().populate('lecturer', 'name').lean().exec((err, list) => {
         if (err) {
@@ -53,7 +43,7 @@ methods.del = (id, callback) => {
         } if (deleted) {
             callback(null, null, deleted)
         } else {
-            callback(400, 'ورکشاپ مورد نظر یافت نشد', null)
+            callback(400, 'workshop not found', null)
         }
     })
 }

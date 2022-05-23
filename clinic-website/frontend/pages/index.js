@@ -6,6 +6,7 @@ import Workshop from '../components/Workshop/Workshop'
 import Button from '../components/UI/Button/Button';
 import Gallery from '../components/Gallery/Gallery'
 import axios from 'axios';
+import { toPersianNumber } from '../helpers/action';
 
 export default function Home() {
   const [workshop, setWorkshop] = useState();
@@ -33,9 +34,9 @@ export default function Home() {
               <Workshop
                 Title={workshop?.title}
                 Lecturer={workshop?.lecturer.name}
-                Price={workshop?.price}
-                Date={workshop?.date}
-                Time={workshop?.time}
+                Price={toPersianNumber(workshop?.price)}
+                Date={toPersianNumber(workshop?.date)}
+                Time={toPersianNumber(workshop?.time)}
                 Link={workshop?.link + '#description'}
                 Image={workshop?.image}
                 Border>

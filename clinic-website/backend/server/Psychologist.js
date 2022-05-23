@@ -1,6 +1,6 @@
 let PsychologistTable = require('../tables/Psychologist')
 const jwt = require('jsonwebtoken')
-const secretKey = 'setayesh_final_project'
+const secretKey = 'sayeh_clinic'
 
 let pr = {
     generateJWT: (id) => {

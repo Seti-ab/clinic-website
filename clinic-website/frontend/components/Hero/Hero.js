@@ -5,28 +5,28 @@ import styles from './Hero.module.scss';
 
 const HeroContent = [
     {
-        ID: 'home',
+        id: 'home',
         image: 'HomePage.png',
         text: 'کلینیـک روانشـناسی سایه',
         subText: 'مجموعه‌ی آموزشی ، پژوهشی ، درمانی'
     },
     {
-        ID: 'workshops',
+        id: 'workshops',
         image: 'workshops.png',
         text: 'کـارگاه‌های آمـوزشی'
     },
     {
-        ID: 'colleagues',
+        id: 'colleagues',
         image: 'colleagues.png',
         text: 'رزومـه‌ی همـکاران'
     },
     {
-        ID: 'contact-us',
+        id: 'contact-us',
         image: 'contactUs.png',
         text: 'تـمـاس بـا مـا'
     },
     {
-        ID: 'about-us',
+        id: 'about-us',
         image: 'aboutUs.png',
         text: 'دربـاره‌ی ما'
     }
@@ -37,13 +37,13 @@ const Hero = () => {
     const router = useRouter(null);
 
     const heroContentHandler = () => {
-        let content = HeroContent.find(content => content.ID.includes(router.pathname));
+        let content = HeroContent.find(content => content.id.includes(router.pathname));
 
         if (router.pathname === '/') {
-            content = HeroContent.find(content => content.ID === 'home');
+            content = HeroContent.find(content => content.id === 'home');
         }
         else {
-            content = HeroContent.find(content => router.pathname.includes(content.ID));
+            content = HeroContent.find(content => router.pathname.includes(content.id));
         }
         return content;
     }
@@ -55,7 +55,6 @@ const Hero = () => {
             <div className={styles.Line}></div>
             <h1>{heroContentHandler()?.text}</h1>
             <h5>{heroContentHandler()?.subText}</h5>
-            {/* <div className={styles.Line}></div> */}
         </div>
         <div className={styles.Image}>
           

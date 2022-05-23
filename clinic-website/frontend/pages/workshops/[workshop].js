@@ -14,8 +14,8 @@ const WorkShop = (props) => {
       behavior: 'auto'
     });
 
-    if (router.asPath === ('/workshops/' + props.data.Link + '#description')) {
-      router.replace(props.data.Link)
+    if (router.asPath === ('/workshops/' + props.data.link + '#description')) {
+      router.replace(props.data.link)
       scroller.scrollTo("scroll", {
         duration: 900,
         delay: 0,
@@ -23,19 +23,19 @@ const WorkShop = (props) => {
       });
     }
   }
-    , [props?.data?.Link, router])
+    , [props?.data?.link, router])
 
   return <div className='scroll'>
-    <ContentContainer Title={props.data.Title} UnderLine>
+    <ContentContainer Title={props.data.title} UnderLine>
       <Workshop
-        Lecturer={props.data.Lecturer.Name}
-        Price={props.data.Price}
-        Date={props.data.Date}
-        Time={props.data.Time}
-        Image={props.data.Image}
+        Lecturer={props.data.lecturer.name}
+        Price={props.data.price}
+        Date={props.data.date}
+        Time={props.data.time}
+        Image={props.data.image}
       >
         <div style={{ whiteSpace: "pre-line" }}>
-          {props.data.Introduction}
+          {props.data.introduction}
         </div>
       </Workshop>
     </ContentContainer>
@@ -46,14 +46,15 @@ export async function getServerSideProps(context) {
   const { params } = context;
   const res = await fetch('http://localhost:4500/workshop/getall')
   const list = await res.json();
-  const workshop = list.workshops.find((workshop) => workshop.Link === params.workshop);
+  const workshop = list.workshops.find((workshop) => workshop.link === params.workshop);
   if (workshop) {
     return {
       props: {
         data: workshop
       },
     }
-  } else return {
+  } 
+  else return {
     redirect: {
       destination: '/404',
       permanent: false,

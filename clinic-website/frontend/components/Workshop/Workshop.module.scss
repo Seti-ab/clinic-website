@@ -10,7 +10,7 @@ $title-color: #105c91;
     row-gap: 20px;
     justify-content: center;
     align-items: center;
-
+    position: relative;
     .Text {
         display: flex;
         flex-direction: column;
@@ -51,13 +51,18 @@ $title-color: #105c91;
                     align-items: center;
                     position: absolute;
                     right: 100px;
+                    sub {
+                        position: relative;
+                        left: -8px;
+                        top: 3px;
+                    }
                 }
             }
         }
 
         .Content {
             white-space: pre-line;
-            
+
             > div {
                 line-height: 30px;
                 margin-bottom: 20px;
@@ -67,7 +72,7 @@ $title-color: #105c91;
     .Image {
         display: flex;
         align-items: center;
-        img{
+        img {
             object-fit: contain;
         }
     }
@@ -92,6 +97,27 @@ $title-color: #105c91;
             display: flex;
         }
     }
+    .Delete {
+        position: absolute;
+        left: 15px;
+        bottom: 12px;
+        width: 35px;
+        height: 35px;
+        background-color: #f3f3f3;
+        color: $main-color;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        svg {
+            font-size: 20px;
+        }
+    }
+    .Delete:hover {
+        background-color: $main-color;
+        color: #ffffff;
+    }
 }
 .Border {
     border: 2px solid $sub-color;
@@ -99,6 +125,62 @@ $title-color: #105c91;
     border-radius: 8px;
     margin-bottom: 35px;
     display: inherit;
+}
+.DeleteConfirmation {
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 250;
+    .Backdrop{
+        width: 100vw;
+        height: 100vh;
+        cursor: pointer;
+        position: absolute; 
+    }
+    .DeleteBox{
+        position: relative;
+        width: 50%;
+        height: 30vw;
+        max-height: 140px;
+        max-width: 520px;
+        min-width: 330px;
+        background-color: #ffffff;
+        border-radius: 6px;
+        z-index: 300;
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+        justify-content: space-evenly;
+        >div{
+            display: flex;
+            flex-flow: row;
+            gap: 15px;
+            button{
+                font-size: 14px;
+            }
+        }
+        i{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        i:hover{
+            color: $main-color;
+        }
+    }
 }
 @media only screen and (max-width: 500px) {
     .Workshop {

@@ -23,9 +23,12 @@ const WorkshopsPage = () => {
   const [workshops, setWorkshops] = useState([]);
   const [length, setLength] = useState();
   const [error, setError] = useState('');
+  const [token, setToken] = useState();
+  const imageRadio = [{ title: 'فردی',value: 'single'},{title: 'زوج درمانی',value: 'couple'},{title: 'کودک و نوجوان',value: 'kids'}];
 
   useEffect(() => {
     const token = Cookies.get("token");
+    setToken(token);
     if (token) {
       setIsLogged(true);
     }
@@ -86,7 +89,6 @@ const WorkshopsPage = () => {
       config: {
         type: 'number',
         name: 'time',
-        placeholder: '__ ساعت',
         value: newWorkshop.time,
       },
       changeHandler
@@ -121,11 +123,10 @@ const WorkshopsPage = () => {
     event.preventDefault();
     const isValid = validationHandler();
     if (isValid) {
-      const token = Cookies.get("token");
       const data = {
         ...newWorkshop,
-        time: newWorkshop.time + ' ساعت',
-        price: newWorkshop.price + ' تومان',
+        time: newWorkshop.time,
+        price: newWorkshop.price,
         link: 'workshop' + workshops?.length
       }
       axios.post('http://localhost:4500/workshop/add', data, { headers: { token } })
@@ -143,6 +144,18 @@ const WorkshopsPage = () => {
       //console.log("something went wrong")
     }
   }
+
+  const deleteWorkshopHandler = (_id) => {
+    console.log(_id);
+    axios.post('http://localhost:4500/workshop/delete', { _id }, { headers: { token } })
+      .then(response => {
+        console.log("response", response);
+        setLength(workshops.length);
+      }).catch(error => {
+        console.log("error", error.response.data);
+      })
+  }
+
   //console.log("newWorkshop",newWorkshop);
   return <div className={'container ' + style.WorkshopsPage}>
     <ContentContainer Title='کـارگاه‌های آموزشـی'>
@@ -158,6 +171,7 @@ const WorkshopsPage = () => {
             Image={workshop.image}
             Title={workshop.title}
             Link={workshop.link + '#description'}
+            deleteWorkshopHandler={() => deleteWorkshopHandler(workshop._id)}
             Border>
           </Workshop>
         })
@@ -171,42 +185,27 @@ const WorkshopsPage = () => {
           <p className={error === '' ? style.HideError : style.ShowError}>{error}</p>
           <form onSubmit={(event) => addWorkshopHandler(event)} autoComplete='no'>
             <Workshop
-              Price={<Input inputProperties={inputProperties.price}/>}
-              Date={<Input inputProperties={inputProperties.date}/>}
-              Time={<Input inputProperties={inputProperties.time}/>}
+              Price={<Input inputProperties={inputProperties.price} />}
+              Date={<Input inputProperties={inputProperties.date} />}
+              Time={<Input inputProperties={inputProperties.time} />}
+              Title={<Input inputProperties={inputProperties.title} />}
               Image={<div className={style.ChooseImage}>
                 <p><IoIosImages />گروه:</p>
-                <label>
-                  <input
-                    type='radio'
-                    value='couple.jpg'
-                    name='image'
-                    onChange={(event) => changeHandler(event)}
-                  />
-                  زوج درمانی
-                </label>
-                <label>
-                  <input
-                    type='radio'
-                    value='single.jpg'
-                    name='image'
-                    onChange={(event) => changeHandler(event)}
-                  />
-                  فردی
-                </label>
-                <label>
-                  <input
-                    type='radio'
-                    value='kids.jpg'
-                    name='image'
-                    onChange={(event) => changeHandler(event)}
-                  />
-                  کودک و نوجوان
-                </label>
+                {imageRadio.map(radio => {
+                  return <label key={radio.value}>
+                    <input
+                      type='radio'
+                      value={radio.value+'.jpg'}
+                      name='image'
+                      onChange={(event) => changeHandler(event)}
+                    />
+                    {radio.title}
+                  </label>
+                })}
+
               </div>}
-              Title={<Input inputProperties={inputProperties.title} handlers={inputProperties.handlers} />}
               Border>
-              <Input inputProperties={inputProperties.introduction} handlers={inputProperties.handlers} />
+              <Input inputProperties={inputProperties.introduction} />
             </Workshop>
             <div className={style.SubmitButton}>
               <Button Type='submit'>ثبت</Button>

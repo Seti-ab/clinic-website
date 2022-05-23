@@ -6,7 +6,7 @@ import { FiMoreHorizontal } from 'react-icons/fi';
 import user from '../../assets/icons/user.png'
 function Colleague(props) {
     return (
-        <div className={styles.Colleague} key={props.ID}>
+        <div className={styles.Colleague} key={props.id}>
             <div className={styles.Picture}>
                 <Image
                     src={user.src}
@@ -31,4 +31,4 @@ function Colleague(props) {
     )
 }
 
-export default Colleague
+export default Colleague;

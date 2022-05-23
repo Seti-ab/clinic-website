@@ -1,5 +1,5 @@
 let jwt = require('jsonwebtoken');
-let secretKey ='setayesh_final_project'
+let secretKey ='sayeh_clinic'
 const PsychologistTable = require("../tables/Psychologist");
 methods = []
 
