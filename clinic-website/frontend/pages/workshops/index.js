@@ -192,7 +192,7 @@ const WorkshopsPage = () => {
               Image={<div className={style.ChooseImage}>
                 <p><IoIosImages />گروه:</p>
                 {imageRadio.map(radio => {
-                  return <label key={radio.value}>
+                  return <label key={radio.value} className={style.Radio}>
                     <input
                       type='radio'
                       value={radio.value+'.jpg'}

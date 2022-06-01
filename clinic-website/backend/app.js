@@ -24,15 +24,15 @@ app.use(cors());
 let initial = require('./initial')
 initial((errcode, errtext) => {
   if (errcode) {
-    console.log('err')
+    console.log('initial error');
     console.log(errcode, errtext)
   } else {
     console.log('initial done: ', errtext);
   }
 })
 
-let Psychologist = require('./routes/Psychologist')
-app.use('/Psychologist', Psychologist)
+let colleague = require('./routes/colleague')
+app.use('/colleague', colleague)
 
 let workshop = require('./routes/workshop');
 app.use('/workshop', workshop)

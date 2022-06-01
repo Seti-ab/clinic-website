@@ -10,7 +10,7 @@ let workshop = new schema({
     },
     lecturer: {
         type: mongoose.Types.ObjectId,
-        ref: 'Psychologist'
+        ref: 'colleague'
     },
     time: {
         type: String

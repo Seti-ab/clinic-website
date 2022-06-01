@@ -45,7 +45,7 @@ const ColleaguePage = (props) => {
 
 export async function getServerSideProps(context) {
   const { params } = context;
-  const res = await fetch('http://localhost:4500/Psychologist/getlist')
+  const res = await fetch('http://localhost:4500/colleague/getlist')
   const colleagues = await res.json();
   const colleague = colleagues.list.find((colleague) => colleague.link === params.colleague);
   if (colleague) {

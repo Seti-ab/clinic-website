@@ -1,4 +1,4 @@
-let PsychologistTable = require('../tables/Psychologist')
+let colleagueTable = require('../tables/colleague')
 const jwt = require('jsonwebtoken')
 const secretKey = 'sayeh_clinic'
 
@@ -9,15 +9,15 @@ let pr = {
 }
 let methods = {}
 
-methods.AddPsychologist = (name, email, password, jobTitle, link, education, introduction, callback) => {
-    PsychologistTable.findOne({ email: email }).lean().exec((err, Psychologist) => {
+methods.AddColleague = (name, email, password, jobTitle, link, education, introduction, callback) => {
+    colleagueTable.findOne({ email: email }).lean().exec((err, colleague) => {
         if (err) {
             callback(500, err, null)
         } else {
-            if (Psychologist) {
-                callback(400, 'کاربر تکراری است', Psychologist)
+            if (colleague) {
+                callback(400, 'کاربر تکراری است', colleague)
             } else {
-                let newPsychologist = new PsychologistTable({
+                let newColleague = new colleagueTable({
                     name: name,
                     email: email,
                     jobTitle: jobTitle,
@@ -27,11 +27,11 @@ methods.AddPsychologist = (name, email, password, jobTitle, link, education, int
                     password: password
                 })
 
-                newPsychologist.save((err, Psychologist) => {
+                newColleague.save((err, colleague) => {
                     if (err) {
                         callback(500, err, null)
                     } else {
-                        callback(null, null, Psychologist)
+                        callback(null, null, colleague)
                     }
                 })
             }
@@ -40,33 +40,33 @@ methods.AddPsychologist = (name, email, password, jobTitle, link, education, int
 }
 
 
-methods.getPsychologist = (callback) => {
-    PsychologistTable.find().lean().exec((err, Psychologists) => {
+methods.getcolleague = (callback) => {
+    colleagueTable.find().lean().exec((err, colleagues) => {
         if (err) {
             callback(500, err, null)
         } else {
-            if (!Psychologists) {
+            if (!colleagues) {
                 callback(400, 'کاربری یافت نشد'.null)
             } else {
-                callback(null, null, Psychologists)
+                callback(null, null, colleagues)
             }
         }
     })
 }
 
 methods.login = function (email, password, callback) {
-    PsychologistTable.findOne({ email: email }).exec((err, PsychologistRecord) => {
+    colleagueTable.findOne({ email: email }).exec((err, colleagueRecord) => {
         if (err) {
             callback(500, err, null)
         } else {
-            if (PsychologistRecord) {
-                PsychologistRecord.comparePassword(password, (err, success) => {
+            if (colleagueRecord) {
+                colleagueRecord.comparePassword(password, (err, success) => {
                     if (err) {
                         callback(500, err, null)
                     } else {
                         if (success) {
-                            let token = pr.generateJWT(PsychologistRecord.id)
-                            callback(null, null, PsychologistRecord, token)
+                            let token = pr.generateJWT(colleagueRecord.id)
+                            callback(null, null, colleagueRecord, token)
                         } else {
                             callback(400, 'رمز عبور وارد شده صحیح نمی باشد.', null)
                         }

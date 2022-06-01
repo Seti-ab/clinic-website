@@ -1,15 +1,15 @@
-let PsychologistTable = require('./tables/Psychologist')
+let colleagueTable = require('./tables/colleague')
 
 let methods = {}
 
 methods.initial = (callback) => {
-    PsychologistTable.findOne({ _id: "999999999999999999999999" }).exec((err, admin) => {
+    colleagueTable.findOne({ _id: "999999999999999999999999" }).exec((err, admin) => {
         if (err) {
             callback(500, err)
         } else {
             console.log(admin);
             if (admin ===null) {
-                let Psychologist = new PsychologistTable({
+                let colleague = new colleagueTable({
                     _id: "999999999999999999999999",
                     name: 'ستایش ابویی',
                     email: "setayesh.ab1998@gmail.com",
@@ -20,7 +20,7 @@ methods.initial = (callback) => {
                     link:'admin'
                 })
 
-                Psychologist.save((err) => {
+                colleague.save((err) => {
                     if (err) {
                         console.log(err);
                         callback(501, err)

@@ -8,6 +8,7 @@ import Input from '../components/UI/Input/Input';
 import { AiOutlineCopyright } from 'react-icons/ai';
 import Button from '../components/UI/Button/Button';
 import Cookies from 'js-cookie';
+
 const Login = () => {
   const [error, setError] = useState({});
   const [values, setValues] = useState();
@@ -84,24 +85,24 @@ const Login = () => {
     const isValid = formValidationHandler();
     const history = Object.keys(router.components)[(Object.keys(router.components).length) - 2];
     if (isValid) {
-      axios.post('http://localhost:4500/Psychologist/login', values)
+      axios.post('http://localhost:4500/colleague/login', values)
         .then(response => {
           //console.log("response", response);
           Cookies.set('token', response.data.token);
-          Cookies.set("userName", response.data.Psychologist);
+          Cookies.set("userName", response.data.colleague);
           if (history !== '/login' && history !== '/_app') {
             router.push(history);
           } else {
             router.push('/');
           }
         }).catch(error => {
-          //console.log("error", error.response.data.error);
-          setError({ ...error, server: error.response.data.error });
+          console.log("error", error.response.data?.error);
+          setError({ ...error, server: error.response.data?.error });
         })
 
     }
     else {
-      console.log("Something went wrong");
+      console.log("خطایی رخ داد!");
     }
   }
 

@@ -1,6 +1,6 @@
 let express = require('express')
 let router = express.Router()
-let PsychologistSrvices = require('../server/Psychologist')
+let colleagueSrvices = require('../server/colleague')
 // let pr = {
 //     validateEmail: (elementValue) => {
 //         var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -17,7 +17,7 @@ router.post('/add', (req, res) => {
     } else {
         // if (pr.validateEmail(req.body.Email)) {
             //server
-            PsychologistSrvices.AddPsychologist(req.body.name, req.body.email, req.body.password, req.body.jobTitle, req.body.link, req.body.education, req.body.introduction, (errorcode, errortext, info) => {
+            colleagueSrvices.AddColleague(req.body.name, req.body.email, req.body.password, req.body.jobTitle, req.body.link, req.body.education, req.body.introduction, (errorcode, errortext, info) => {
                     if (errorcode) {
                         res.status(errorcode).send({
                             success: false,
@@ -27,7 +27,7 @@ router.post('/add', (req, res) => {
                     } else {
                         res.status(200).send({
                             success: true,
-                            Psychologist: info
+                            colleague: info
                         })
                     }
                 })
@@ -45,7 +45,7 @@ router.post('/add', (req, res) => {
 })
 
 router.get('/getlist', (req, res) => {
-    PsychologistSrvices.getPsychologist((errorcode, errortext, list) => {
+    colleagueSrvices.getcolleague((errorcode, errortext, list) => {
         if (errorcode) {
             res.status(errorcode).send({
                 success: false,
@@ -68,8 +68,8 @@ router.post('/login', (req, res) => {
         })
     } else {
         //if (pr.validateEmail(req.body.Email)) {
-            PsychologistSrvices.login(req.body.email, req.body.password, (errorcode, errortext
-                , Psychologist, token) => {
+            colleagueSrvices.login(req.body.email, req.body.password, (errorcode, errortext
+                , colleague, token) => {
                 if (errorcode) {
                     res.status(errorcode).send({
                         success: false,
@@ -78,7 +78,7 @@ router.post('/login', (req, res) => {
                 } else {
                     res.status(200).send({
                         success: true,
-                        Psychologist:Psychologist.name,
+                        colleague:colleague.name,
                         token: token
                     })
                 }

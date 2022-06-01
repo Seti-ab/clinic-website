@@ -52,7 +52,7 @@ export default function Home() {
             سلامت روان باید به همان اندازه اهمیت داشته باشد که سلامت جسم مهم است. زیرا بدون روح و روان سالم، سلامت و کارایی جسمی ما نیز کاهش پیدا خواهد کرد. مراجعه به روانشناس می تواند به سلامت روان ما کمک کند. همه ما انسان ها در زندگی خود بحران ها و احساساتی را تجربه می کنیم که به تنهایی قادر به حل کردن آن ها نیستیم. حضور یک مشاور روانشناس در زندگی ما، به بهبود احساس و عملکردمان در تمامی زمینه ها کمک خواهد کرد.
             {content.map((post, index) => {
               return (
-                <div key={index} className={contentShow[index] ? styles.ShowContent : styles.HideContent}>
+                <div key={index} className={styles.Content +' '+ (contentShow[index] ? styles.ShowContent : styles.HideContent)}>
                   <h4 onClick={() => showContentsHandler(index)}>{post.title}<IoIosArrowDown/></h4>
                   <p>{post.text}</p>
                 </div>

@@ -9,6 +9,8 @@ import Cancel from '../../assets/icons/cancel.svg';
 import { navItems } from '../../public/data';
 import { FiLogOut, FiLogIn } from 'react-icons/fi'
 import Cookies from 'js-cookie';
+import { FaRegUserCircle } from 'react-icons/fa';
+import { AiOutlineCopyright } from 'react-icons/ai';
 
 const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
@@ -47,6 +49,9 @@ const Header = () => {
 
             <div className={styles.Items}>
                 <ul className={showMenu ? styles.ResponsiveMenu : styles.hideResponsiveMenu}>
+                    {showMenu && <span className={styles.CopyRight}>
+                        ۱۴۰۱<AiOutlineCopyright /> طراحی و توسعه توسط <b>ستایش ابوئی</b>
+                    </span>}
                     {navItems.map(item => {
                         return <li className={router.pathname === item.link ? styles.Active : null} onClick={() => setShowMenu(false)} key={item.id}>
                             <Link href={item.link} >

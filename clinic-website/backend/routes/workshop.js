@@ -14,8 +14,8 @@ router.post('/add', auth, (req, res) => {
             error: "missing data"
         })
     } else {
-        console.log(req.Psychologist)
-        workshopServices.Add(req.body.title, req.body.date, req.body.time, req.body.link, req.Psychologist._id, req.body.introduction, req.body.price, req.body.image, (errorcode, errortext, workshop) => {
+        console.log(req.colleague)
+        workshopServices.Add(req.body.title, req.body.date, req.body.time, req.body.link, req.colleague._id, req.body.introduction, req.body.price, req.body.image, (errorcode, errortext, workshop) => {
             if (errorcode) {
                 res.status(errorcode).send({
                     success: false,

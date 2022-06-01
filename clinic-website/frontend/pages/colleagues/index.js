@@ -25,7 +25,7 @@ const ColleaguesPage = () => {
     repeatPassword: 'تکرار رمز عبور با رمز عبور یکسان نمی باشد!',
   }
   useEffect(() => {
-    axios.get('http://localhost:4500/Psychologist/getlist')
+    axios.get('http://localhost:4500/colleague/getlist')
       .then(response => {
         //console.log("response", response);
         setColleagues(response.data.list);
@@ -94,7 +94,7 @@ const ColleaguesPage = () => {
         ...values,
         link: 'colleague' + colleagues?.length
       }
-      axios.post('http://localhost:4500/Psychologist/add', data)
+      axios.post('http://localhost:4500/colleague/add', data)
         .then(response => {
           //console.log("response", response);
           setLength(colleagues.length);

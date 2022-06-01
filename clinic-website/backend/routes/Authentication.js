@@ -1,6 +1,6 @@
 let jwt = require('jsonwebtoken');
 let secretKey ='sayeh_clinic'
-const PsychologistTable = require("../tables/Psychologist");
+const colleagueTable = require("../tables/colleague");
 methods = []
 
 methods.authentication =()=> (req, res, next) => {
@@ -17,17 +17,17 @@ methods.authentication =()=> (req, res, next) => {
                     "error": "unautherized"
                 });
             } else {
-                PsychologistTable.findOne({ _id: decode.id }).exec((err, Psychologist) => {
+                colleagueTable.findOne({ _id: decode.id }).exec((err, colleague) => {
                     if (err) {
                         res.status(500).send({
                             error: err
                         })
-                    }else if (!Psychologist) {
+                    }else if (!colleague) {
                         res.res.status(403).send({
                             "error": "unautherized"
                         });
                     } else {
-                        req.Psychologist=Psychologist
+                        req.colleague=colleague
                         next();
                     }
                 })

@@ -7,26 +7,25 @@ const AboutUsPage = () => {
   return (
     <div className={style.AboutUsPage}>
       <div className={style.Information}>
-      <div>
-        <pre className={style.InfoTitle}>آدرس: </pre>
-        <p>{Information.Address}</p>
-      </div>
-      <div>
-        <pre className={style.InfoTitle}>تلفن تماس: </pre>
-        <p>{Information.PhoneNumber}</p>
-      </div>
-      <div>
-        <pre className={style.InfoTitle}>ایمیل: </pre>
-        <p>{Information.Email}</p>
-      </div>
+        <div>
+          <pre className={style.InfoTitle}>آدرس: </pre>
+          <p>{Information.Address}</p>
+        </div>
+        <div>
+          <pre className={style.InfoTitle}>تلفن تماس: </pre>
+          <p>{Information.PhoneNumber}</p>
+        </div>
+        <div>
+          <pre className={style.InfoTitle}>ایمیل: </pre>
+          <p>{Information.Email}</p>
+        </div>
 
-      <div className={style.Icons}>
-        {/* todo use next link  */}
-        <a href='https://www.instagram.com/seti_ab/' target='_blank' rel="noreferrer"><BsInstagram /></a>
-        <a href='https://t.me/seti_ab' target='_blank' rel="noreferrer"><BsTelegram /></a>
-        <a href='https://wa.me/+989908833012' target='_blank' rel="noreferrer"><BsWhatsapp /></a>
+        <div className={style.Icons}>
+          <a href='https://www.instagram.com/seti_ab/' target='_blank' rel="noreferrer"><BsInstagram /></a>
+          <a href='https://t.me/seti_ab' target='_blank' rel="noreferrer"><BsTelegram /></a>
+          <a href='https://wa.me/+989908833012' target='_blank' rel="noreferrer"><BsWhatsapp /></a>
+        </div>
       </div>
-    </div>
 
       <div>
         <iframe
