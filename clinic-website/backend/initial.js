@@ -7,13 +7,12 @@ methods.initial = (callback) => {
         if (err) {
             callback(500, err)
         } else {
-            console.log(admin);
             if (admin ===null) {
                 let colleague = new colleagueTable({
                     _id: "999999999999999999999999",
                     name: 'ستایش ابویی',
                     email: "setayesh.ab1998@gmail.com",
-                    jobTitle: 'ادمین سایت',
+                    jobTitle: 'مدیر کلینیک',
                     education: 'کارشناسی مهندسی کامپیوتر گرایش نرم افزار',
                     password: '123',
                     introduction:'Front-End Developer در شرکت بامداد تک ، دانش آموخته دانشگاه علم و فرهنگ تهران',

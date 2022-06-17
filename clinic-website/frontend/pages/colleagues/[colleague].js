@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import styles from '../../styles/ColleaguesPage.module.scss';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
-import { HiOutlineMail } from 'react-icons/hi';
 import { scroller } from "react-scroll";
 
 const ColleaguePage = (props) => {
@@ -34,7 +33,7 @@ const ColleaguePage = (props) => {
             <h3>{props.data.jobTitle}</h3>
             <p>{props.data.education}</p>
             <p>{props.data.introduction}</p>
-            <p className={styles.Email}><HiOutlineMail />{props.data.email}</p>
+            <p className={styles.Email}><i></i>{props.data.email}</p>
           </div>
         </div>
       </ContentContainer>

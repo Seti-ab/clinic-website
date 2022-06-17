@@ -23,16 +23,17 @@ $title-color: #105c91;
                 height: 45px;
                 border-radius: 50%;
                 cursor: pointer;
-                svg {
-                    font-size: 25px;
-                    color: #ffffff;
+                i{
+                    background-image: url('../assets/icons/user-add.svg');
+                    background-size: cover;
+                    width: 28px;
+                    height: 28px;
+                    display: flex;
+                    margin: auto;
                 }
             }
             button:hover {
-                background: #ffffff;
-                svg {
-                    color: $main-color;
-                }
+                background: $sub-color;
             }
         }
     }
@@ -149,9 +150,11 @@ $title-color: #105c91;
             align-items: center;
             gap: 5px;
             margin-top: 5px;
-            svg {
-                font-size: 21px;
-                color: $main-color;
+            i{
+                background-image: url('../assets/icons/user-email.svg');
+                background-size: cover;
+                width: 22px;
+                height: 22px;
             }
         }
     }

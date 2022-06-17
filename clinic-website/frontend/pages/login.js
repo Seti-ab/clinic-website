@@ -5,9 +5,10 @@ import styles from '../styles/Login.module.scss';
 import login from '../assets/animations/login.json';
 import lottie from 'lottie-web';
 import Input from '../components/UI/Input/Input';
-import { AiOutlineCopyright } from 'react-icons/ai';
 import Button from '../components/UI/Button/Button';
 import Cookies from 'js-cookie';
+import copyright from '../assets/icons/copyright-dark.svg';
+import Image from 'next/image';
 
 const Login = () => {
   const [error, setError] = useState({});
@@ -155,7 +156,11 @@ const Login = () => {
       <div className={styles.Left}>
         <div ref={animation}></div>
         <p className={styles.CopyRight}>
-          ۱۴۰۱<AiOutlineCopyright /> طراحی و توسعه توسط <b>ستایش ابوئی</b>
+          ۱۴۰۱<Image
+            src={copyright.src}
+            width='11px'
+            height='11px'
+          /> طراحی و توسعه توسط <b>ستایش ابوئی</b>
         </p>
       </div>
 

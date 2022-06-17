@@ -3,7 +3,7 @@ $title-color: #105c91;
 $error-color: #ff4040;
 .Input {
     position: relative;
-    .Required{
+    .Required {
         position: absolute;
         color: $main-color;
         top: 6px;
@@ -31,7 +31,7 @@ $error-color: #ff4040;
         }
         textarea {
             resize: vertical;
-            height: 116px;
+            height: 70px;
             margin-bottom: -8px;
             font-size: 14px;
             color: #222222;
@@ -65,13 +65,28 @@ $error-color: #ff4040;
         cursor: pointer;
         svg {
             font-size: 16px;
-            color: rgba($color: $title-color, $alpha: 0.75);
+            fill: rgba($color: $title-color, $alpha: 0.75);
+        }
+        .EyeIcon {
+            display: flex;
+            i {
+                display: flex;
+                width: 18px;
+                height: 18px;
+                background-size: cover;
+            }
+            .EyeOpen {
+                background-image: url("../../../assets/icons/eye.svg");
+            }
+            .EyeClosed {
+                background-image: url("../../../assets/icons/eye-closed.svg");
+            }
         }
     }
 }
 @media screen and (max-width: 800px) {
     .Input {
-        .Required{
+        .Required {
             left: 3px;
         }
         .RequiredPlace {

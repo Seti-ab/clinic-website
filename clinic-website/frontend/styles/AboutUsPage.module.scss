@@ -25,12 +25,28 @@ $title-color: #105c91;
         .Icons {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
             margin-top:5px;
-            svg{
-                display: flex;
-                font-size: 22px;
-                color:$main-color ;
+            i{
+               width: 27px;
+               height: 27px;
+               background-size: cover;
+               display: flex;
+               background-position: center;
+            }
+            .Instagram{
+                background-image: url('../assets/icons/instagram-dark.svg');
+                width: 32px;
+                height: 32px;
+            }
+            .Telegram{
+                background-image: url('../assets/icons/telegram-dark.svg');
+            }
+            .Whatsapp{
+                background-image: url('../assets/icons/whatsapp-dark.svg');
+            }
+            i:hover{
+                opacity: 0.7;
             }
         }
     }

@@ -1,7 +1,6 @@
 import React from 'react';
 import style from '../styles/AboutUsPage.module.scss'
 import { Information } from '../public/data';
-import { BsTelegram, BsInstagram, BsWhatsapp } from 'react-icons/bs';
 
 const AboutUsPage = () => {
   return (
@@ -21,9 +20,9 @@ const AboutUsPage = () => {
         </div>
 
         <div className={style.Icons}>
-          <a href='https://www.instagram.com/seti_ab/' target='_blank' rel="noreferrer"><BsInstagram /></a>
-          <a href='https://t.me/seti_ab' target='_blank' rel="noreferrer"><BsTelegram /></a>
-          <a href='https://wa.me/+989908833012' target='_blank' rel="noreferrer"><BsWhatsapp /></a>
+          <a href='https://www.instagram.com/seti_ab/' target='_blank' rel="noreferrer"><i className={style.Instagram}></i></a>
+          <a href='https://t.me/seti_ab' target='_blank' rel="noreferrer"><i className={style.Telegram}></i></a>
+          <a href='https://wa.me/+989908833012' target='_blank' rel="noreferrer"><i className={style.Whatsapp}></i></a>
         </div>
       </div>
 

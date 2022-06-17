@@ -6,8 +6,8 @@ import Workshop from '../../components/Workshop/Workshop';
 import Cookies from 'js-cookie';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
-import { IoIosImages } from 'react-icons/io';
-import { toPersianNumber } from '../../helpers/action'
+import { toPersianNumber } from '../../helpers/action';
+
 const WorkshopsPage = () => {
   const initialValues = {
     title: '',
@@ -190,7 +190,7 @@ const WorkshopsPage = () => {
               Time={<Input inputProperties={inputProperties.time} />}
               Title={<Input inputProperties={inputProperties.title} />}
               Image={<div className={style.ChooseImage}>
-                <p><IoIosImages />گروه:</p>
+                <p><i></i>گروه:</p>
                 {imageRadio.map(radio => {
                   return <label key={radio.value} className={style.Radio}>
                     <input

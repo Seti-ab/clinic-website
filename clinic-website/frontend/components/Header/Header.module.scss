@@ -9,7 +9,9 @@ $sub-color: #a2ecf3;
     flex-direction: row;
     align-items: center;
     z-index: 30;
-
+    .CopyRight {
+        display: none;
+    }
     > div {
         height: 100%;
         width: 100%;
@@ -32,15 +34,31 @@ $sub-color: #a2ecf3;
     }
     .MenuIcon {
         display: none;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        height: 26px;
-        width: 26px;
+        i {
+            background-image: url("../../assets/icons/menu.svg");
+            background-size: cover;
+            width: 26px;
+            height: 25px;
+            display: flex;
+        }
     }
     .CancelIcon {
         display: none;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        height: 14px;
-        width: 14px;
+        width: 20px;
+        height: 20px;
+        i {
+            background-image: url("../../assets/icons/cancel.svg");
+            background-size: cover;
+            width: 15px;
+            height: 15px;
+            display: flex;
+        }
     }
     ul {
         list-style-type: none;
@@ -67,7 +85,7 @@ $sub-color: #a2ecf3;
                 bottom: -4px;
                 right: 0;
                 width: 100%;
-                animation: show 0.3s ease-out;
+                animation: underline 0.3s ease-out;
             }
         }
     }
@@ -95,13 +113,24 @@ $sub-color: #a2ecf3;
             span {
                 font-size: 14px;
             }
-            svg {
-                font-size: 18px;
+            i {
+                background-size: cover;
+                display: flex;
+            }
+            .LoginIcon {
+                background-image: url("../../assets/icons/login.svg");
+                width: 20px;
+                height: 20px;
+            }
+            .LogoutIcon {
+                background-image: url("../../assets/icons/logout.svg");
+                width: 22px;
+                height: 22px;
             }
         }
     }
 }
-@keyframes show {
+@keyframes underline {
     0% {
         width: 0%;
     }
@@ -118,11 +147,12 @@ $sub-color: #a2ecf3;
             justify-content: space-between;
             .Items {
                 width: unset;
+                align-items: center;
             }
         }
         .MenuIcon,
         .CancelIcon {
-            display: block;
+            display: flex;
         }
 
         ul {
@@ -156,8 +186,8 @@ $sub-color: #a2ecf3;
                 margin-right: auto;
                 left: 0;
                 right: 0;
+                bottom: 10px;
                 text-align: center;
-                bottom: 15px;
                 font-size: 12px;
                 display: flex;
                 align-items: center;

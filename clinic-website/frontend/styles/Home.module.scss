@@ -15,9 +15,14 @@ $content-box: #f7f7f7;
     background: $content-box;
     padding: 15px 15px;
     border-radius: 8px;
+    text-align: right;
   }
-  svg {
-    color: $main-color;
+  i {
+    background-image: url("../assets/icons/arrow-up-dark.svg");
+    background-size: cover;
+    width: 13px;
+    height: 13px;
+    display: flex;
   }
   p {
     font-size: 15px;
@@ -32,7 +37,7 @@ $content-box: #f7f7f7;
       border-bottom-right-radius: 8px;
       top: -15px;
     }
-    svg {
+    i {
       transition: all 0.3s;
     }
   }
@@ -41,7 +46,7 @@ $content-box: #f7f7f7;
       position: relative;
       opacity: 1;
     }
-    svg {
+    i {
       transform: rotate(0);
     }
   }
@@ -51,8 +56,8 @@ $content-box: #f7f7f7;
       top: -65px;
       opacity: 0;
     }
-    svg {
-      transform: rotate(180deg);
+    i {
+      transform: rotate(-180deg);
     }
   }
 }

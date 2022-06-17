@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import style from './Modal.module.scss';
-import Close from '../../assets/icons/cancelUpload.svg';
+import Close from '../../assets/icons/cancel-upload.svg';
 import Letter from '../../assets/icons/letter.svg';
 const Modal = (props) => {
     return (

@@ -4,7 +4,7 @@ let workshopTable = require('../tables/workshop')
 let methods = {}
 
 methods.Add = (title, date, time, link, lecturer, introduction, price, image, callback) => {
-    console.log('server');
+    
     let newWorkshop = new workshopTable({
         title: title,
         introduction: introduction,
@@ -15,7 +15,6 @@ methods.Add = (title, date, time, link, lecturer, introduction, price, image, ca
         price: price,
         image:image
     })
-    console.log(newWorkshop);
     newWorkshop.save((err, workshop) => {
         if (err) {
             callback(500, err, null)
@@ -35,8 +34,7 @@ methods.getAllList = (callback) => {
     })
 }
 
-methods.del = (id, callback) => {
-    console.log('server');
+methods.delete = (id, callback) => {
     workshopTable.findOneAndRemove({ _id: id }).lean().exec((err, deleted) => {
         if (err) {
             callback(500, err, null)

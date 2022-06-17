@@ -7,7 +7,6 @@ import Button from '../components/UI/Button/Button';
 import Gallery from '../components/Gallery/Gallery'
 import axios from 'axios';
 import { toPersianNumber } from '../helpers/action';
-import { IoIosArrowDown } from 'react-icons/io';
 
 export default function Home() {
   const [workshop, setWorkshop] = useState();
@@ -53,7 +52,7 @@ export default function Home() {
             {content.map((post, index) => {
               return (
                 <div key={index} className={styles.Content +' '+ (contentShow[index] ? styles.ShowContent : styles.HideContent)}>
-                  <h4 onClick={() => showContentsHandler(index)}>{post.title}<IoIosArrowDown/></h4>
+                  <h4 onClick={() => showContentsHandler(index)}>{post.title}<i></i></h4>
                   <p>{post.text}</p>
                 </div>
               )

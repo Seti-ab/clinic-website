@@ -2,7 +2,7 @@ let colleagueTable = require('../tables/colleague')
 const jwt = require('jsonwebtoken')
 const secretKey = 'sayeh_clinic'
 
-let pr = {
+let helpers = {
     generateJWT: (id) => {
         return jwt.sign({ id: id }, secretKey, { expiresIn: '10d' });
     }
@@ -60,12 +60,12 @@ methods.login = function (email, password, callback) {
             callback(500, err, null)
         } else {
             if (colleagueRecord) {
-                colleagueRecord.comparePassword(password, (err, success) => {
+                colleagueRecord.comparePassword(password, (err, isMatch) => {
                     if (err) {
                         callback(500, err, null)
                     } else {
-                        if (success) {
-                            let token = pr.generateJWT(colleagueRecord.id)
+                        if (isMatch) {
+                            let token = helpers.generateJWT(colleagueRecord.id)
                             callback(null, null, colleagueRecord, token)
                         } else {
                             callback(400, 'رمز عبور وارد شده صحیح نمی باشد.', null)

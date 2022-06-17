@@ -50,9 +50,26 @@ $sub-color: #a2ecf3;
                 justify-content: space-between;
                 cursor: pointer;
                 font-size: 25px;
+                i {
+                    background-size: cover;
+                    width: 25px;
+                    height: 25px;
+                    display: flex;
+                }
+                .Instagram {
+                    background-image: url("../../assets/icons/instagram.svg");
+                    width: 28px;
+                    height: 28px;
+                }
+                .Whatsapp {
+                    background-image: url("../../assets/icons/whatsapp.svg");
+                }
+                .Telegram {
+                    background-image: url("../../assets/icons/telegram.svg");
+                }
             }
             .Icons :hover {
-                color: rgba($color: #ffffff, $alpha: 0.8);
+                opacity: 0.8;
             }
         }
         .Left {
@@ -62,22 +79,46 @@ $sub-color: #a2ecf3;
                 flex-flow: column;
                 gap: 22px;
                 width: 100%;
+
+                > div {
+                    display: flex;
+                    gap: 10px;
+                    > div {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+                i {
+                    background-size: cover;
+                    width: 18px;
+                    height: 18px;
+                    display: flex;
+                }
                 .LocationContainer {
                     .LocationIcon {
-                        margin-top: 4px;
+                        margin-top: 7px;
+                        align-items: flex-start;
+
+                        i {
+                            background-image: url("../../assets/icons/location.svg");
+                            width: 20px;
+                            height: 20px;
+                        }
                     }
                     p {
                         white-space: pre-line;
                         line-height: 29px;
                     }
                 }
-                > div {
-                    display: flex;
-                    gap: 10px;
-
-                    .Icon {
-                        font-size: 25px;
-                        margin-top: -2px;
+                .PhoneNumber {
+                    i {
+                        background-image: url("../../assets/icons/phone.svg");
+                    }
+                }
+                .Email {
+                    i {
+                        background-image: url("../../assets/icons/email.svg");
+                        width: 20px;
                     }
                 }
             }
@@ -96,9 +137,16 @@ $sub-color: #a2ecf3;
         height: fit-content;
         width: 100%;
         padding: 8px;
+        i{
+            background-image: url('../../assets/icons/copyright.svg');
+            background-size: cover;
+            width: 11px;
+            height: 11px;
+            display: flex;
+        }
     }
 }
-@media only screen and (max-width: 995px) {
+@media only screen and (max-width: 1050px) {
     .Footer {
         > div {
             width: 100%;
@@ -121,7 +169,10 @@ $sub-color: #a2ecf3;
             padding: 0 !important;
             > div {
                 .LocationContainer {
-                    align-items: flex-start;
+                    .LocationIcon {
+                        width: 37px !important;
+                        margin-right: -2px;
+                    }
                     p {
                         white-space: normal !important;
                     }

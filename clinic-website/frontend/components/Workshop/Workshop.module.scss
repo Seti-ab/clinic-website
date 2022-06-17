@@ -39,10 +39,30 @@ $title-color: #105c91;
                     display: flex;
                     align-items: center;
                     color: $title-color;
-                    svg {
-                        color: $title-color;
-                        font-size: 20px;
+                    i {
+                        width: 20px;
+                        height: 20px;
+                        right: -4px;
+                        position: relative;
+                        background-size: cover;
                         margin-left: 3px;
+                    }
+                    .Time {
+                        background-image: url("../../assets/icons/time.svg");
+                        width: 19px;
+                        height: 19px;
+                    }
+                    .Calender {
+                        background-image: url("../../assets/icons/calender.svg");
+                    }
+                    .Lecturer {
+                        background-image: url("../../assets/icons/lecturer.svg");
+                        right: 0;
+                    }
+                    .Price {
+                        background-image: url("../../assets/icons/price.svg");
+                        width: 19px;
+                        height: 19px;
                     }
                 }
                 span {
@@ -59,7 +79,6 @@ $title-color: #105c91;
                 }
             }
         }
-
         .Content {
             white-space: pre-line;
 
@@ -86,14 +105,20 @@ $title-color: #105c91;
         font-weight: 500;
         font-size: 18px;
         position: relative;
-        > div {
+        .Arrow {
             display: none;
             position: relative;
             top: 2px;
+            right: 3px;
+            background-image: url("../../assets/icons/arrow-line-right.svg");
+            background-size: cover;
+            transform: rotate(-180deg);
+            width: 15px;
+            height: 15px;
         }
     }
     a:hover {
-        > div {
+        .Arrow {
             display: flex;
         }
     }
@@ -110,13 +135,19 @@ $title-color: #105c91;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        svg {
-            font-size: 20px;
+        i{
+            background-image: url('../../assets/icons/delete.svg');
+            width: 19px;
+            height: 19px;
+            display: flex;
+            background-size: cover;
         }
     }
     .Delete:hover {
         background-color: $main-color;
-        color: #ffffff;
+        i{
+            background-image: url('../../assets/icons/delete-hover.svg');
+        }
     }
 }
 .Border {
@@ -138,13 +169,13 @@ $title-color: #105c91;
     align-items: center;
     justify-content: center;
     z-index: 250;
-    .Backdrop{
+    .Backdrop {
         width: 100vw;
         height: 100vh;
         cursor: pointer;
-        position: absolute; 
+        position: absolute;
     }
-    .DeleteBox{
+    .DeleteBox {
         position: relative;
         width: 50%;
         height: 30vw;
@@ -158,15 +189,15 @@ $title-color: #105c91;
         align-items: center;
         flex-flow: column;
         justify-content: space-evenly;
-        >div{
+        > div {
             display: flex;
             flex-flow: row;
             gap: 23px;
-            button{
+            button {
                 font-size: 14px;
             }
         }
-        i{
+        .Close {
             position: absolute;
             right: 0;
             top: 0;
@@ -176,9 +207,18 @@ $title-color: #105c91;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            i {
+                background-image: url("../../assets/icons/close.svg");
+                background-size: cover;
+                width: 20px;
+                height: 20px;
+                display: flex;
+            }
         }
-        i:hover{
-            color: $main-color;
+        .Close:hover {
+            i {
+                background-image: url("../../assets/icons/close-hover.svg");
+            }
         }
     }
 }

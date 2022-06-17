@@ -2,8 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Colleague.module.scss';
-import { FiMoreHorizontal } from 'react-icons/fi';
-import user from '../../assets/icons/user.png'
+import user from '../../assets/icons/user.png';
 function Colleague(props) {
     return (
         <div className={styles.Colleague} key={props.id}>
@@ -25,7 +24,9 @@ function Colleague(props) {
                 <Link href={'/colleagues/' + props.Link + '#description'}>
                     <a>بیشتر</a>
                 </Link>
-                <span><FiMoreHorizontal /></span>
+                <span className={styles.More}>
+                    <i></i>
+                </span>
             </div>
         </div>
     )

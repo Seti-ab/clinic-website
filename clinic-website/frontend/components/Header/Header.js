@@ -3,21 +3,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from "next/router";
 import styles from './Header.module.scss';
-import Logo from '../../assets/icons/Clinic_Logo.svg';
-import Menu from '../../assets/icons/menu.svg';
-import Cancel from '../../assets/icons/cancel.svg';
+import Logo from '../../assets/icons/clinic-logo.svg';
 import { navItems } from '../../public/data';
-import { FiLogOut, FiLogIn } from 'react-icons/fi'
 import Cookies from 'js-cookie';
-import { FaRegUserCircle } from 'react-icons/fa';
-import { AiOutlineCopyright } from 'react-icons/ai';
+//icons
+import menuIcon from '../../assets/icons/menu.svg';
+import cancelIcon from '../../assets/icons/cancel.svg';
+import login from '../../assets/icons/login.svg';
+import logout from '../../assets/icons/logout.svg';
 
 const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
     const router = useRouter();
     const [isLogged, setIsLogged] = useState(false);
     const [userName, setUserName] = useState();
-
     useEffect(() => {
         const token = Cookies.get("token");
         if (token) {
@@ -29,7 +28,7 @@ const Header = () => {
 
     const logoutHandler = () => {
         Cookies.remove("token");
-        router.reload()
+        router.reload();
     }
 
     return <div className={styles.Header}>
@@ -50,7 +49,7 @@ const Header = () => {
             <div className={styles.Items}>
                 <ul className={showMenu ? styles.ResponsiveMenu : styles.hideResponsiveMenu}>
                     {showMenu && <span className={styles.CopyRight}>
-                        ۱۴۰۱<AiOutlineCopyright /> طراحی و توسعه توسط <b>ستایش ابوئی</b>
+                        کلینیـک روانشـناسی<b>سایه</b>
                     </span>}
                     {navItems.map(item => {
                         return <li className={router.pathname === item.link ? styles.Active : null} onClick={() => setShowMenu(false)} key={item.id}>
@@ -70,31 +69,21 @@ const Header = () => {
                             <span>{userName}</span>
                             <a onClick={() => logoutHandler()}>
                                 <span>خروج</span>
-                                <FiLogOut />
+                                <i className={styles.LogoutIcon}></i>
                             </a>
                         </div>
                         : <Link href='/login'><a>
                             <span>ورود کارمندان</span>
-                            <FiLogIn />
+                            <i className={styles.LoginIcon}></i>
                         </a>
                         </Link>
                     }
                 </div>
                 {!showMenu ? <div className={styles.MenuIcon} onClick={() => setShowMenu(true)}>
-                    <Image
-                        src={Menu}
-                        alt="Menu"
-                        width="40px"
-                        height="40px"
-                    />
+                    <i></i>
                 </div> :
                     <div className={styles.CancelIcon} onClick={() => setShowMenu(false)}>
-                        <Image
-                            src={Cancel}
-                            alt="icon"
-                            width="40px"
-                            height="40px"
-                        />
+                        <i></i>
                     </div>
                 }
             </div>

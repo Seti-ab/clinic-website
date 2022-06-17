@@ -2,9 +2,6 @@ import React, { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Workshop.module.scss';
-import { BsArrowLeft } from 'react-icons/bs'
-import { IoIosPricetags, IoIosTime, IoMdCalendar, IoMdPerson,IoMdClose} from 'react-icons/io';
-import { AiOutlineDelete } from 'react-icons/ai';
 import Cookies from 'js-cookie';
 import Button from '../UI/Button/Button';
 
@@ -15,8 +12,8 @@ const Workshop = (props) => {
     useEffect(() => {
         setToken(Cookies.get("token"))
     }, [])
-    
-    const confirmedHandler=()=>{
+
+    const confirmedHandler = () => {
         props.deleteWorkshopHandler();
         setConfirmationModal(false);
     }
@@ -26,11 +23,11 @@ const Workshop = (props) => {
             {confirmationModal && <div className={styles.DeleteConfirmation}>
                 <div className={styles.Backdrop} onClick={() => setConfirmationModal(false)}></div>
                 <div className={styles.DeleteBox}>
-                    <i onClick={()=>setConfirmationModal(false)}><IoMdClose/></i>
+                    <div className={styles.Close} onClick={() => setConfirmationModal(false)}><i></i></div>
                     <p>آیا از حذف این کارگاه اطمینان دارید؟</p>
                     <div>
-                        <Button Clicked={()=>setConfirmationModal(false)} Cancel>انصراف</Button>
-                        <Button Clicked={()=>confirmedHandler()}>تائید</Button>
+                        <Button Clicked={() => setConfirmationModal(false)} Cancel>انصراف</Button>
+                        <Button Clicked={() => confirmedHandler()}>تائید</Button>
                     </div>
                 </div>
             </div>}
@@ -40,19 +37,17 @@ const Workshop = (props) => {
                     <div className={styles.Content}>
                         {props.children}
                         <ul>
-                            {props.Lecturer && <li><p><IoMdPerson />مدرس: </p><span>{props.Lecturer}</span></li>}
-                            {props.Time && <li><p><IoIosTime />مدت زمان: </p><span>{props.Time}<sub>ساعت</sub></span></li>}
-                            <li><p><IoMdCalendar />تاریخ: </p><span>{props.Date}</span></li>
-                            {props.Price && <li><p><IoIosPricetags />هزینه: </p><span>{props.Price}<sub>تومان</sub></span></li>}
+                            {props.Lecturer && <li><p><i className={styles.Lecturer}></i>مدرس: </p><span>{props.Lecturer}</span></li>}
+                            {props.Time && <li><p><i className={styles.Time}></i>مدت زمان: </p><span>{props.Time}<sub>ساعت</sub></span></li>}
+                            <li><p><i className={styles.Calender}></i>تاریخ: </p><span>{props.Date}</span></li>
+                            {props.Price && <li><p><i className={styles.Price}></i>هزینه: </p><span>{props.Price}<sub>تومان</sub></span></li>}
                             {props.Special && <li className={styles.Special}>*{props.Special}</li>}
                         </ul>
                     </div>
                     {props.Link &&
                         <Link href={'/workshops/' + props.Link}>
                             <a>توضیحات بیشتر
-                                <div>
-                                    <BsArrowLeft />
-                                </div>
+                                <i className={styles.Arrow}></i>
                             </a>
                         </Link>
                     }
@@ -69,7 +64,7 @@ const Workshop = (props) => {
                         />}
                 </div>
 
-                {token && props.deleteWorkshopHandler && <div className={styles.Delete} onClick={() => setConfirmationModal(true)}><AiOutlineDelete /></div>}
+                {token && props.deleteWorkshopHandler && <div className={styles.Delete} onClick={() => setConfirmationModal(true)}><i></i></div>}
             </div>
         </Fragment>
     )

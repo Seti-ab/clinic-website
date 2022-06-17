@@ -31,12 +31,17 @@ $title-color: #105c91;
         }
     }
     :hover {
-        span {
+        .More {
             display: flex;
-            svg {
-                position: absolute;
-                left: -20px;
-                margin-top: -5px;
+            position: absolute;
+            left: -15px;
+            margin-top: 3px;
+            i{
+                background-image: url("../../assets/icons/more.svg");
+                background-size: cover;
+                width: 11px;
+                height: 11px;
+                display: flex;
             }
         }
     }

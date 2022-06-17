@@ -54,9 +54,13 @@ $sub-color: #a2ecf3;
                 right: 0;
                 display: flex;
                 align-items: center;
-                svg {
-                    font-size: 20px;
-                    margin-left: 3px;
+                i {
+                    background-image: url('../assets/icons/image.svg');
+                    width: 20px;
+                    height: 20px;
+                    background-size:cover;
+                    position: relative;
+                    right: -4px;
                 }
             }
             label {

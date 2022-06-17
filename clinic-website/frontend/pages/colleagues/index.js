@@ -4,7 +4,6 @@ import styles from '../../styles/ColleaguesPage.module.scss';
 
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 import Colleague from '../../components/Colleague/Colleague';
-import { RiUserAddLine } from 'react-icons/ri';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import Cookies from 'js-cookie';
@@ -193,7 +192,7 @@ const ColleaguesPage = () => {
             />
           })}
           {token && <div className={styles.AddColleague}>
-            <button onClick={() => setFormShow(true)}><RiUserAddLine /></button>
+            <button onClick={() => setFormShow(true)}><i></i></button>
           </div>
           }
         </div>
