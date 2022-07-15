@@ -1,0 +1,119 @@
+$main-color: #22a6b3;
+$sub-color: #a2ecf3;
+$title-color: #105c91;
+$background-color: #1a93a2;
+.Login {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    > div {
+        width: 50%;
+        height: 100%;
+    }
+    .Right {
+        background: $background-color;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .LoginBox {
+            background: #ffffff;
+            width: 60%;
+            min-width: 320px;
+            max-height: 500px;
+            max-width: 410px;
+            padding: 40px;
+            border-radius: 8px;
+            position: relative;
+            h2 {
+                color: $title-color;
+                border-bottom: 3px solid $background-color;
+                width: fit-content;
+                padding: 0 25px 3px;
+                margin: auto;
+            }
+            span {
+                color: #ff4040;
+                font-size: 14px;
+                position: absolute;
+                left: 50%;
+                right: 50%;
+                width: fit-content;
+                transform: translate(50%, 0);
+                transition: all 0.4s ease-in-out;
+            }
+            .ShowError{
+                opacity: 1;
+                top: 90px;
+            }
+            .HideError{
+                opacity: 0;
+                top: 85px;
+            }
+            form {
+                margin-top: 38px;
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                label {
+                    color: #222222;
+                }
+                .Button {
+                    margin: 30px auto 0;
+                    width: 100%;
+                    div {
+                        width: 100%;
+                        button {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .Left {
+        background: #f6feff;
+        display: flex;
+        position: relative;
+        .CopyRight {
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            grid-gap: 4px;
+            gap: 4px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #666666;
+        }
+    }
+}
+@media screen and (max-width: 995px) {
+    .Login {
+        flex-direction: column;
+        > div {
+            width: 100%;
+        }
+        .Right {
+            height: 100vh;
+            position: fixed;
+            z-index: 5;
+        }
+        .Left {
+            > div {
+                display: none;
+            }
+            .CopyRight {
+                z-index: 5;
+                color: #ffffff;
+                width: fit-content;
+                bottom: 5px;
+                font-size: 0.7rem;
+            }
+        }
+    }
+}

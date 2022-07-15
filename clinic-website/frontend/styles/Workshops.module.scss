@@ -1,0 +1,140 @@
+$error-color: #ff4040;
+$title-color: #105c91;
+$main-color: #22a6b3;
+$sub-color: #a2ecf3;
+.WorkshopsPage {
+    .ShowError {
+        position: absolute;
+        top: 120px;
+        font-size: 0.9rem;
+        color: $error-color;
+        transition: all 0.5s ease-in-out;
+        opacity: 1;
+    }
+    .HideError {
+        position: absolute;
+        font-size: 0.9rem;
+        opacity: 0;
+        top: 135px;
+        transition: all 0.5s ease-in-out;
+    }
+    form {
+        //Hide Arrows
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        margin-top: -95px;
+        > div {
+            padding-top: 100px;
+        }
+        .SubmitButton {
+            padding-top: 0;
+            text-align: center;
+            margin-top: -15px;
+        }
+        .ChooseImage {
+            display: flex;
+            width: 100%;
+            flex-flow: column;
+            margin-top: 10px;
+            position: relative;
+            gap: 5px;
+            p {
+                color: $title-color;
+                position: absolute;
+                right: 0;
+                display: flex;
+                align-items: center;
+                i {
+                    background-image: url('../assets/icons/image.svg');
+                    width: 20px;
+                    height: 20px;
+                    background-size:cover;
+                    position: relative;
+                    right: -4px;
+                }
+            }
+            label {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                position: relative;
+                right: 100px;
+                width: fit-content;
+                input {
+                    cursor: pointer;
+                }
+            }
+            .Radio {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                gap: 0;
+                input[type="radio"] {
+                    appearance: none;
+                    background-color: #ffffff;
+                    margin-left: 0.5rem;
+                    cursor: pointer;
+                    font: inherit;
+                    width: 14px;
+                    height: 14px;
+                    border: 0.1rem solid rgba($color: $title-color, $alpha: 0.5);
+                    border-radius: 50%;
+                    display: grid;
+                    place-content: center;
+                }
+
+                input[type="radio"]::before {
+                    content: "";
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    transform: scale(0);
+                    transition: 120ms transform ease-in-out;
+                    box-shadow: inset 14px 14px $main-color;
+                }
+
+                input[type="radio"]:checked::before {
+                    transform: scale(1);
+                }
+
+                input[type="radio"]:focus {
+                    outline: max(2px, 0.1em) solid $main-color;
+                    outline-offset: max(2px, 0.1rem);
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 950px) {
+    .WorkshopsPage {
+        .ShowError {
+            top: unset;
+            bottom: 72px;
+        }
+        .HideError {
+            top: unset;
+            bottom: 80px;
+        }
+        form {
+            margin-top: 0;
+            > div {
+                padding-top: 20px;
+            }
+            .SubmitButton {
+                margin-top: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,236 @@
+$main-color: #22a6b3;
+$sub-color: #a2ecf3;
+.Header {
+    position: fixed;
+    background-color: rgba($color: $main-color, $alpha: 1);
+    height: 64px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 30;
+    .CopyRight {
+        display: none;
+    }
+    > div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 32px;
+        padding: 0 34px;
+        .Items {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .Logo {
+        display: block;
+        width: 43px;
+        height: 43px;
+    }
+    .MenuIcon {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        i {
+            background-image: url("../../assets/icons/menu.svg");
+            background-size: cover;
+            width: 26px;
+            height: 25px;
+            display: flex;
+        }
+    }
+    .CancelIcon {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        i {
+            background-image: url("../../assets/icons/cancel.svg");
+            background-size: cover;
+            width: 15px;
+            height: 15px;
+            display: flex;
+        }
+    }
+    ul {
+        list-style-type: none;
+        display: flex;
+        flex-flow: row;
+        gap: 32px;
+
+        li {
+            color: #ffffff;
+            padding: 0 5px 2px 5px;
+            position: relative;
+            width: fit-content;
+        }
+        .Active {
+            a {
+                font-weight: 500;
+            }
+            span {
+                border-radius: 50px;
+                position: absolute;
+                height: 3px;
+                background-color: $sub-color;
+                display: block;
+                bottom: -4px;
+                right: 0;
+                width: 100%;
+                animation: underline 0.3s ease-out;
+            }
+        }
+    }
+    .Login {
+        display: flex;
+        div {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            > span {
+                font-weight: 600;
+                font-size: 15px;
+                color: #00416b;
+                cursor: default;
+            }
+        }
+        a {
+            display: flex;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            gap: 10px;
+            cursor: pointer;
+            span {
+                font-size: 14px;
+            }
+            i {
+                background-size: cover;
+                display: flex;
+            }
+            .LoginIcon {
+                background-image: url("../../assets/icons/login.svg");
+                width: 20px;
+                height: 20px;
+            }
+            .LogoutIcon {
+                background-image: url("../../assets/icons/logout.svg");
+                width: 22px;
+                height: 22px;
+            }
+        }
+    }
+}
+@keyframes underline {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 995px) {
+    .Header {
+        direction: ltr;
+        > div {
+            backdrop-filter: unset;
+            width: 100%;
+            justify-content: space-between;
+            .Items {
+                width: unset;
+                align-items: center;
+            }
+        }
+        .MenuIcon,
+        .CancelIcon {
+            display: flex;
+        }
+
+        ul {
+            .Active {
+                span {
+                    animation: none;
+                }
+            }
+        }
+        .Logo {
+            transform: scaleX(-1);
+        }
+        .ResponsiveMenu {
+            backdrop-filter: blur(15px);
+            display: flex;
+            flex-flow: column;
+            position: absolute;
+            direction: rtl;
+            top: 0;
+            background-color: rgba($color: $main-color, $alpha: 0.5);
+            left: 0;
+            right: 0;
+            padding: 104px 24px 115px 0;
+            z-index: -1;
+            height: 100vh;
+            opacity: 1;
+            transition: all 0.5s ease-out;
+            .CopyRight {
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+                bottom: 10px;
+                text-align: center;
+                font-size: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                color: #2b2b2b;
+                height: fit-content;
+                padding: 8px;
+            }
+        }
+        .hideResponsiveMenu {
+            height: 0vh;
+            opacity: 0;
+            backdrop-filter: blur(15px);
+            display: flex;
+            flex-flow: column;
+            position: absolute;
+            direction: rtl;
+            top: 50px;
+            background-color: rgba($color: $main-color, $alpha: 0.5);
+            left: 0;
+            right: 0;
+            padding-right: 24px;
+            transition: all 0.4s ease-out;
+            li {
+                display: none;
+            }
+        }
+        .Login {
+            margin-right: 25px;
+            div {
+                > span {
+                    display: none;
+                }
+            }
+            a {
+                span {
+                    display: none;
+                }
+                svg {
+                    font-size: 23px;
+                }
+            }
+        }
+    }
+}

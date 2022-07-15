@@ -1,0 +1,70 @@
+$main-color: #22a6b3;
+$sub-color: #a2ecf3;
+$content-box: #f7f7f7;
+
+.Description {
+  max-width: 660px;
+  text-align: justify;
+  margin-bottom: 50px;
+  h4 {
+    margin: 25px 0 7px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background: $content-box;
+    padding: 15px 15px;
+    border-radius: 8px;
+    text-align: right;
+  }
+  i {
+    background-image: url("../assets/icons/arrow-up-dark.svg");
+    background-size: cover;
+    width: 13px;
+    height: 13px;
+    display: flex;
+  }
+  p {
+    font-size: 15px;
+  }
+  .Content {
+    p {
+      transition: top 0.3s;
+      background: $content-box;
+      padding: 15px 19px;
+      z-index: -1;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      top: -15px;
+    }
+    i {
+      transition: all 0.3s;
+    }
+  }
+  .ShowContent {
+    p {
+      position: relative;
+      opacity: 1;
+    }
+    i {
+      transform: rotate(0);
+    }
+  }
+  .HideContent {
+    p {
+      position: absolute;
+      top: -65px;
+      opacity: 0;
+    }
+    i {
+      transform: rotate(-180deg);
+    }
+  }
+}
+.MoreWorkshops {
+  button {
+    font-size: 18px !important;
+    position: relative;
+    top: -40px;
+  }
+}

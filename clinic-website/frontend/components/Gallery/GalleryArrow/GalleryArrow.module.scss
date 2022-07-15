@@ -1,0 +1,43 @@
+$title-color: #105c91;
+.GalleryArrow {
+    width: 40px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    top: 7px;
+    i {
+        background-image: url("../../../assets/icons/arrow-up.svg");
+        background-size: cover;
+        width: 20px;
+        height: 20px;
+        display: flex;
+    }
+}
+.next {
+    right: 140px;
+    transform: rotate(90deg);
+}
+.prev {
+    left: 140px;
+    transform: rotate(-90deg);
+}
+@media only screen and (max-width: 400px) {
+    .GalleryArrow {
+        width: 20px;
+        svg {
+            font-size: 17px;
+            color: $title-color;
+        }
+    }
+    .next {
+        right: 120px;
+    }
+    .prev {
+        left: 120px;
+    }
+}

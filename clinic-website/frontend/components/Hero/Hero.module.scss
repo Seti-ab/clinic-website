@@ -1,0 +1,81 @@
+$main-color: #22a6b3;
+$sub-color: #a2ecf3;
+.Hero {
+    z-index: 0;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-width: 100%;
+    width: 100vw;
+    align-items: center;
+    position: relative;
+    .HeroOval {
+        //background-color: $sub-color;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        border-radius: 0 0 520px 520px;
+        background-image: linear-gradient(0deg, $sub-color, $main-color);
+        transform: scaleX(3);
+        width: 60vw;
+        height: 60vh;
+        top: 64px;
+    }
+
+    .HeroContent {
+        position: relative;
+        top: 65px;
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        align-items: center;
+        .Line {
+            width: 50vw;
+            height: 1px;
+            background-color: #ffffff;
+        }
+        h1 {
+            font-size: 27px;
+            margin: 20px 0 10px 0;
+        }
+        h5 {
+            font-weight: normal;
+            color: #ffffff;
+        }
+    }
+    .Image {
+        display: block;
+        position: relative;
+        top: 80px;
+        width: 100vw;
+        height: 70%;
+    }
+}
+@media only screen and (max-width: 600px) and (min-height: 800px) {
+    .Hero {
+        position: relative;
+        height: 57vh;
+        .Image {
+            top: 50px;
+            width: 90%;
+        }
+        .HeroOval {
+            height: 62%;
+        }
+    }
+}
+@media only screen and (min-height: 1300px) {
+    .Hero {
+        position: relative;
+        height: 57vh;
+        .Image {
+            top: 50px;
+        }
+        .HeroOval {
+            height: 50%;
+        }
+    }
+}

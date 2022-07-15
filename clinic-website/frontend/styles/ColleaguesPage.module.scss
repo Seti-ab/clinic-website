@@ -1,0 +1,193 @@
+$main-color: #22a6b3;
+$sub-color: #a2ecf3;
+$title-color: #105c91;
+.ColleaguesPage {
+    .Colleagues {
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+        row-gap: 40px;
+        column-gap: 40px;
+        max-width: 1032px;
+        position: relative;
+        .AddColleague {
+            position: absolute;
+            bottom: -50px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            button {
+                border: none;
+                background: $main-color;
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                cursor: pointer;
+                i{
+                    background-image: url('../assets/icons/user-add.svg');
+                    background-size: cover;
+                    width: 28px;
+                    height: 28px;
+                    display: flex;
+                    margin: auto;
+                }
+            }
+            button:hover {
+                background: $sub-color;
+            }
+        }
+    }
+    .ModalContainer {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 140;
+        .Backdrop {
+            background: rgba(0, 0, 0, 0.3);
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            z-index: 140;
+            cursor: pointer;
+        }
+        .Modal {
+            background: #ffffff;
+            padding: 35px 25px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column;
+            width: 50%;
+            max-width: 500px;
+            min-width: 300px;
+            cursor: default;
+            z-index: 150;
+            h3 {
+                margin-bottom: 20px;
+                color: $title-color;
+                font-size: 20px;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+                max-height: 70vh;
+                overflow-y: auto;
+                //overflow-x: hidden;
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 10px;
+                    white-space: nowrap;
+                    textarea {
+                        height: 100px;
+                    }
+                }
+                > div {
+                    display: flex;
+                    column-gap: 15px;
+                    width: 100%;
+                }
+                .Passwords {
+                    margin-top: 20px;
+                    position: relative;
+                    span {
+                        position: absolute;
+                        top: -25px;
+                        z-index: 50;
+                        right: 8px;
+                    }
+                    div{
+                        margin-right: 0;
+                    }
+                    small {
+                        top: -27px;
+                    }
+                }
+                .Buttons {
+                    justify-content: end;
+                    margin-top: 20px;
+                    gap: 15px;
+                    button {
+                        font-size: 15px;
+                        min-width: 100px;
+                        padding: 7px 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.EachColleaguePage {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    .Text {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        white-space: pre-wrap;
+        h3 {
+            color: $main-color;
+            margin-bottom: 4px;
+        }
+        .Email {
+            direction: ltr;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+            i{
+                background-image: url('../assets/icons/user-email.svg');
+                background-size: cover;
+                width: 22px;
+                height: 22px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .ColleaguesPage {
+        .ModalContainer {
+            .Modal {
+                form {
+                    label {
+                        align-items: flex-start;
+                        flex-direction: column;
+                        
+                        textarea {
+                            height: 50px;
+                        }
+                    }
+                    > div {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .Passwords{
+                        p{
+                            bottom:-77px
+                        }
+                    }
+                    .Buttons{
+                        flex-direction: row;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+}

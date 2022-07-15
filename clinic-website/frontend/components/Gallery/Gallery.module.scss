@@ -1,0 +1,177 @@
+
+$main-color: #22a6b3;
+$sub-color: #a2ecf3;
+.SliderContainer {
+    position: relative;
+    margin: auto;
+    width: 1050px;
+
+    > div {
+        margin: auto;
+        overflow: hidden;
+        max-width: 970px;
+        display: flex;
+        align-items: center;
+
+        .Gallery {
+            margin: auto;
+            display: flex;
+            flex-flow: row;
+            gap: 12px;
+            align-items: flex-start;
+            position: relative;
+            height: 300px;
+            width: 100%;
+            left: 100px;
+
+            > div {
+                flex-shrink: 0;
+                transition: all 0.7s ease-in-out;
+                display: flex;
+                position: absolute;
+                
+                img {
+                    transition: all 0.7s ease-in-out;
+                    height: fit-content !important;
+                    object-fit: contain;
+                    background-color: #c7ecef;
+                    border-radius: 8px;
+                }
+            }
+            .Active {
+                left: 255px;
+                width: 260px;
+                height: 195px;
+                z-index: 10;
+                top: 53px;
+                cursor: pointer;
+                img {
+                    width: 260px !important;
+                }
+            }
+            .FirstLeft,
+            .FirstRight {
+                width: 230px;
+                height: 173px;
+                top: 65px;
+                img {
+                    width: 230px !important;
+                }
+            }
+            .SecondLeft,
+            .SecondRight {
+                width: 200px;
+                height: 150px;
+                top: 80px;
+                img {
+                    width: 200px !important;
+                }
+            }
+            .ThirdLeft,
+            .ThirdRight {
+                width: 200px;
+                height: 150px;
+                top: 80px;
+            }
+            .FirstLeft {
+                left: 12px;
+                z-index: 5;
+            }
+            .SecondLeft {
+                left: -200px;
+                z-index: 4;
+            }
+            .FirstRight {
+                left: 528px;
+                z-index: 3;
+            }
+            .SecondRight {
+                left: 770px;
+                z-index: 2;
+            }
+            .ThirdLeft {
+                left: -412px;
+                z-index: 1;
+            }
+            .ThirdRight {
+                left: 975px;
+            }
+            .Hidden {
+                display: none;
+            }
+
+            .Active:hover {
+                width: 400px !important;
+                height: 300px !important;
+                left: 187px;
+                top: 0;
+                img {
+                    width: 400px !important;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1080px) {
+    .SliderContainer {
+        width: 365px;
+        > div {
+            max-width: 280px;
+            .Gallery {
+                position: relative;
+                left: 0;
+                > div {
+                    display: none;
+                }
+                .FirstLeft {
+                    display: flex;
+                    left: -235px;
+                }
+                .FirstRight {
+                    display: flex;
+                    left: 370px;
+                }
+                .Active {
+                    left: 0;
+                    margin: auto;
+                    display: flex;
+                    width: 280px;
+                    height: 210px;
+                    img {
+                        width: 280px !important;
+                        transition: all 0.7s ease-in-out;
+                    }
+                }
+                .Active:hover{
+                    left: 0;
+                    width: 280px !important;
+                    height: 210px !important;
+                    top: 50px;
+                    img {
+                        width: 280px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 400px) {
+    .SliderContainer {
+        width: 320px;
+        > div {
+            max-width: 260px;
+            .Gallery {
+                height: 260px;
+                .Active {
+                    width: 260px;
+                    height: 195px;
+                    top: 35px !important;
+                    img {
+                        width: 260px !important;
+                        transition: all 0.7s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+}

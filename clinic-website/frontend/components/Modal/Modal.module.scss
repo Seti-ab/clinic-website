@@ -1,0 +1,39 @@
+.Backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 90;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .Modal {
+        position: absolute;
+        z-index: 100;
+        direction: ltr;
+        width: 327px;
+        height: 227px;
+        padding: 14px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        .Close {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+        }
+        .ModalContent {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+        }
+    }
+}

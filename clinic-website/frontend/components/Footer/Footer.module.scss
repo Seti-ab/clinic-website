@@ -1,0 +1,183 @@
+$main-color: #22a6b3;
+$sub-color: #a2ecf3;
+.Footer {
+    margin-top: 40px;
+    background-color: $main-color;
+    width: 100%;
+    padding: 32px 0;
+    position: relative;
+    > div {
+        height: fit-content;
+        color: #ffffff;
+        display: flex;
+        flex-flow: wrap;
+        align-items: center;
+        row-gap: 48px;
+        justify-content: center;
+
+        > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 340px;
+        }
+        .Right {
+            padding-right: 28px;
+            ul {
+                list-style: circle;
+                line-height: 37px;
+
+                ::marker {
+                    font-size: 12px;
+                }
+            }
+        }
+        .Right ul li :hover {
+            color: rgba($color: #ffffff, $alpha: 0.8);
+        }
+        .Middle {
+            gap: 14px;
+            .Image {
+                width: 175px;
+                height: 175px;
+            }
+            .Icons {
+                display: flex;
+                flex-flow: row;
+                align-items: center;
+                width: 147px;
+                justify-content: space-between;
+                cursor: pointer;
+                font-size: 25px;
+                i {
+                    background-size: cover;
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                }
+                .Instagram {
+                    background-image: url("../../assets/icons/instagram.svg");
+                    width: 27px;
+                    height: 27px;
+                }
+                .Whatsapp {
+                    background-image: url("../../assets/icons/whatsapp.svg");
+                }
+                .Telegram {
+                    background-image: url("../../assets/icons/telegram.svg");
+                }
+            }
+            .Icons :hover {
+                opacity: 0.8;
+            }
+        }
+        .Left {
+            padding-right: 28px;
+            > div {
+                display: flex;
+                flex-flow: column;
+                gap: 22px;
+                width: 100%;
+
+                > div {
+                    display: flex;
+                    gap: 10px;
+                    > div {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+                i {
+                    background-size: cover;
+                    width: 18px;
+                    height: 18px;
+                    display: flex;
+                }
+                .LocationContainer {
+                    .LocationIcon {
+                        margin-top: 7px;
+                        align-items: flex-start;
+
+                        i {
+                            background-image: url("../../assets/icons/location.svg");
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                    p {
+                        white-space: pre-line;
+                        line-height: 29px;
+                    }
+                }
+                .PhoneNumber {
+                    i {
+                        background-image: url("../../assets/icons/phone.svg");
+                    }
+                }
+                .Email {
+                    i {
+                        background-image: url("../../assets/icons/email.svg");
+                        width: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .CopyRight {
+        font-size: 11px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        background: #065a61;
+        color: #ffffff;
+        position: absolute;
+        bottom: -30px;
+        height: fit-content;
+        width: 100%;
+        padding: 8px;
+        i{
+            background-image: url('../../assets/icons/copyright.svg');
+            background-size: cover;
+            width: 11px;
+            height: 11px;
+            display: flex;
+        }
+    }
+}
+@media only screen and (max-width: 1050px) {
+    .Footer {
+        > div {
+            width: 100%;
+            > div {
+                flex: 1 1 100%;
+                align-items: flex-start;
+                margin: 0 60px;
+            }
+        }
+        .Right {
+            padding-right: 16px;
+        }
+        .Middle {
+            .Icons {
+                width: 167px !important;
+            }
+        }
+        .Left {
+            margin-top: 20px;
+            padding: 0 !important;
+            > div {
+                .LocationContainer {
+                    .LocationIcon {
+                        width: 37px !important;
+                        margin-right: -2px;
+                    }
+                    p {
+                        white-space: normal !important;
+                    }
+                }
+            }
+        }
+    }
+}
