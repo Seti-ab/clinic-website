@@ -164,7 +164,7 @@ const ContactUsPage = () => {
         {showModal && <Modal Subject='پیام' closeModal={closeModal} />}
 
         <div className={style.Suggestions}>
-            <form id="SuggestionsForm" onSubmit={(event) => formSubmitHandler(event)} noValidate>
+            <form spellCheck="false" id="SuggestionsForm" onSubmit={(event) => formSubmitHandler(event)} noValidate>
                 <h3>ارسال پیشنهاد و انتقاد</h3>
 
                 <Input

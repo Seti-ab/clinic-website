@@ -15,21 +15,31 @@ const Input = (props) => {
                             </div>
                         </div>
                         {props.inputProperties.Label}
-                        <input {...props.inputProperties.config} type={isShown ? 'text' : 'password'} onChange={(event) => props.inputProperties.changeHandler(event)} onBlur={(event) => (props.inputProperties?.blurHandler && props.inputProperties.blurHandler(event))} />
+                        <input
+                        {...props.inputProperties.config}
+                        type={isShown ? 'text' : 'password'}
+                        onChange={(event) => props.inputProperties.changeHandler(event)}
+                        onBlur={(event) => (props.inputProperties?.blurHandler && props.inputProperties.blurHandler(event))} />
                     </label>
                 )
             case 'textarea':
                 return (
                     <label>
                         {props.inputProperties.Label}
-                        <textarea {...props.inputProperties.config} onChange={(event) => props.inputProperties.changeHandler(event)} onBlur={(event) => (props.inputProperties?.blurHandler && props.inputProperties.blurHandler(event))} />
+                        <textarea
+                        {...props.inputProperties.config}
+                        onChange={(event) => props.inputProperties.changeHandler(event)}
+                        onBlur={(event) => (props.inputProperties?.blurHandler && props.inputProperties.blurHandler(event))} />
                     </label>
                 )
             default:
                 return (
                     <label>
                         {props.inputProperties.Label}
-                        <input {...props.inputProperties.config} onChange={(event) => props.inputProperties.changeHandler(event)} onBlur={(event) => (props.inputProperties?.blurHandler && props.inputProperties.blurHandler(event))} />
+                        <input
+                        {...props.inputProperties.config}
+                        onChange={(event) => props.inputProperties.changeHandler(event)}
+                        onBlur={(event) => (props.inputProperties?.blurHandler && props.inputProperties.blurHandler(event))} />
                     </label>
                 )
         }

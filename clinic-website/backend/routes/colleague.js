@@ -4,7 +4,7 @@ let colleagueSrvices = require('../server/colleague')
 
 
 router.post('/add', (req, res) => {
-    if (typeof req.body.name === 'undefined' || typeof req.body.password === 'undefined' || typeof req.body.jobTitle === 'undefined' || typeof req.body.link === 'undefined') {
+    if (typeof req.body.name === 'undefined' || typeof req.body.password === 'undefined' || typeof req.body.email === 'undefined' || typeof req.body.link === 'undefined') {
         res.status(400).send({
             success: false,
             error: "some data undefined"

@@ -27,6 +27,7 @@ let colleague = new schema({
 })
 
 
+//password hashing
 colleague.pre('save', function (next) {
     let colleague = this;
     if (this.isModified('password')) {

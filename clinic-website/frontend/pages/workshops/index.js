@@ -183,7 +183,7 @@ const WorkshopsPage = () => {
       {isLogged &&
         <ContentContainer Title='افزودن کارگاه جدید'>
           <p className={error === '' ? style.HideError : style.ShowError}>{error}</p>
-          <form onSubmit={(event) => addWorkshopHandler(event)} autoComplete='no'>
+          <form spellCheck="false" onSubmit={(event) => addWorkshopHandler(event)} autoComplete='no'>
             <Workshop
               Price={<Input inputProperties={inputProperties.price} />}
               Date={<Input inputProperties={inputProperties.date} />}

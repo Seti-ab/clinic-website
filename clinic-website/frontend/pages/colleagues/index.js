@@ -62,7 +62,10 @@ const ColleaguesPage = () => {
     if (values.name === undefined || values.name === '') {
       name = errors.name;
     }
-    if (emailRegex.test(values.email) == false) {
+    if (values.email === undefined || values.email === '') {
+      email = errors.email;
+    }
+    else if (emailRegex.test(values.email) === false) {
       email = errors.validEmail;
     }
     if (values.password === undefined || values.password === '') {
@@ -87,6 +90,7 @@ const ColleaguesPage = () => {
 
   const addColleagueHandler = (event) => {
     event.preventDefault();
+
     const isValid = validationHandler();
     if (isValid) {
       const data = {
@@ -98,6 +102,7 @@ const ColleaguesPage = () => {
           //console.log("response", response);
           setLength(colleagues.length);
           setFormShow(false);
+          setValues({});
         }).catch(error => {
           //console.log("error", error.response.data);
           setError({ server: error.response.data.errortext })
@@ -204,7 +209,7 @@ const ColleaguesPage = () => {
           <div className={styles.Modal}>
 
             <h3 style={error.server && { color: '#ff4040' }}>{error.server ? error.server : 'افزودن همکار جدید'}</h3>
-            <form onSubmit={(event) => addColleagueHandler(event)} autoComplete='off'>
+            <form spellCheck="false" onSubmit={(event) => addColleagueHandler(event)} autoComplete='off'>
               <Input inputProperties={inputProperties.name} Error={error.name} Required />
               <Input inputProperties={inputProperties.email} Error={error.email} Required />
               <div>

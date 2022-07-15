@@ -28,7 +28,7 @@ methods.initial = (callback) => {
                     }
                 })
             }else{
-                callback(null,'alredy added')
+                callback(null,'already added')
             }
         }
     })

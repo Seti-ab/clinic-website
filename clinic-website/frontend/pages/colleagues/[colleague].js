@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import styles from '../../styles/ColleaguesPage.module.scss';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
@@ -14,7 +13,7 @@ const ColleaguePage = (props) => {
       left: 0,
       behavior: 'auto'
     });
-    if (router.asPath === ('/colleagues/'+props.data.link + '#description')) {
+    if (router.asPath === ('/colleagues/' + props.data.link + '#description')) {
       router.replace(props.data.link)
       scroller.scrollTo("scroll", {
         duration: 1000,
@@ -28,7 +27,7 @@ const ColleaguePage = (props) => {
     <div className='scroll'>
       <ContentContainer Title={props.data.name} UnderLine >
         <div className={styles.EachColleaguePage}>
-          
+
           <div className={styles.Text}>
             <h3>{props.data.jobTitle}</h3>
             <p>{props.data.education}</p>

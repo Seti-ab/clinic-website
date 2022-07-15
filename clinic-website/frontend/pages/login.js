@@ -91,9 +91,13 @@ const Login = () => {
           //console.log("response", response);
           Cookies.set('token', response.data.token);
           Cookies.set("userName", response.data.colleague);
-          if (history !== '/login' && history !== '/_app') {
+          if (history.includes('[')) {
+            router.push('/' + history.split('/')[1])
+          }
+          else if (history !== '/login' && history !== '/_app') {
             router.push(history);
-          } else {
+          }
+          else {
             router.push('/');
           }
         }).catch(error => {
@@ -137,7 +141,7 @@ const Login = () => {
         <div className={styles.LoginBox}>
           <h2>ورود</h2>
           <span className={error.server ? styles.ShowError : styles.HideError}>{error.server}</span>
-          <form autoComplete='no' onSubmit={(event) => formSubmitHandler(event)} noValidate>
+          <form spellCheck="false" autoComplete='no' onSubmit={(event) => formSubmitHandler(event)} noValidate>
             <Input
               inputProperties={inputProperties.email}
               Error={error.email}
